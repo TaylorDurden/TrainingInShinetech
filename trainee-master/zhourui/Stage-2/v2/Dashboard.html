@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Bugs Management</title>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <link rel="stylesheet" href="css/site.css">
+
+    <script src="js/jquery-2.2.0.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/site.js"></script>
+</head>
+<body>
+<div class="navbar navbar-static-top bg-success">
+    <div class="container">
+        <div class="col-md-4">
+            <h1>Bugs Management</h1>
+        </div>
+        <div class="col-md-1 col-md-offset-7 link-logout">
+            <a href="#" class="link-logout">Logout</a>
+        </div>
+    </div>
+</div>
+
+<div class="container navigator-container">
+    <div class="col-md-3">
+        <ul class="nav nav-pills nav-stacked">
+            <li class="active navigator-button-active">
+                <a href="#" id="Dashboard">Dashboard</a>
+            </li>
+            <li class="">
+                <a href="Bug.html" id="Bug">Bugs</a>
+            </li>
+            <li class="">
+                <a href="Project.html" id="Project">Projects</a>
+            </li>
+            <li class="">
+                <a href="Developer.html" id="Developer">Developers</a>
+            </li>
+            <li class="">
+                <a href="User.html" id="User">Users</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="col-md-9 data">
+        <h2>Dashboard</h2>
+        <div class="row">
+            <div class="col-md-7">
+                <div class="input-group search">
+                    <input type="text" class="form-control" placeholder="Input any text you want to search...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-success" type="button">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </button>
+                            </span>
+                </div>
+            </div>
+        </div>
+        <hr/>
+
+        <div class="container-fluid">
+            <div class="row dashboard-row">
+                <div class="col-md-3">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Asigned</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="bug-info">
+                                <p class="bug-description">This bug caused by upgrade, the page have problem...</p>
+                                <hr class="separator">
+                                <p class="text-right">Developer1</p>
+                            </div>
+                            <p></p>
+                            <div class="bug-info">
+                                <p class="bug-description">This bug caused by upgrade, the page have problem...</p>
+                                <hr class="separator">
+                                <p class="text-right">Developer1</p>
+                            </div>
+                            <p></p>
+                            <div class="bug-info">
+                                <p class="bug-description">This bug caused by upgrade, the page have problem...</p>
+                                <hr class="separator">
+                                <p class="text-right">Developer1</p>
+                            </div>
+                            <p></p>
+                            <div class="bug-info">
+                                <p class="bug-description">This bug caused by upgrade, the page have problem...</p>
+                                <hr class="separator">
+                                <p class="text-right">Developer1</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">In Progress</div>
+                        <div class="panel-body">
+                            <div class="bug-info">
+                                <p class="bug-description">This bug caused by upgrade, the page have problem...</p>
+                                <hr class="separator">
+                                <p class="text-right">Developer1</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">In Test</div>
+                        <div class="panel-body">
+                            <div class="bug-info">
+                                <p class="bug-description">This bug caused by upgrade, the page have problem...</p>
+                                <hr class="separator">
+                                <p class="text-right">Developer1</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">Done</div>
+                        <div class="panel-body">
+                            <div class="bug-info">
+                                <p class="bug-description">This bug caused by upgrade, the page have problem...</p>
+                                <hr class="separator">
+                                <p class="text-right">Developer1</p>
+                            </div>
+                            <p></p>
+                            <div class="bug-info">
+                                <p class="bug-description">This bug caused by upgrade, the page have problem...</p>
+                                <hr class="separator">
+                                <p class="text-right">Developer1</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

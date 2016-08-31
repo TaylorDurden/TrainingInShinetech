@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <!--<base href="/">-->
+    <meta charset="utf-8"/>
+
+    <link rel="stylesheet" href="styles/bootstrap.css"/>
+    <link rel="stylesheet" href="styles/site.css"/>
+</head>
+<body ng-app="PlanPokerApp">
+<div ng-controller="indexController">
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#/dashboard">
+                        <b>Plan Poker</b>
+                    </a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#/estimate/true/" target="_blank">Estimate</a>
+                        </li>
+                        <li ng-show="newProjectMenu">
+                            <a href="" data-toggle="modal" data-target="#modalCreateProject">New Project</a>
+                        </li>
+                        <li class="dropdown" ng-show="dropdownMenu">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Settings <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#/profile">My Profile</a>
+                                </li>
+                                <li>
+                                    <a href="#/project">My Project</a>
+                                </li>
+                                <li role="separator" class="divider"></li>
+                                <li>
+                                    <a href="" id="logout" name="logout" ng-click="toLogin()">Logout</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <ng-view></ng-view>
+
+    <div class="modal fade model-responsive" id="myModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+        <form name="createProjectForm">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close"
+                                data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title text-left" id="newModalLabel">New Project</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="form-group">
+                                <label>Project name</label>
+                                <input type="text" class="form-control" id="ProjectName" name="ProjectName" ng-model="projectName" ng-change="changeProjectName()" placeholder="Project name" ng-minlength="4" required>
+                                <span class="tips" ng-show="createProjectForm.ProjectName.$dirty && createProjectForm.ProjectName.$invalid">
+                                    <span ng-show="createProjectForm.ProjectName.$error.required">Project name is required.</span>
+                                    <span ng-show="createProjectForm.ProjectName.$error.minlength">Project name must more than 4 characters.</span>
+                                </span>
+                                <label class="tips">{{createProjectErrorTips}}</label>
+                            </div>
+                            <div class="col-md-12 modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-success" id="saveProject" ng-click="createProject()">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="scripts/jquery-1.12.1.js"></script>
+<script src="scripts/bootstrap.js"></script>
+<script src="scripts/angular.js"></script>
+<script src="scripts/angular-cookies.js"></script>
+<script src="scripts/angular-route.js"></script>
+
+<script src="scripts/main.js"></script>
+<script src="scripts/profile/userService.js"></script>
+<script src="scripts/project/projectService.js"></script>
+<script src="scripts/estimate/estimateService.js"></script>
+<script src="scripts/login/loginController.js"></script>
+<script src="scripts/register/registerController.js"></script>
+<script src="scripts/profile/profileController.js"></script>
+<script src="scripts/project/projectController.js"></script>
+<script src="scripts/dashboard/dashboardController.js"></script>
+<script src="scripts/estimate/estimateController.js"></script>
+</body>
+</html>
+

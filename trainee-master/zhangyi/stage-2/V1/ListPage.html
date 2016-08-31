@@ -1,0 +1,305 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>ListPage</title>
+    <script type="text/javascript" src="JS/jquery.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="JS/jquery.validate.js"></script>
+    <script src="JS/ListPage.js"></script>
+    <style type="text/css">
+        <!--
+        @import url("bootstrap/css/bootstrap.min.css");
+        @import url("bootstrap/css/bootstrap-theme.css");
+        @import url("CSS/body.css");
+        @import url("CSS/footer.css");
+        @import url("CSS/header.css");
+        @import url("CSS/table.css");
+        @import url("CSS/common.css");
+        -->
+    </style>
+
+</head>
+
+<body>
+    <header class="header">
+        <h1 class="col-md-4 col-md-offset-1">
+            Bugs Management
+        </h1>
+        <a class="col-md-1 col-md-offset-6" href="SignIn.html">Logout</a>
+    </header>
+    <div class="row">
+        <div class="col-md-11 col-md-offset-1">
+            <div class="navigation pull-left">
+                <ul>
+                    <li>
+                        <a href="Dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="li-hight-light">
+                        Bugs
+                    </li>
+                    <li>
+                        <a href="DefaultList.html">Projects</a>
+                    </li>
+                    <li>
+                        <a href="Developers.html">Developers</a>
+                    </li>
+                    <li>
+                        <a href="Users.html">Users</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="content col-md-10">
+                <div class="page-header">
+                    <h1>Bugs</h1>
+                    <div class="input-group col-md-6 input-group-search">
+                        <input type="text" class="form-control" placeholder="Input any text you want to search...">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-success">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </button>
+                        </span>
+                    </div>
+                    <div class="input-group col-md-12 input-group-create">
+                        <button class="btn btn-success pull-right btn-create" data-toggle="modal" data-target="#myModal">Create new</button>
+                    </div>
+                </div>
+            </div>
+            <div class="content col-md-10">
+                <table class="table table-responsive table-bordered table-hover" border="1">
+                    <thead>
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        title
+                    </th>
+                    <th>
+                        summary
+                    </th>
+                    <th>
+                        Project
+                    </th>
+                    <th>
+                        Create time
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                    <th>
+                        Operations
+                    </th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>123456</td>
+                            <td>Input bug</td>
+                            <td>Can't input number</td>
+                            <td>Name</td>
+                            <td>2016-02-20 20:00:00</td>
+                            <td>New</td>
+                            <td><a href="#" data-toggle="modal" data-target="#myModal">Edit </a>
+                        </tr>
+                        <tr>
+                            <td>123456</td>
+                            <td>Input bug</td>
+                            <td>Can't input number</td>
+                            <td>Name</td>
+                            <td>2016-02-20 20:00:00</td>
+                            <td>New</td>
+                            <td><a href="#" data-toggle="modal" data-target="#myModal">Edit </a>
+                        </tr>
+                        <tr>
+                            <td>123456</td>
+                            <td>Input bug</td>
+                            <td>Can't input number</td>
+                            <td>Name</td>
+                            <td>2016-02-20 20:00:00</td>
+                            <td>New</td>
+                            <td><a href="#" data-toggle="modal" data-target="#myModal">Edit </a>
+                        </tr>
+                        <tr>
+                            <td>123456</td>
+                            <td>Input bug</td>
+                            <td>Can't input number</td>
+                            <td>Name</td>
+                            <td>2016-02-20 20:00:00</td>
+                            <td>New</td>
+                            <td><a href="#" data-toggle="modal" data-target="#myModal">Edit </a>
+                        </tr>
+                        <tr>
+                            <td>123456</td>
+                            <td>Input bug</td>
+                            <td>Can't input number</td>
+                            <td>Name</td>
+                            <td>2016-02-20 20:00:00</td>
+                            <td>New</td>
+                            <td><a href="#" data-toggle="modal" data-target="#myModal">Edit </a>
+                        </tr>
+                        <tr>
+                            <td>123456</td>
+                            <td>Input bug</td>
+                            <td>Can't input number</td>
+                            <td>Name</td>
+                            <td>2016-02-20 20:00:00</td>
+                            <td>New</td>
+                            <td><a href="#" data-toggle="modal" data-target="#myModal">Edit </a>
+                        </tr>
+                        <tr>
+                            <td>123456</td>
+                            <td>Input bug</td>
+                            <td>Can't input number</td>
+                            <td>Name</td>
+                            <td>2016-02-20 20:00:00</td>
+                            <td>New</td>
+                            <td><a href="#" data-toggle="modal" data-target="#myModal">Edit </a>
+                        </tr>
+                        <tr>
+                            <td>123456</td>
+                            <td>Input bug</td>
+                            <td>Can't input number</td>
+                            <td>Name</td>
+                            <td>2016-02-20 20:00:00</td>
+                            <td>New</td>
+                            <td><a href="#" data-toggle="modal" data-target="#myModal">Edit </a>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="col-md-8 col-md-offset-4">
+                    <div class="btn-toolbar">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default">Previous</button>
+                            <button type="button" class="btn btn-default">2</button>
+                            <button type="button" class="btn btn-default">3</button>
+                            <button type="button" class="btn btn-success">4</button>
+                            <button type="button" class="btn btn-default">5</button>
+                            <button type="button" class="btn btn-default">6</button>
+                            <button type="button" class="btn btn-default">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade model-responsive" id="myModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-new">
+            <div class="col-md-12 modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close"
+                            data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title text-left" id="newModalLabel">
+                        New Bug
+                    </h4>
+                </div>
+                <form id="myForm">
+                    <div class="modal-body">
+                        <div class="col-md-8 modal-body-content">
+                            <div class="text-left">
+                                <label>Titles:</label>
+                                <input type="text" name="title" class="form-control">
+                            </div>
+                            <div class="text-left">
+                                <label>Summary:</label>
+                                <textarea class="form-control" name="summary" placeholder=""></textarea>
+                            </div>
+                            <div class="text-left">
+                                <label>Description:</label>
+                                <textarea class="form-control" name="description" placeholder=""></textarea>
+                            </div>
+                            <div class="text-left">
+                                <label>Type:</label>
+                                <select class="form-control">
+                                    <option>New</option>
+                                    <option>Assigned</option>
+                                    <option>InProgess</option>
+                                    <option>InTest</option>
+                                    <option>Done</option>
+                                </select>
+                            </div>
+                            <div class="text-left">
+                                <label>Project:</label>
+                                <select class="form-control">
+                                    <option>Project Type1</option>
+                                    <option>Project Type2</option>
+                                    <option>Project Type3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="container col-md-3 modal-body-right">
+                            <div class="text-left text-left-operation">
+                                <label>Add:</label>
+                                <div class="dropdown">
+                                    <button id="DropdownDevelopers" class="btn-dropdown btn-success" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Developers
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="DropdownDevelopers">
+                                        <li>
+                                            <a tabindex="-1" href="#">Developer1</a>
+                                        </li>
+                                        <li>
+                                            <a tabindex="-1" href="#">Developer2</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-selected">
+                                    <a href="#"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Eric Wang</a><br />
+                                    <a href="#"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Eric Li</a>
+                                </div>
+                                <button type="button" class="btn btn-success modal-btn-right">Attachments</button>
+                                <div class="dropdown-selected">
+                                    <a href="#"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Document1</a><br />
+                                </div>
+                            </div>
+                            <div class="text-left text-left-operation">
+                                <label>Operations:</label>
+                                <button type="button" class="btn btn-success modal-btn-right">Copy</button><br />
+                                <button type="button" class="btn btn-success modal-btn-right">Delete</button><br />
+                                <div class="dropdown">
+                                    <button id="DropdownStatus" class="btn-dropdown btn-success" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Change status
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="DropdownStatus">
+                                        <li>
+                                            <a tabindex="-1" href="#">New</a>
+                                        </li>
+                                        <li>
+                                            <a tabindex="-1" href="#">Assigned</a>
+                                        </li>
+                                        <li>
+                                            <a tabindex="-1" href="#">InProgess</a>
+                                        </li>
+                                        <li>
+                                            <a tabindex="-1" href="#">InTest</a>
+                                        </li>
+                                        <li>
+                                            <a tabindex="-1" href="#">Done</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <label>Status:New</label>
+                                <label>Create time:2016-02-22 15:07:01</label>
+                                <label>Owner:Eric Wang</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 modal-footer">
+                        <button type="button" class="btn btn-default"
+                                data-dismiss="modal">
+                            Close
+                        </button>
+                        <button type="submit" class="btn btn-success">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

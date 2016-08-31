@@ -1,0 +1,45 @@
+﻿<div ng-app="mainApp">
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" ui-sref="main.dashboard">
+                        <b>Plan Poker</b>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container" ng-controller="estimateController" ng-init="onProjectEstimateInit()">
+        <div class="row">
+            <div class="col-md-6">
+                <h2 id="estimateProjectName" class="pull-left">{{projectName}}</h2>
+            </div>
+            <div id="estimateShow" ng-show="showDiv" class="col-md-6 estimate-show">
+                <button class="btn btn-success pull-right" ng-click="clickShow()">Show</button>
+            </div>
+        </div>
+        <div class="card-list">
+            <div id="planpokerList" class="row">
+            </div>
+        </div>
+        <div id="estimateResult" ng-show="resultDiv">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>
+                        Plan average: <label id="average"></label> points
+                    </h3>
+                </div>
+                <div class="col-md-6 text-right footer-next">
+                    <button id="nextBtn" ng-show="resultNext" ng-click="clickNext()" class="btn btn-success btn-next">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

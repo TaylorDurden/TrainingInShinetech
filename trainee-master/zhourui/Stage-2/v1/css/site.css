@@ -1,0 +1,92 @@
+body a {
+    color: #5cb85c;
+}
+
+.navbar-fixed-top {
+    background-color: #5bb85d;
+    border-color: #5bb85d;
+    height: 80px;
+}
+
+.link-logout {
+    margin-top: 20px;
+    color: black;
+}
+
+.link-logout:hover {
+    color: white;
+}
+
+.sign-in-on-container, .navigator-container {
+    margin-top: 5%;
+}
+
+.sign-in-on-border {
+    border: solid;
+    border-color: #e7e7e7;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.LoginRegister {
+    margin: 20px 0 15px 0;
+}
+
+.LoginRegister-h2 {
+    display: inline;
+}
+
+.nav-pills {
+    border: solid;
+    border-color: #e5e5e5;
+    height: 600px;
+    padding: 25px;
+}
+
+li:active{
+    background-color: #5bb85d;
+}
+
+.data {
+    height: 600px;
+}
+
+.container-fluid {
+    margin: 0 -15px 0 -15px;
+}
+
+.panel-heading {
+    background-color: #5cb85c;
+}
+
+.panel-body {
+    background-color: #e5e5e5;
+}
+
+.panel-body {
+    font-size: 9pt;
+}
+
+.list-group {
+    /*margin:-10px -8px 15px -8px;*/
+}
+
+.bug-info {
+    margin: -10px -10px -10px -10px;
+    background-color: #fff;
+    border: solid;
+    border-color: #e5e5e5;
+    border-radius: 5px;
+}
+
+.bug-description {
+    padding: 5px 1px 5px 1px;
+}
+
+.separator {
+    margin: 5px 2px 5px 2px;
+}
+
+.well {
+    background-color: #fff;
+}

@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="login-register">
+    <div class="form-inline">
+        <h2>
+            Sign in
+            <a href="Register" class="pull-right">Create account</a>
+        </h2>
+    </div>
+
+    <label>Email address</label>
+    <input type="email" class="form-control" placeholder="Email address">
+
+    <label>Password</label>
+    <input type="password" class="form-control" id="text_Password" placeholder="Password">
+
+    <div class="form-inline check">
+        <div class="checkbox">
+            <input type="checkbox"> Remember me
+        </div>
+    </div>
+
+    <div class="form-inline">
+        <button type="submit" class="btn btn-primary" data-operation="btnSignin">Sign in</button>
+        <a href="#" class="pull-right">Forgot your password?</a>
+    </div>
+</div>
+
+@*@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")*@
+<script src="~/Scripts/SiteScripts.js"></script>

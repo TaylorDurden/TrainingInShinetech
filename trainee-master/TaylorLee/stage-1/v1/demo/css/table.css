@@ -1,0 +1,13 @@
+.table {
+	/*width: 848;*/
+    margin-bottom: 20px;
+}
+
+.table-bordered td{
+    border: 1px solid #ddd;
+
+}
+
+.table:last-child {
+    margin-bottom: 0;
+}

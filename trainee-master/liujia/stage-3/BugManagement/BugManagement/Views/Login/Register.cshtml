@@ -1,0 +1,45 @@
+﻿@model BugManagement.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container divbolder col-md-4 col-md-offset-4">
+    <h2 class="subheader">Create Account</h2>
+    @using (Html.BeginForm("Register", "Login", FormMethod.Post, new { role = "form",id= "myform" }))
+    {        
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <label for="name">Frist Name:</label>
+            @Html.TextBoxFor(m => m.FristName,new { @class= "form-control" })
+            @Html.ValidationMessageFor(m => m.FristName, "", new { @class = "text-danger" })            
+        </div>
+        <div class="form-group">
+            <label for="name">Last Name:</label>
+            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" }) 
+            @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })           
+        </div>
+        <div class="form-group">
+            <label for="name">Email Address:</label>
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" }) 
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })           
+        </div>
+        <div class="form-group">
+            <label for="name">Password:</label>
+            @Html.PasswordFor(m => m.Password,new { @class= "form-control" })  
+            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })          
+        </div>
+        <div class="form-group">
+            <label for="name">Repart Password:</label>
+            @Html.PasswordFor(m => m.RepartPassword, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.RepartPassword, "", new { @class = "text-danger" })
+        </div>
+        <div class="checkbox">
+            @Html.CheckBoxFor(m => m.ReadAccept)I have read and accept the
+            <a href="#" class="text-success">user agreement</a>
+            <a href="@Url.Action("Signin","Login")" class="text-success pull-right">Login</a>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Create Account</button>
+        </div>
+    }
+</div>

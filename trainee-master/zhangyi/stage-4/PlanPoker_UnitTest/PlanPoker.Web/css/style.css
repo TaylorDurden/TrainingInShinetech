@@ -1,0 +1,294 @@
+.navbar-default {
+    padding: 15px;
+    height: 80px;
+    background-color: #5EB85D;
+}
+.navbar-default .navbar-brand {
+    color: #000000;
+}
+.navbar-default .navbar-nav {
+    background-color: #5EB85D;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #000000;
+}
+.collapsed {
+    background-color: #5EB85D;
+}
+.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #000000;
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    background-color: #5EB85D;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: #5EB85D;
+}
+.navbar-brand {
+    font-size:xx-large;
+}
+
+header {
+    height: 80px;
+    border-radius: 0px;
+    margin-bottom: 10px;
+    background-color: #5EB85D;
+}
+
+.header-title h1 {
+    margin-top: 0px;
+    line-height: 80px;
+    display: inline;
+}
+
+.header-title a {
+    color: #000;
+    line-height: 80px;
+    text-decoration: none;
+}
+
+.header a:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+.plan-poker-box {
+    border-radius: 5px;
+    border: solid 2px #dedede;
+    float: none;
+    margin: 0 auto;
+}
+
+    .plan-poker-box h1 {
+        display: inline;
+    }
+
+    .plan-poker-box a {
+        text-decoration: none;
+        list-style: none;
+        color: #5EB85D;
+    }
+
+.create-account-link {
+    line-height: 73px;
+}
+
+.content {
+    float: left;
+    width: 87%;
+    padding: 0 0 0 20px;
+}
+
+.page-header {
+    margin: 0 0 20px;
+}
+
+.table a {
+    color: #5EB85D;
+    text-decoration: none;
+}
+
+.page {
+    text-align: center;
+}
+
+.pagination {
+    margin: 0;
+}
+
+    .pagination a {
+        color: #000 !important;
+    }
+
+    .pagination .active a {
+        color: #fff !important;
+        background-color: #5EB85D;
+        border-color: #5EB85D;
+    }
+
+        .pagination .active a:hover {
+            color: #fff !important;
+            background-color: #5EB85D;
+            border-color: #5EB85D;
+        }
+
+.input-group {
+    margin: 0 0 10px;
+}
+
+.input-group-search {
+    float: left !important;
+}
+
+.page-header-minheight {
+    min-height: 50px;
+}
+
+.page-header-title {
+    float: left;
+}
+
+.page-header-show {
+    float: right;
+    margin: 20px 0 0 10px !important;
+    text-align: right;
+}
+
+.input-group-create {
+    float: right;
+    text-align: right;
+}
+
+.content-assigned {
+    padding-left: 0;
+}
+
+.dropdown-top {
+    margin-top: 20px;
+}
+
+.projectName {
+    width: 10% !important;
+}
+
+.card-list {
+    margin-top: 20px;
+}
+
+    .card-list img {
+        width: inherit;
+    }
+
+.btn-next {
+    width: 100px;
+}
+
+.footer-next {
+    margin-top: 20px;
+}
+
+.modal-dialog-new {
+    margin-left: 19%;
+}
+
+.modal-dialog .modal-content-other {
+    width: 100%;
+}
+
+.plan-poker-thumbnail {
+    margin-bottom: 8px;
+}
+
+.project-select label {
+    width: 100%;
+    line-height: 30px;
+}
+
+.project-select {
+    float: left;
+}
+
+.modal-dialog .modal-body-delete p {
+    margin: 20px 30px 30px 30px;
+}
+
+.modal-body {
+    padding: 0px !important;
+}
+
+    .modal-body .modal-operation {
+        width: 32%;
+        margin: 20px 0;
+        padding: 0px 10px;
+        border-radius: 5px;
+        border: solid 3px #dedede;
+    }
+
+    .modal-body .text-left {
+        margin: 15px 10px;
+    }
+
+        .modal-body .text-left label {
+            margin: 10px 0 5px 0;
+        }
+
+        .modal-body .text-left button {
+            width: 100%;
+            text-align: center;
+            margin: 5px 0;
+            border-radius: 5px;
+            border-color: #5EB85D;
+        }
+
+    .modal-body .btn-dropdown {
+        width: 100%;
+        height: 34px;
+        text-align: center;
+        margin: 5px 0;
+        border-radius: 5px;
+        border-color: #5EB85D;
+    }
+
+.modal-body-content {
+    margin: 0 0 20px 0;
+}
+
+.dropdown-selected a {
+    font-weight: bold;
+    color: #000;
+}
+
+    .dropdown-selected a:hover, .dropdown-selected a:focus {
+        color: #000;
+        text-decoration: none;
+    }
+
+.dropdown-selected .glyphicon-remove {
+    padding: 3px;
+}
+
+.estimate-show {
+    margin-top: 15px;
+}
+
+#userPicture {
+    height: 80px;
+    width: 80px;
+}
+
+.error {
+    color: #ff0000;
+}
+
+#login, #forgot {
+    margin-top: 8px;
+}
+
+label {
+    font-size: 0.8em;
+}
+
+.user-info {
+    padding: 9px 0 !important;
+}
+
+.input-group-search {
+    float: left !important;
+    padding-left: 0px;
+}
+
+.dropdown {
+    padding-left: 0px;
+    padding-right: 0px;
+    line-height: 80px;
+}
+
+.plan-poker-titile {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.modal-body p {
+    margin-left: 15px;
+}

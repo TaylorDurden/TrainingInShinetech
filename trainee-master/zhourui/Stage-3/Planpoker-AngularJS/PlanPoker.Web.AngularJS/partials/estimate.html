@@ -1,0 +1,42 @@
+﻿<div class="container" ng-controller="estimateController">
+    <div class="row">
+        <div class="col-md-4">
+            <h2 id="estimateProjectName" class="pull-left">Project name:</h2>
+        </div>
+        <div id="projectNames" class="col-md-4" ng-show="presentation">
+            <select class="form-control" ng-model="selectedProjectName" ng-change="changeProject()">
+                <option ng-repeat="projectName in projectNames">{{projectName}}</option>
+            </select>
+        </div>
+        <div id="estimateShow" class="col-md-4 estimate-show" ng-show="presentation">
+            <button id="projectEstimateBtnShow" class="btn btn-success pull-right" ng-click="showCards()" data-toggle="modal" data-target="#newModal">Show</button>
+        </div>
+    </div>
+    <div class="card-list">
+        <div id="planpokerList" class="row">
+            <div ng-repeat="estimate in estimates" class="col-xs-4 col-md-2 plan-poker">
+                <div class="thumbnail">
+                    <img ng-src="{{estimate.pokerImage}}" id="card" alt="pic">
+                    <div class="caption user-info">
+                        <img class="pokerImage" ng-src="{{estimate.UserImage}}" alt="userImg">
+                        <input type="hidden" id="hour" value=""/>
+                        <input id="userName" type="hidden" value=""/>
+                        <label class="pull-right">{{estimate.UserName}}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="estimateResult">
+        <div class="row">
+            <div class="col-md-6" ng-show="presentationResult">
+                <h3>
+                    Plan average: <label id="average" ng-bind="averageTime"></label> points
+                </h3>
+            </div>
+            <div class="col-md-6 text-right footer-next" ng-show="presentationNext">
+                <button id="nextBtn" class="btn btn-success btn-next" ng-click="nextProject()">Next</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="scripts/angular.js"></script>
+
+    <script>
+        var app=angular.module('myApp',[]);
+        app.run(function($rootScope) {
+            $rootScope.name = "Ari Lerner";
+        });
+    </script>
+</head>
+<body>
+<h2>I am not inside an AngularJS app || {{ name }} </h2>
+<div ng-app="embeddedApp">
+    <h3>Inside an AngularJS app || {{ name }} </h3>
+</div>
+</body>
+</html>

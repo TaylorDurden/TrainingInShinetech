@@ -1,0 +1,286 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Users</title>
+    <script type="text/javascript" src="JS/jquery.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="JS/jquery.validate.js"></script>
+    <script src="JS/Users.js"></script>
+    <style type="text/css">
+        <!--
+        @import url("bootstrap/css/bootstrap.css");
+        @import url("bootstrap/css/bootstrap-theme.css");
+        @import url("CSS/body.css");
+        @import url("CSS/footer.css");
+        @import url("CSS/header.css");
+        @import url("CSS/table.css");
+        @import url("CSS/common.css");
+        -->
+    </style>
+
+</head>
+
+<body>
+    <header class="header">
+        <h1 class="col-md-4 col-md-offset-1">
+            Bugs Management
+        </h1>
+        <a class="col-md-1 col-md-offset-6" href="SignIn.html">Logout</a>
+    </header>
+    <div class="row">
+        <div class="col-md-11 col-md-offset-1">
+            <div class="navigation pull-left">
+                <ul>
+                    <li>
+                        <a href="Dashboard.html">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="ListPage.html">Bugs</a>
+                    </li>
+                    <li>
+                        <a href="DefaultList.html">Projects</a>
+                    </li>
+                    <li>
+                        <a href="Developers.html">Developers</a>
+                    </li>
+                    <li class="li-hight-light">
+                        Users
+                    </li>
+                </ul>
+            </div>
+            <div class="content col-md-10">
+                <div class="page-header">
+                    <h1>Users</h1>
+                    <div class="input-group col-md-6 input-group-search">
+                        <input type="text" class="form-control" placeholder="Input any text you want to search...">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-success">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </button>
+                        </span>
+                    </div>
+                    <div class="input-group col-md-12 input-group-create">
+                        <button class="btn btn-success pull-right btn-create" data-toggle="modal" data-target="#myModal">Create new</button>
+                    </div>
+                </div>
+            </div>
+            <div class="content col-md-10">
+                <table class="table table-responsive table-bordered table-hover" border="1">
+                    <thead>
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        First name
+                    </th>
+                    <th>
+                        Last name
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                    <th>
+                        UserID
+                    </th>
+                    <th>
+                        Operations
+                    </th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>123456</td>
+                            <td>Joy</td>
+                            <td>Zhang</td>
+                            <td>YiZhang@Shinetechchina.com</td>
+                            <td>New</td>
+                            <td>001</td>
+                            <td><a href="#" data-toggle="modal" data-target="#myModal">Edit </a><a href="#" data-toggle="modal" data-target="#deleteModal">Delete </a>
+                        </tr>
+                        <tr>
+                            <td>123456</td>
+                            <td>Joy</td>
+                            <td>Zhang</td>
+                            <td>YiZhang@Shinetechchina.com</td>
+                            <td>New</td>
+                            <td>001</td>
+                            <td><a href="#" data-toggle="modal" data-target="#myModal">Edit </a><a href="#" data-toggle="modal" data-target="#deleteModal">Delete </a>
+                        </tr>
+                        <tr>
+                            <td>123456</td>
+                            <td>Joy</td>
+                            <td>Zhang</td>
+                            <td>YiZhang@Shinetechchina.com</td>
+                            <td>New</td>
+                            <td>001</td>
+                            <td><a href="#" data-toggle="modal" data-target="#myModal">Edit </a><a href="#" data-toggle="modal" data-target="#deleteModal">Delete </a>
+                        </tr>
+                        <tr>
+                            <td>123456</td>
+                            <td>Joy</td>
+                            <td>Zhang</td>
+                            <td>YiZhang@Shinetechchina.com</td>
+                            <td>New</td>
+                            <td>001</td>
+                            <td><a href="#" data-toggle="modal" data-target="#myModal">Edit </a><a href="#" data-toggle="modal" data-target="#deleteModal">Delete </a>
+                        </tr>
+                        <tr>
+                            <td>123456</td>
+                            <td>Joy</td>
+                            <td>Zhang</td>
+                            <td>YiZhang@Shinetechchina.com</td>
+                            <td>New</td>
+                            <td>001</td>
+                            <td><a href="#" data-toggle="modal" data-target="#myModal">Edit </a><a href="#" data-toggle="modal" data-target="#deleteModal">Delete </a>
+                        </tr>
+                        <tr>
+                            <td>123456</td>
+                            <td>Joy</td>
+                            <td>Zhang</td>
+                            <td>YiZhang@Shinetechchina.com</td>
+                            <td>New</td>
+                            <td>001</td>
+                            <td><a href="#" data-toggle="modal" data-target="#myModal">Edit </a><a href="#" data-toggle="modal" data-target="#deleteModal">Delete </a>
+                        </tr>
+                        <tr>
+                            <td>123456</td>
+                            <td>Joy</td>
+                            <td>Zhang</td>
+                            <td>YiZhang@Shinetechchina.com</td>
+                            <td>New</td>
+                            <td>001</td>
+                            <td><a href="#" data-toggle="modal" data-target="#myModal">Edit </a><a href="#" data-toggle="modal" data-target="#deleteModal">Delete </a>
+                        </tr>
+                        <tr>
+                            <td>123456</td>
+                            <td>Joy</td>
+                            <td>Zhang</td>
+                            <td>YiZhang@Shinetechchina.com</td>
+                            <td>New</td>
+                            <td>001</td>
+                            <td><a href="#" data-toggle="modal" data-target="#myModal">Edit </a><a href="#" data-toggle="modal" data-target="#deleteModal">Delete </a>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="col-md-8 col-md-offset-4">
+                    <div class="btn-toolbar">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default">Previous</button>
+                            <button type="button" class="btn btn-default">2</button>
+                            <button type="button" class="btn btn-default">3</button>
+                            <button type="button" class="btn btn-success">4</button>
+                            <button type="button" class="btn btn-default">5</button>
+                            <button type="button" class="btn btn-default">6</button>
+                            <button type="button" class="btn btn-default">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade model-responsive" id="myModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content col-md-6 modal-add-user">
+                <div class="modal-header">
+                    <button type="button" class="close"
+                            data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title text-left" id="newModalLabel">
+                        New User
+                    </h4>
+                </div>
+                <form id="myForm">
+                    <div class="modal-body">
+                        <div class="col-md-12 modal-body-content">
+                            <div class="text-left">
+                                <label>FirstName:</label>
+                                <input type="text" name="firstName" class="form-control">
+                            </div>
+                            <div class="text-left">
+                                <label>LastName:</label>
+                                <input type="text" name="lastName" class="form-control">
+                            </div>
+                            <div class="text-left">
+                                <label>Email:</label>
+                                <input type="email" name="email" class="form-control">
+                            </div>
+                            <div class="text-left">
+                                <label>Password:</label>
+                                <input type="password" name="password" class="form-control">
+                            </div>
+                            <div class="text-left">
+                                <label>Type:</label>
+                                <select class="form-control">
+                                    <option>Admin</option>
+                                    <option>Developer</option>
+                                    <option>QA</option>
+                                </select>
+                            </div>
+                            <div class="text-left">
+                                <label>RegisterTime:</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="text-left">
+                                <label>LastLoginTime:</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="text-left">
+                                <label>Status:</label>
+                                <select class="form-control">
+                                    <option>New</option>
+                                    <option>Checked</option>
+                                    <option>Delete</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 modal-footer">
+                        <button type="button" class="btn btn-default"
+                                data-dismiss="modal">
+                            Close
+                        </button>
+                        <button type="submit" class="btn btn-success">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade model-responsive" id="deleteModal" tabindex="-1" role="dialog" 
+       aria-labelledby="deleteModalLabel" aria-hidden="true">
+       <div class="modal-dialog">
+            <div class="modal-content col-md-6 modal-content-other">
+                <div class="modal-header">
+                    <button type="button" class="close" 
+                   data-dismiss="modal" aria-hidden="true">
+                      &times;
+                    </button>
+                    <h4 class="modal-title text-left" id="deleteModalLabel">
+                       Delete User
+                    </h4>
+                </div>
+                <div class="modal-body modal-body-delete">
+                    <p>
+                        Are you sure to delete this user?                                        
+                    </p>                                
+                 </div>
+                 <div class="col-md-12 modal-footer">
+                    <button type="button" class="btn btn-default" 
+                       data-dismiss="modal">Close
+                    </button>
+                    <button type="button" class="btn btn-success">
+                       Save
+                    </button>
+                 </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+﻿<header>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" ui-sref="dashboard">
+                    <b>Plan Poker</b>
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="container" ng-controller="registerController">
+    <div class="plan-poker-box col-md-6">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Create Account</h2>
+            </div>
+        </div>
+        <form name="userForm" ng-submit="userRegister(userForm.$valid)" novalidate>
+            <div class="form-group" ng-class="{ 'has-error' : userForm.password.$invalid && !userForm.password.$pristine || userNameExisted }">
+                <label>User name</label>
+                <input type="text" class="form-control" name="username" ng-model="userRegisterModel.userName" ng-change="checkUser()" placeholder="User name" autofocus required>
+                <p ng-show="userForm.username.$invalid && !userForm.username.$pristine" class="help-block">User name is required.</p>
+                <p ng-show="userNameExisted" class="help-block">User name existed.</p>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error' : userForm.password.$invalid && !userForm.password.$pristine }">
+                <label>Password</label><label id="passstrength" class="pull-right"></label>
+                <input type="password" class="form-control" name="password" ng-model="userRegisterModel.password" placeholder="Password" required>
+                <p ng-show="userForm.password.$invalid && !userForm.password.$pristine" class="help-block">Password is required.</p>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error' : userForm.confirmPassword.$invalid && !userForm.confirmPassword.$pristine || confirmFailed }">
+                <label>Confirm password</label>
+                <input type="password" class="form-control" name="confirmPassword" ng-model="userRegisterModel.confirmPassword" placeholder="Confirm password" required>
+                <p ng-show="userForm.confirmPassword.$invalid && !userForm.confirmPassword.$pristine" class="help-block">Confirm password is required.</p>
+
+                <p ng-show="confirmFailed" class="help-block">Confirm password is not equal to password.</p>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+                <label>Email</label>
+                <input type="email" class="form-control" name="email" ng-model="userRegisterModel.email" placeholder="Email">
+                <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email please.</p>
+            </div>
+            <div class="form-group">
+                <label>User picture</label>
+                <div>
+                    <img id="userPicture" class="img-responsive" ng-src="{{userRegisterModel.image}}" alt="Image"/>
+                    <input type="file" id="imgUpload" name="imgUpload" ng-model="userRegisterModel.image" accept="image/*" file-reader/>
+                </div>
+            </div>
+            <div ng-class="{ 'has-error' : rejected }">
+                <p name="registerFailed" ng-show="rejected" class="text-capitalize help-block">{{rejectedMsg}}</p>
+            </div>
+            <div class="form-group form-inline">
+                <button type="submit" ng-disabled="userForm.$invalid || (confirmFailed && userNameExisted)" class="btn btn-success">Save</button>
+                <a ui-sref="login" class="pull-right">Login</a>
+                <label id="signupErrorTips" class="error"></label>
+            </div>
+        </form>
+    </div>
+</div>
+

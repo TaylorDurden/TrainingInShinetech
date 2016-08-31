@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+   <title>Register</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link href="css/bootstrap.css" rel="stylesheet">
+   <link rel="stylesheet" href="css/main.css">
+   <script src="js/jquery.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+   <script src="js/jquery.validate.js"></script>
+   <script type="text/javascript">
+		$().ready(function(){
+			$("#myform").validate({
+				rules: {   
+					repartPassword: {
+						required: true,
+						equalTo: "#password"
+					}
+				}					
+			});		
+		});
+		</script>
+</head>
+<body>
+	<header class="header">Bugs Mangagement</header>
+	<div class="container divbolder">
+		<h2 class="subheader">Create Account</h2>
+		<form role="form" id="myform" >
+			<div class="form-group">
+				<label for="name">Frist Name</label>
+				<input type="text" class="form-control required" id="fristName" name="fristName" placeholder="Frist Name">
+			</div>
+			<div class="form-group">
+				<label for="name">Last Name</label>
+				<input type="text" class="form-control required" id="lastName" name="lastName" placeholder="Last Name">
+			</div>
+			<div class="form-group">
+				<label for="name">Email address</label>
+				<input type="text" class="form-control required email" id="emailAddress" name="emailAddress" placeholder="Email address">
+			</div>
+			<div class="form-group">
+				<label for="name">Password</label>
+				<input type="text" class="form-control required" id="password" name="password" placeholder="password">
+			</div>
+			<div class="form-group">
+				<label for="name">Repart Password</label>
+				<input type="text" class="form-control" id="repartPassword" name="repartPassword" placeholder="Repart Password">
+			</div>
+			<div class="checkbox">
+				<label><input type="checkbox" value="">I have read and accept the
+				<a href="#" class="text-success">user agreement</a></label>
+				<a href="#" class="text-success pull-right">Login</a>
+			</div>
+			<div class="form-group">
+				<button type="submit" class="btn btn-success">Create Account</button>
+			</div>
+		</form>
+	</div>
+	
+</body>
+</html>

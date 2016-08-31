@@ -1,0 +1,35 @@
+﻿<div class="container" ng-controller="estimateController">
+    <div class="row">
+        <div class="col-md-6">
+            <h2 id="estimateProjectName" class="pull-left" ng-bind="project.Name"></h2>
+        </div>
+        <div id="estimateShow" class="col-md-6 estimate-show hide">
+            <button id="projectEstimateBtnShow" class="btn btn-success pull-right" ng-click="showPoker()">Show</button>
+        </div>
+    </div>
+    <div class="card-list">
+        <div id="planpokerList" class="row">
+            <div class="col-xs-4 col-md-2 plan-poker" ng-repeat="estimate in estimates">
+                <div class="thumbnail">
+                    <img src="../image/planpoker.jpg?v=1" id="card" alt="pic">
+                    <div class="caption user-info">
+                        <img style="width: 40px; height: 40px;" src="{{estimate.UserImage}}">
+                        <input type="hidden" id="hour" value="{{estimate.SelectedPoker}}" />
+                        <input type="hidden" id="userName"  value="estimate.UserName" />
+                        <label class="pull-right">{{estimate.UserName}}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="estimateResult" class="hide">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Plan average: <label id="average"></label> points</h3>
+            </div>
+            <div class="col-md-6 text-right footer-next">
+                <button id="nextBtn" class="btn btn-success btn-next hide" ng-click="clearAndRedirect()">Next</button>
+            </div>
+        </div>
+    </div>
+</div>

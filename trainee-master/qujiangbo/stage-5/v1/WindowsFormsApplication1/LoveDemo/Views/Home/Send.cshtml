@@ -1,0 +1,12 @@
+﻿@model List<LoveDemo.Models.Person>
+
+@{
+    ViewBag.Title = "Send";
+}
+<h1>Oh, I got your lover name</h1>
+
+@foreach (var item in Model)
+{
+    <p>@item.Name Age:@item.Age</p>
+}
+

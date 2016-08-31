@@ -1,0 +1,26 @@
+.navbar{
+	padding-left: 10%;
+	background-color:#5EB85D; 
+	height: 80px;
+}
+.navbar h1{
+	margin-top: 0px;
+	line-height: 80px;
+}
+.container{ 
+	padding: 30px;
+	border-radius: 5px;
+	border:solid 2px #dedede; 
+}
+.container h1{
+	display: inline;
+}
+.container a{
+	text-decoration: none;
+	list-style: none;
+	float: right;
+	color: #5EB85D;
+}
+.form-group a{
+	margin-top: 11px;
+}

@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8"/>
+
+    <link href="../css/bootstrap.css" rel="stylesheet"/>
+    <link href="../css/style.css" rel="stylesheet"/>
+
+    <script src="../scripts/angular.js"></script>
+    <script src="../scripts/apiPath.js?v=1"></script>
+    <script src="../scripts/ng_module.js?v=1"></script>
+    <script src="../scripts/user/userService.js?v=1"></script>
+    <script src="../scripts/user/userController.js?v=1"></script>
+</head>
+<body ng-app="myApp">
+<form ng-controller="userController">
+    <div class="form-group">
+        <label>UserId</label>
+        <input type="text" ng-model="user.userid"/>
+    </div>
+    <div class="form-group">
+        <label>UserName</label>
+        <input type="text" ng-model="user.username"/>
+    </div>
+    <div class="form-group">
+        <label>Password</label>
+        <input type="text" ng-model="user.password"/>
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input type="text" ng-model="user.email"/>
+    </div>
+    <div class="form-group">
+        <label>Image</label>
+        <input type="text" ng-model="user.image"/>
+    </div>
+    <div class="form-group">
+        <button type="button" class="btn btn-success" ng-click="create()">Create</button>
+        <button type="button" class="btn btn-success" ng-click="delete()">Delete</button>
+        <button type="button" class="btn btn-success" ng-click="update()">Update</button>
+        <button type="button" class="btn btn-success" ng-click="getByUsername()">GetAll</button>
+        <button type="button" class="btn btn-success" ng-click="login()">Login</button>
+    </div>
+</form>
+</body>
+</html>

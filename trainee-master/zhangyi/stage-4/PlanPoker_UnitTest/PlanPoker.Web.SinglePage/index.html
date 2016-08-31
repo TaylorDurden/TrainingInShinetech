@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Plan Poker</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/style.css?v=1" rel="stylesheet" />
+</head>
+<body ng-app="mainApp">
+    <div ng-controller="indexController">
+        <header>
+            <nav class="navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" ui-sref="main.dashboard">
+                            <b>Plan Poker</b>
+                        </a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li ng-show="isShowNewProject"><a href="" data-toggle="modal" data-target="#myModal">New Project</a></li>
+                            <li class="dropdown" ng-show="isShowSettings">
+                                <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Settings <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a ui-sref="main.profile">My profile</a></li>
+                                    <li><a ui-sref="main.project">My Project</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="javascript:void(0)" ng-click="removeCookie()">Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </div>
+    <div ui-view="">
+
+    </div>
+
+    <script src="scripts/angular.js?v=1"></script>
+    <script src="scripts/angularjsCookies.js"></script>
+    <script src="scripts/jquery-1.10.2.js?v=1"></script>
+    <script src="scripts/js.cookie.js"></script>
+
+    <script src="scripts/angular-ui-router.min.js"></script>
+    <script src="scripts/appStart.js"></script>
+    <script src="views/router/planPokerUiRouter.js?v=1"></script>
+    <script src="scripts/common.js?v=1"></script>
+
+    <script src="views/provider/planPokerProvider.js?v=1"></script>
+    <script src="views/directive/planPokerDirective.js?v=1"></script>
+    <script src="views/service/userService.js?v=1"></script>
+    <script src="views/template/login/loginController.js?v=1"></script>
+    <script src="views/template/profile/profileController.js?v=1"></script>
+    <script src="views/template/register/registerController.js?v=1"></script>
+    <script src="views/service/projectService.js?v=1"></script>
+    <script src="views/template/project/projectController.js?v=1"></script>
+    <script src="views/service/projectEstimateService.js?v=1"></script>
+    <script src="views/template/dashboard/dashboardController.js?v=1"></script>
+    <script src="views/template/projectEstimate/projectEstimateController.js?v=1"></script>
+
+    <script src="scripts/bootstrap.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+body{
+	margin: 0px;
+	padding: 0px;
+}
+
+form{
+	margin-top: 40px;
+}
+
+.maintext{
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;font-size:32px;
+}
+
+.floatright{
+float:right;
+}
+
+.floatleft{
+float:left;
+}
+
+.DashboardContent{
+float:left;margin-top:20px; margin-left:20px;border-radius:5px;
+}
+
+.DashboardContent table{
+	margin-top: 20px;
+}
+
+.gap{
+	margin-left: 100px;
+}
+
+.paging{
+	margin-top:20px;
+}
+
+.pager{
+	margin-left: 0px;
+}
+
+.mainDivDashboard{
+margin-left:8%;
+margin-top: 10px;
+}
+
+.navigation{
+border:2px solid #E6E6E6;height:500px;border-radius:5px; width: 290px;
+}
+
+.liHighlight{
+background-color:#61B966; color:#fff; border-radius:5px;
+}
+
+.maintextDashboard{
+font-size:32px;
+font-weight: bold;
+padding-bottom: 20px;
+border-bottom: solid 1px #dedede;
+}
+
+.registerDivBtn{
+	margin-top: 5px;
+}
+
+.mainDivRegister{
+margin-left:auto; margin-right:auto; width:50%; height:530px; border:2px solid #E6E6E6; margin-top:12px;border-radius:5px;
+}
+
+.btnSubmitRegister{
+background-color:#61B966; color: white;border-radius:5px; width:125px; height:35px;
+}
+
+.mainDivSignIn{
+margin-left:auto; margin-right:auto; width:45%; height:340px; border:2px solid #E6E6E6; margin-top:12px; border-radius:5px;
+}
+
+.btnSubmitSignIn{
+background-color:#61B966; color: white; width:70px; height:35px; border-radius:5px;
+}
+
+.content{
+	margin-top: 12px;
+	margin-bottom: 5px;
+}

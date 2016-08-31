@@ -1,0 +1,29 @@
+
+table {
+border:1px solid #ccc;
+cellspacing:0px;
+border-collapse:collapse;
+width: 100%;
+}
+
+td{
+padding-left:15px;
+padding-right:18px;
+font-size:14px;
+height:36px;
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+th{
+text-align:left;
+padding-left:15px;
+height:40px;
+font-size:16px;
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+
+
+
+

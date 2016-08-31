@@ -1,0 +1,127 @@
+﻿<header>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#/dashboard">
+                    <b>Plan Poker</b>
+                </a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#/estimate/true/" target="_blank">Estimate</a>
+                    </li>
+                    <li>
+                        <a href="" data-toggle="modal" data-target="#modalCreateProject">New Project</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Settings <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#/profile">My Profile</a>
+                            </li>
+                            <li>
+                                <a href="#/project">My Project</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a href="" id="logout" name="logout" ng-click="toLogin()">Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="container" ng-controller="projectController">
+    <input type="hidden" id="userId"/>
+    <div class="row">
+        <table class="table table-responsive table-bordered">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Operations</th>
+            </tr>
+            </thead>
+            <tbody id="projectList">
+            <tr ng-repeat="project in projects">
+                <td>
+                    <span ng-bind="project.Id"></span></td>
+                <td>
+                    <span ng-bind="project.Name"></span></td>
+                <td>
+                    <a href="" data-toggle="modal" data-target="#editModal" class="projectEdit" ng-click="setCurrentProject(project)">Edit </a>
+                    <span>|</span>
+                    <a href="" data-toggle="modal" data-target="#deleteModal" class="projectDelete" ng-click="setCurrentProject(project)"> Delete</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="modal fade model-responsive" id="editModal" tabindex="-1" role="dialog"
+         aria-labelledby="editModalLabel" aria-hidden="true">
+        <form name="updateProjectForm">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close"
+                                data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title text-left" id="editModalLabel">Update Project</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="form-group">
+                                <label>Project name</label>
+                                <input type="text" class="form-control" id="ProjectName" name="ProjectName" placeholder="Project name" ng-model="currentProject.Name" ng-minlength="4" required>
+                                <span class="tips" ng-show="updateProjectForm.ProjectName.$dirty && updateProjectForm.ProjectName.$invalid">
+                                    <span ng-show="updateProjectForm.ProjectName.$error.required">Project name is required.</span>
+                                    <span ng-show="updateProjectForm.ProjectName.$error.minlength">Project name must more than 4 characters.</span>
+                                </span>
+                            </div>
+                            <div class="col-md-12 modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-success" id="saveProject" ng-disabled="updateProjectForm.$invalid" data-dismiss="modal" ng-click="editProject()">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="modal fade model-responsive" id="deleteModal" tabindex="-1" role="dialog"
+         aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content col-md-6 modal-content-other">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title text-left" id="deleteModalLabel">Delete Project</h4>
+                </div>
+                <div class="modal-body modal-body-delete">
+                    <p>Are you sure to delete this project?</p>
+                    <input type="hidden" id="deleteProjectId"/>
+                </div>
+                <div class="col-md-12 modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                    <button type="button" id="deleteProject" class="btn btn-success" data-dismiss="modal" ng-click="deleteProject()">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

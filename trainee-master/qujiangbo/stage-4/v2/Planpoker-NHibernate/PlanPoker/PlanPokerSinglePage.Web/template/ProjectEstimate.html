@@ -1,0 +1,69 @@
+﻿<header>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- ReSharper disable once Html.IdNotResolved -->
+                <a class="navbar-brand" href="#dashboard">
+                    <b>Plan Poker</b>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li ng-show="isProjectShow"><a href="" data-toggle="modal" data-target="#createModal">New Project</a></li>
+                    <li ng-show="isSettingsShow" class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Settings <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <!-- ReSharper disable once Html.IdNotResolved -->
+                            <li><a href="#profile">My Profile</a></li>
+                            <!-- ReSharper disable once Html.IdNotResolved -->
+                            <li><a href="#project">My Project</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a ng-click="removeCookie()">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="container" ng-controller="estimateController">
+    <div class="row">
+        <div class="col-md-6">
+            <h2 id="estimateProjectName" class="pull-left" ng-bind="project.Name"></h2>
+        </div>
+        <div id="estimateShow" ng-show="isEstimateShow" class="col-md-6 estimate-show">
+            <button id="projectEstimateBtnShow" class="btn btn-success pull-right" ng-click="showPoker()">Show</button>
+        </div>
+    </div>
+    <div class="card-list">
+        <div id="planpokerList" class="row">
+            <div class="col-xs-4 col-md-2 plan-poker" ng-repeat="estimate in estimates">
+                <div class="thumbnail">
+                    <img src="../image/planpoker.jpg?v=1" id="card" alt="pic">
+                    <div class="caption user-info">
+                        <img style="width: 40px; height: 40px;" src="{{estimate.UserImage}}">
+                        <input type="hidden" id="hour" value="{{estimate.SelectedPoker}}" />
+                        <input type="hidden" id="userName"  value="estimate.UserName" />
+                        <label class="pull-right">{{estimate.UserName}}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="estimateResult" ng-show="isEstimateResultShow">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Plan average: <label id="average"></label> points</h3>
+            </div>
+            <div class="col-md-6 text-right footer-next">
+                <button id="nextBtn" ng-show="isNextBtnShow" class="btn btn-success btn-next" ng-click="clearEstimateAndRedirect()">Next</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>My Profile - Plan Poker</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="scripts/jquery-1.10.2.js?v=1"></script>
+    <script src="scripts/angular.js?v=1"></script>
+    <script src="scripts/jquery.validate.js?v=1"></script>
+    <script src="scripts/bootstrap.js?v=1"></script>
+    <script src="scripts/js.cookie.js?v=1"></script>
+    <script src="scripts/common.js?v=1"></script>
+</head>
+<body ng-app="app">
+<div id="wrap" ng-class="{'nav-min':isMini}">
+
+    <section ng-class="" data-ng-include="'header.html'"></section>
+
+    <div id="main" class="container" style="min-height: 588px;">
+        <div ng-view class="main-content"></div>
+    </div>
+</div>
+
+<script>
+    'use strict';
+    var app = angular.module('app', ['ngRoute', 'ui.bootstrap', "ipCookie"]);
+
+    app.config([
+        '$routeProvider', '$httpProvider',
+        function($routeProvider) {
+            setRoute($routeProvider);
+        }
+    ]);
+
+    app.run([
+        '$rootScope', "ipCookie", "$http", "$location", function($rootScope, ipCookie, $http, $location) {
+            $rootScope.isMini = false;
+            $rootScope.pageLoading = true;
+            $rootScope.isShowMenu = true;
+            $location.path("/student");
+        }
+    ]);
+
+    function setRoute($routeProvider) {
+        $routeProvider.when("/student", {
+            templateUrl: "../views/students.html",
+            controller: "studentController"
+        }).when("/user", {
+            templateUrl: "../views/users.html",
+            controller: "userController"
+        });
+    }
+
+    app.controller('headerController', [
+        '$scope', "$rootScope",
+        function($scope, $rootScope) {
+            $scope.switchViewMode = function() {
+                $rootScope.isMini = !$rootScope.isMini;
+            };
+        }
+    ]);
+</script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+﻿@model BugManagement.Models.DashboardViewModel
+@{
+    Layout = "~/Views/Shared/_CommonLayout.cshtml";
+    ViewBag.Title = "Dashboard";
+}
+<div class="row col-md-10 col-md-offset-1">
+    <div class="divbolder-nav col-md-2">
+        <ul class="nav-ul">
+            <a href="@Url.Action("Index","Dashboard")"><li class="li-active">Dashboard</li></a>
+            <a href="@Url.Action("Index","Bug")"><li>Bugs</li></a>
+            <a href="@Url.Action("Index","Project")"><li>Projects</li></a>
+            <a href="@Url.Action("Index","Developer")"><li>Developers</li></a>
+            <a href="@Url.Action("Index","User")"><li>Users</li></a>
+        </ul>
+    </div>
+    @using (Html.BeginForm("Query", "Dashboard", FormMethod.Post, new { role = "form", id = "myListform" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="col-md-10">
+            <div class="page-header">
+                <h2>Dashboard</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            @Html.TextBoxFor( n => n.whereCondition,new { @class= "form-control", placeholder = "Input any text you want to search..." })
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-success">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="panel panel-primary div-panel-border-color" data-value="Assigned" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <div class="panel-heading panel-heading-background div-panel-border-color">
+                            <h3 class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Assigned</h3>
+                        </div>
+                        <div class="panel-body no-padding" id="collapseOne" ondrop="drop(event)" ondragover="allowDrop(event)">
+                            @if (Model.assignedBugList != null && Model.assignedBugList.Count() > 0)
+                        {
+                            foreach (var bugModel in Model.assignedBugList)
+                            {
+                        <div class="collapse-border" draggable="true" data-value="@bugModel.BugId" id="div'@bugModel.BugId'" ondragstart="drag(event)">
+                            <a href="#" data-toggle="modal" data-value="@bugModel.BugId" data-target="#myCreateModal" class="selectEdit list-group-item">
+                                <p class="list-group-item-text">
+                                <p>@bugModel.Title</p>
+                                <p>@bugModel.Description</p>
+                                <div class="border-line"></div>
+                                <div class="pull-right">@bugModel.Creator</div>
+                                </p>
+                            </a>
+                        </div>
+                            }
+                        }
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-primary div-panel-border-color" data-value="InProgress" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <div class="panel-heading panel-heading-background div-panel-border-color">
+                            <h3 class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">In progress</h3>
+                        </div>
+                        <div class="panel-body no-padding" id="collapseTwo">
+                            @if (Model.inProgressBugList != null && Model.inProgressBugList.Count() > 0)
+                        {
+                            foreach (var bugModel in Model.inProgressBugList)
+                            {
+                        <div class="collapse-border" draggable="true" data-value="@bugModel.BugId" id="div'@bugModel.BugId'" ondragstart="drag(event)">
+                            <a href="#" data-toggle="modal" data-value="@bugModel.BugId" data-target="#myCreateModal" class="selectEdit list-group-item">
+                                <p class="list-group-item-text">
+                                <p>@bugModel.Title</p>
+                                <p>@bugModel.Description</p>
+                                <div class="border-line"></div>
+                                <div class="pull-right">@bugModel.Creator</div>
+                                </p>
+                            </a>
+                        </div>
+                            }
+                        }
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-primary div-panel-border-color" data-value="InTest" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <div class="panel-heading panel-heading-background div-panel-border-color">
+                            <h3 class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">In Test</h3>
+                        </div>
+                        <div class="panel-body no-padding" id="collapseThree">
+                            @if (Model.inTestBugList != null && Model.inTestBugList.Count() > 0)
+                        {
+                            foreach (var bugModel in Model.inTestBugList)
+                            {
+                        <div class="collapse-border" draggable="true" data-value="@bugModel.BugId" id="div'@bugModel.BugId'" ondragstart="drag(event)">
+                            <a href="#" data-toggle="modal" data-value="@bugModel.BugId" data-target="#myCreateModal" class="selectEdit list-group-item">
+                                <p class="list-group-item-text">
+                                <p>@bugModel.Title</p>
+                                <p>@bugModel.Description</p>
+                                <div class="border-line"></div>
+                                <div class="pull-right">@bugModel.Creator</div>
+                                </p>
+                            </a>
+                        </div>
+                            }
+                        }
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-primary div-panel-border-color" data-value="Done" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <div class="panel-heading panel-heading-background div-panel-border-color">
+                            <h3 class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">Done</h3>
+                        </div>
+                        <div class="panel-body no-padding" id="collapseFour">
+                            @if (Model.doneBugList != null && Model.doneBugList.Count() > 0)
+                        {
+                            foreach (var bugModel in Model.doneBugList)
+                            {
+                        <div class="collapse-border" draggable="true" data-value="@bugModel.BugId" id="div'@bugModel.BugId'" ondragstart="drag(event)">
+                            <a href="#" data-toggle="modal" data-value="@bugModel.BugId" data-target="#myCreateModal" class="selectEdit list-group-item">
+                                <p class="list-group-item-text">
+                                <p>@bugModel.Title</p>
+                                <p>@bugModel.Description</p>
+                                <div class="border-line"></div>
+                                <div class="pull-right">@bugModel.Creator</div>
+                                </p>
+                            </a>
+                        </div>
+                            }
+                        }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+@Html.Partial("../Bug/_CreateBug", new BugManagement.Models.BugViewModel())
+<input type="hidden" id="hdBugId" value="" />
+
+@section Scripts{
+    <script src="@Url.Content("~/uploadify/jquery.uploadify.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/js/modifyBug.js")" type="text/javascript"></script>
+    <script src="~/js/dashboard.js"></script>
+}
+

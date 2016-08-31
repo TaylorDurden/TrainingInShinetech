@@ -1,0 +1,57 @@
+﻿<header>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- ReSharper disable once Html.IdNotResolved -->
+                <a class="navbar-brand" href="#dashboard">
+                    <b>Plan Poker</b>
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="container" ng-controller="loginController">
+    <div class="row">
+        <div class="plan-poker-box col-md-6">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="pull-left">Login</h2>
+                    <!-- ReSharper disable once Html.IdNotResolved -->
+                    <a class="pull-right create-account-link" href="#register">Creat account</a>
+                </div>
+            </div>
+            <form name="signinForm" novalidate>
+                <div class="form-group">
+                    <label>User name</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="User name" ng-model="username" ng-minlength="6" ng-maxlength="16" required>
+                    <span  class="text-danger" ng-show="signinForm.username.$dirty && signinForm.username.$invalid">
+                        <span ng-show="signinForm.username.$error.required">This field is required.</span>
+                        <span ng-show="signinForm.username.$error.minlength">This field minlength is six.</span>
+                        <span ng-show="signinForm.username.$error.maxlength">This field maxlength is sixteen.</span>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" ng-model="password" ng-minlength="6" ng-maxlength="16" required>
+                    <span  class="text-danger" ng-show="signinForm.password.$dirty && signinForm.password.$invalid">
+                        <span ng-show="signinForm.password.$error.required">This field is required.</span>
+                        <span ng-show="signinForm.password.$error.minlength">This field minlength is six.</span>
+                        <span ng-show="signinForm.username.$error.maxlength">This field maxlength is sixteen.</span>
+                    </span>
+                </div>
+                <div class="form-group form-inline">
+                    <button type="button" class="btn btn-success" id="signIn" ng-disabled="signinForm.$invalid" ng-click="login()">Sign in</button>
+                    <a id="forgot" class="pull-right" href="">Forgot password</a>
+                    <label class="text-danger" ng-show="isError" ng-bind="message | lowercase"></label>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Register</title>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/register.js"></script>
+</head>
+<body>
+	<div id="header">
+		<h1>Bugs Management</h1>
+	</div>
+	<div id="contenter">
+		<form method="post">
+		<div>
+			<span>Create Account</span>
+		</div>
+		<div>
+			<label>First Name</label>
+			<input name="Firstname" type="text" placeholder="  First Name"/>
+		</div>
+		<div>
+			<label>Last Name</label>
+			<input name="Lastname" type="text" placeholder="  Last Name"/>
+		</div>
+		<div>
+			<label>Email Address</label>
+			<input name="Email" type="text" placeholder="  Email Address"/>
+		</div>	
+		<div>
+			<label>Password</label>
+			<input name="Password" type="password" placeholder="  Password"/>
+		</div>	
+		<div>
+			<label>Repart Password</label>
+			<input name="RepartPassword" type="password" placeholder="  Repart Password"/>
+		</div>
+		<div>
+			<input type="checkbox" class="remember" />I have read and accept the user agreement
+			<a href="Sign.html">Login</a>
+		</div>	
+		<div>
+			<input class="btn create" type="button" value="Create Account" onclick="return registerCheck(this.form)"> 
+		</div>
+		</from>
+	</div>
+</body>
+</html>

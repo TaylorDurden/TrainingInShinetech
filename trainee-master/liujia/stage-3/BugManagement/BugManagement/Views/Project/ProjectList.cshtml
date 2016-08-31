@@ -1,0 +1,121 @@
+﻿@model BugManagement.Models.ProjectListViewModel
+@{
+    Layout = "~/Views/Shared/_CommonLayout.cshtml";
+    ViewBag.Title = "ProjectList";
+}
+
+<div class="row col-md-10 col-md-offset-1">
+    <div class="divbolder-nav col-md-2">
+        <ul class="nav-ul">
+            <a href="@Url.Action("Index","Dashboard")"><li>Dashboard</li></a>
+            <a href="@Url.Action("Index","Bug")"><li>Bugs</li></a>
+            <a href="@Url.Action("Index","Project")"><li class="li-active">Projects</li></a>
+            <a href="@Url.Action("Index","Developer")"><li>Developers</li></a>
+            <a href="@Url.Action("Index","User")"><li>Users</li></a>
+        </ul>
+    </div>
+@using (Html.BeginForm("Query", "Project", FormMethod.Post, new { role = "form", id = "myListform" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="col-md-10">
+        <div class="page-header">
+            <h2>Projects</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="input-group">
+                        @Html.TextBoxFor(m => m.whereCondition, new { @class = "form-control", placeholder = "Input any text you want to search..." })
+                        <span class="input-group-btn">
+                            <button class="btn btn-success" type="submit">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group pull-right">
+                        <button class="btn btn-success" type="button" data-toggle="modal" id="btnCreate" data-target="#myCreateModal">Create New</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @if (Model.modelList != null && Model.modelList.Count() > 0)
+        {
+            <div class="pull-left width-all">
+                <table class="table table-responsive table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Main Contact</th>
+                            <th>Contact Email</th>
+                            <th>Start Time</th>
+                            <th>Operations</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var projectmodel in Model.modelList)
+                        {
+                            <tr>
+                                <td>@projectmodel.ProjectId</td>
+                                <td>@projectmodel.ProjectName</td>
+                                <td>@projectmodel.Description</td>
+                                <td>@projectmodel.MainContact</td>
+                                <td>@projectmodel.ContactEmail</td>
+                                <td>@projectmodel.StartTime</td>
+                                <td>
+                                    <a data-toggle="modal" data-value="@projectmodel.ProjectId" data-target="#myCreateModal" class="selectEdit text-success a-cursor">Edit </a>
+                                    <a data-toggle="modal" data-value="@projectmodel.ProjectId" data-target="#myDeleteModal" class="selectDelete text-success a-cursor">Delete</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="text-center">
+                <nav>
+                    <ul class="pagination">
+                        @if (Model.pagingInfo.HasPrev)
+                        {
+                            <li><a href="#" name="submit" onclick="myformListSubmit(@Model.pagingInfo.PageIndex - 1); return false">Previous</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="#">Previous</a></li>
+                        }
+                        @if (Model.pagingInfo.PageCount >= 1)
+                        {
+                            for (int index = 1; index <= Model.pagingInfo.PageCount; index++)
+                            {
+                                if (index == Model.pagingInfo.PageIndex)
+                                {
+                                    <li class="active">
+                                        <a href="#" name="submit" onclick="myformListSubmit(@index); return false">@index</a>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li><a href="#" name="submit" onclick="myformListSubmit(@index); return false">@index</a></li>
+                                }
+                            }
+                        }
+                        @if (Model.pagingInfo.HasNext)
+                        {
+                            <li><a href="#" name="submit" onclick="myformListSubmit(@Model.pagingInfo.PageIndex + 1); return false">Next</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="#">Next</a></li>
+                        }
+                    </ul>
+                </nav>
+            </div>
+        }
+    </div>
+}
+</div>
+@Html.Partial("_CreateProject",Model.model)
+@section Scripts{
+    <script src="~/js/project.js"></script>
+}
+
+

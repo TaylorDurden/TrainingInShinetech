@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard - Plan Poker</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/bootstrap.css" rel="stylesheet" />
+    <link href="../css/style.css?v=5" rel="stylesheet" />
+    <script src="../scripts/jquery-1.10.2.js?v=5"></script>
+    <script src="../scripts/bootstrap.js?v=5"></script>
+    <script src="../scripts/js.cookie.js?v=5"></script>
+    <script src="../scripts/common.js?v=5"></script>
+    <script src="../scripts/dashboard.js?v=5"></script>
+    <script src="../scripts/apiPath.js?v=5"></script>
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="Dashboard.html">
+                        <b>Plan Poker</b>
+                    </a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#" data-toggle="modal" data-target="#myModal">New Project</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Settings <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="Profile.html">My Profile</a></li>
+                                <li><a href="Project.html">My Project</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a id="logout" href="Login.html">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <input type="hidden" id="userId" />
+        <div class="row">
+            <div class="col-md-12">
+                <h2>
+                    Dashboard
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="project-select">
+                    <label class="text-success">Please select:&nbsp;</label>
+                </div>
+                <div class="project-select col-md-2">
+                    <select class="form-control" id="projectName"></select>
+                </div>
+
+                <a target="_blank" id="projectGuid"></a>
+            </div>
+        </div>
+        <div class="card-list">
+            <form>
+                <div class="row">
+                    <div class="col-md-2 col-xs-3">
+                        <a href="#" class="thumbnail img-thumbnail plan-poker-thumbnail" data-value="1">
+                            <img class="img-responsive" src="../image/1.jpg?v=5" />
+                        </a>
+                    </div>
+                    <div class="col-md-2 col-xs-3">
+                        <a href="#" class="thumbnail img-thumbnail plan-poker-thumbnail" data-value="2">
+                            <img class="img-responsive" src="../image/2.jpg?v=5" />
+                        </a>
+                    </div>
+                    <div class="col-md-2 col-xs-3">
+                        <a href="#" class="thumbnail img-thumbnail plan-poker-thumbnail" data-value="3">
+                            <img class="img-responsive" src="../image/3.jpg?v=5" />
+                        </a>
+                    </div>
+                    <div class="col-md-2 col-xs-3">
+                        <a href="#" class="thumbnail img-thumbnail plan-poker-thumbnail" data-value="5">
+                            <img class="img-responsive" src="../image/5.jpg?v=5" />
+                        </a>
+                    </div>
+                    <div class="col-md-2 col-xs-3">
+                        <a href="#" class="thumbnail img-thumbnail plan-poker-thumbnail" data-value="8">
+                            <img class="img-responsive" src="../image/8.jpg?v=5" />
+                        </a>
+                    </div>
+                    <div class="col-md-2 col-xs-3">
+                        <a href="#" class="thumbnail img-thumbnail plan-poker-thumbnail" data-value="13">
+                            <img class="img-responsive" src="../image/13.jpg?v=5" />
+                        </a>
+                    </div>
+                    <div class="col-md-2 col-xs-3">
+                        <a href="#" class="thumbnail img-thumbnail plan-poker-thumbnail" data-value="20">
+                            <img class="img-responsive" src="../image/20.jpg?v=5" />
+                        </a>
+                    </div>
+                    <div class="col-md-2 col-xs-3">
+                        <a href="#" class="thumbnail img-thumbnail plan-poker-thumbnail" data-value="40">
+                            <img class="img-responsive" src="../image/40.jpg?v=5" />
+                        </a>
+                    </div>
+                    <div class="col-md-2 col-xs-3">
+                        <a href="#" class="thumbnail img-thumbnail plan-poker-thumbnail" data-value="100">
+                            <img class="img-responsive" src="../image/100.jpg?v=5" />
+                        </a>
+                    </div>
+                    <div class="col-md-2 col-xs-3">
+                        <a href="#" class="thumbnail img-thumbnail plan-poker-thumbnail" data-value="s">
+                            <img class="img-responsive" src="../image/s.jpg?v=5" />
+                        </a>
+                    </div>
+                    <div class="col-md-2 col-xs-3">
+                        <a href="#" class="thumbnail img-thumbnail plan-poker-thumbnail" data-value="m">
+                            <img class="img-responsive" src="../image/m.jpg?v=5" />
+                        </a>
+                    </div>
+                    <div class="col-md-2 col-xs-3">
+                        <a href="#" class="thumbnail img-thumbnail plan-poker-thumbnail" data-value="l">
+                            <img class="img-responsive" src="../image/l.jpg?v=5" />
+                        </a>
+                    </div>
+                    <div class="col-md-2 col-xs-3">
+                        <a href="#" class="thumbnail img-thumbnail plan-poker-thumbnail" data-value="xs">
+                            <img class="img-responsive" src="../image/xs.jpg?v=5" />
+                        </a>
+                    </div>
+                    <div class="col-md-2 col-xs-3">
+                        <a href="#" class="thumbnail img-thumbnail plan-poker-thumbnail" data-value="yes">
+                            <img class="img-responsive" src="../image/yes.jpg?v=5" />
+                        </a>
+                    </div>
+                    <div class="col-md-2 col-xs-3">
+                        <a href="#" class="thumbnail img-thumbnail plan-poker-thumbnail" data-value="no">
+                            <img class="img-responsive" src="../image/no.jpg?v=5" />
+                        </a>
+                    </div>
+                    <div class="col-md-2 col-xs-3">
+                        <a href="#" class="thumbnail img-thumbnail plan-poker-thumbnail" data-value="unknown">
+                            <img class="img-responsive" src="../image/unknown.jpg?v=5" />
+                        </a>
+                    </div>
+                    <div class="col-md-2 col-xs-3">
+                        <a href="#" class="thumbnail img-thumbnail plan-poker-thumbnail" data-value="java">
+                            <img class="img-responsive" src="../image/java.jpg?v=5" />
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal fade model-responsive" id="myModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+        <form action="/" method="post">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close"
+                                data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title text-left" id="newModalLabel">
+                            New Project
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="form-group">
+                                <label>Project name</label>
+                                <input type="text" class="form-control" id="ProName" name="ProName" placeholder="Project name">
+                                <label id="projecthint" class="text-danger"></label>
+                            </div>
+                            <div class="col-md-12 modal-footer">
+                                <button type="button" class="btn btn-default"
+                                        data-dismiss="modal">
+                                    Close
+                                </button>
+                                <button type="button" class="btn btn-success" id="saveProject">
+                                    Save
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

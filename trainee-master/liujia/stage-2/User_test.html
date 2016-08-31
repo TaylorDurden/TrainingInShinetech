@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="css/main.css">
+   <script src="js/jquery.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+   <script src="js/jquery.validate.js"></script>
+   <script type="text/javascript">
+		$().ready(function(){
+			$("#myform").validate();		
+		});
+	</script>
+</head>
+<body>
+    <div class="row">
+        <header class="header">Bugs Mangagement <a href="/" class="pull-right"><h4>Logout</h4></a></header>
+    </div>
+    <div class="body-content">
+<div class="row col-md-10 col-md-offset-1">
+    <div class="divbolder-nav col-md-2">
+        <ul class="nav-ul">
+            <a href="/Dashboard/Index"><li>Dashboard</li></a>
+            <a href="/Bug/Index"><li>Bugs</li></a>
+            <a href="/Project/Index"><li>Projects</li></a>
+            <a href="/Developer/Index"><li>Developers</li></a>
+            <a href="/User/Index"><li class="li-active">Users</li></a>
+        </ul>
+    </div>
+    <div class="col-md-10">
+        <div class="page-header">
+            <h2>Users</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Input any text you want to search...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-success" type="button">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group pull-right">
+                        <button class="btn btn-success" data-toggle="modal" data-target="#myCreateModal">Create New</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="pull-left width-all">
+                <table class="table table-responsive table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>FristName</th>
+                            <th>LastName</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                            <th>Type</th>
+                            <th>RegisterTime</th>
+                            <th>LastLoginTime</th>
+                            <th>Status</th>
+                            <th>Operations</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <tr>
+                                <td>2</td>
+                                <td>liu</td>
+                                <td>jia</td>
+                                <td>liujia@shinetechchina.com</td>
+                                <td>leoleo</td>
+                                <td>N</td>
+                                <td>2016/3/9 17:51:33</td>
+                                <td></td>
+                                <td>normal</td>
+                                <td><a data-toggle="modal" data-target="#myCreateModal" class="text-success">Edit </a><a data-toggle="modal"
+                                                                                     data-target="#myDeleleModal" class="text-success">Delete</a></td>
+                            </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="text-center">
+                <nav>
+                    <ul class="pagination">
+                        <li><a href="#">Previous</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li class="active"><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">6</a></li>
+                        <li><a href="#">Next</a></li>
+                    </ul>
+                </nav>
+            </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myCreateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    New User
+                </h4>
+            </div>
+            <form role="form" id="myform">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="fristName">FristName:</label>
+                        <input type="text" class="form-control required" id="fristName" name="fristName">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">LastName:</label>
+                        <input type="text" class="form-control required" id="lastName" name="lastName">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="text" class="form-control required email" id="email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="text" class="form-control required" id="password" name="password">
+                    </div>
+                    <div class="form-group">
+                        <label for="type">Type:</label>
+                        <select class="form-control">
+                            <option>Type1</option>
+                            <option>Type2</option>
+                            <option>Type3</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerTime">RegisterTime:</label>
+                        <input type="text" class="form-control required" id="registerTime" name="registerTime" placeholder="年/月/日">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastLoginTime">LastLoginTime:</label>
+                        <input type="text" class="form-control required" id="lastLoginTime" name="lastLoginTime" placeholder="年/月/日">
+                    </div>
+                    <div class="form-group">
+                        <label for="registerTime">Status:</label>
+                        <select class="form-control">
+                            <option>Status1</option>
+                            <option>Status2</option>
+                            <option>Status3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="myDeleleModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    Delete User
+                </h4>
+            </div>
+            <div class="modal-body">
+                Are you sure to delete this user?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default"
+                        data-dismiss="modal">
+                    Close
+                </button>
+                <button type="button" class="btn btn-success">
+                    Yes
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    </div>
+    <div class="clearfix"></div>
+    <hr />
+    <footer class="text-center">
+        <p>&copy; 2016 - BugManagement Application</p>
+    </footer>
+
+    
+
+
+<!-- End Browser Link -->
+
+</body>
+</html>
+

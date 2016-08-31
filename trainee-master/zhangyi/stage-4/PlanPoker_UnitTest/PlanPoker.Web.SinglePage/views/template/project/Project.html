@@ -1,0 +1,108 @@
+﻿<div ng-controller="projectController" ng-init="onProjectsTableInit()">
+    <div class="container">
+        <input type="hidden" id="userId" />
+        <div class="row">
+            <div class="page-header page-header-minheight">
+                <div class="input-group col-md-6 input-group-search">
+                    <input type="text" class="form-control" ng-model="searchItem" ng-change="onProjectSearch()" placeholder="Input any text you want to search...">
+                    <span class="input-group-btn">
+                        <button type="button" ng-click="search()" class="btn btn-success btn-search">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </button>
+                    </span>
+                </div>
+            </div>
+            <table class="table table-responsive table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>ProjectName</th>
+                        <th>Operations</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="project in projects">
+                        <td>{{project.Id}}</td>
+                        <td>{{project.Name}}</td>
+                        <td>
+                            <a href="" data-toggle="modal" data-target="#editModal" ng-click="editModal(project)">Edit </a>
+                            <a href="" data-toggle="modal" data-target="#deleteModal" ng-click="deleteModal(project)">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal fade model-responsive" id="editModal" tabindex="-1" role="dialog"
+         aria-labelledby="editModalLabel" aria-hidden="true">
+        <form name="editProjectForm" novalidate>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close"
+                                data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title text-left" id="editModalLabel">
+                            Edit Project
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="form-group">
+                                <label ng-model="project.Id" class="hide"></label>
+                                <label>Project name</label>
+                                <input id="ProName" type="text" class="form-control" ng-model="project.Name" ng-change="onProjectNameChange()" name="projectName" placeholder="User name" required />
+                                <span class="error" ng-show="editProjectForm.projectName.$dirty && editProjectForm.projectName.$invalid">
+                                    <span ng-show="editProjectForm.projectName.$error.required">Project name is required.</span>
+                                </span>
+                                <span class="error" ng-show="project.isExist" id="projectExist">Project name is exist.</span>
+                                <input type="hidden" id="projectId" />
+                            </div>
+                            <div class="col-md-12 modal-footer">
+                                <button type="button" class="btn btn-default"
+                                        data-dismiss="modal">
+                                    Close
+                                </button>
+                                <button type="button" ng-click="onProjectEdit()" class="btn btn-success" disabled="disabled" ng-disabled="editProjectForm.$invalid || project.isExist">
+                                    Save
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal fade model-responsive" id="deleteModal" tabindex="-1" role="dialog"
+         aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content col-md-6 modal-content-other">
+                <div class="modal-header">
+                    <button type="button" class="close"
+                            data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title text-left" id="deleteModalLabel">
+                        Delete project
+                    </h4>
+                </div>
+                <div class="modal-body modal-body-delete">
+                    <p>
+                        Are you sure to delete this project name?
+                    </p>
+                    <label ng-model="project.Id" class="hide"></label>
+                </div>
+                <div class="col-md-12 modal-footer">
+                    <button type="button" class="btn btn-default"
+                            data-dismiss="modal">
+                        No
+                    </button>
+                    <button type="button" data-dismiss="modal" class="btn btn-success" ng-click="onProjectDelete()">
+                        Yes
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

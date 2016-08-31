@@ -1,0 +1,56 @@
+	body,h1,h4{ margin:0; padding: 0;font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;}
+	.bugs-title{width:100%; height:10%; background-color:#5BB85D; line-height: 60px;}
+	.bugs-title h1{padding-left: 20%;}
+
+	.sign-main{text-align: center; width:31%; height:300px;border:solid 2px #dedede; margin-top: 10px; margin-left: auto; margin-right: auto; padding: 15px;
+		border-radius: 5px; }
+	.sign-main div{padding: 5px;}
+	.sign-main h1{float: left;}
+	.sign-main h5{ text-decoration:none; text-align: right; color: #5BB85D; float: right;}
+	.sign-main a{ text-decoration:none; text-align: right; color: #5BB85D;}
+	.sign-main input{width: 100%; height:30px;border-radius: 3px;border:solid 2px #dedede;}
+	.sign-main .sign-check{ width:5%; height: 15px; }
+	.sign-main .sign-in{ background-color: #5BB85D; width:100%; height: 30px; color:#fff; border-radius: 5px; border:1px solid #5BB85D;}
+	.sign-main-left {float:left;}
+	.sign-main-right {float:right; line-height: 0px;}
+	.sign-address{clear: both; text-align: left;padding-left: 10px;}
+	.sign-password{clear: both; text-align: left;padding-left: 10px;}
+	.sign-remember{clear: both; text-align: left;padding-left: 10px;}
+
+	.register-title{width:100%; height:80px; background-color:#5BB85D; line-height: 60px;}
+	.register-title h1{padding-left: 400px;}
+	.register-content{text-align: center; width:600px; height:480px;border:solid 2px #dedede; margin-top: 10px; margin-left: auto; margin-right: auto; padding: 15px;
+		border-radius: 5px; }
+	.register-content div{padding: 5px;padding-left: 10px;}
+	.register-content h1{float: left;}
+	.register-content h5{ text-decoration:none; text-align: right; color: #5BB85D; float: right;}
+	.register-content a{ text-decoration:none; text-align: right; color: #5BB85D;}
+	.register-content input{width: 580px; height:25px;border-radius: 3px;border:solid 2px #dedede;}
+	.register-content .register-check{ width:18px; height: 15px; }
+	.register-content-left {float:left;}
+	.register-content-right {float:right; line-height: 0px;}
+	.register-content .register-in{ background-color: #5BB85D; width:120px; height: 30px; color:#fff; border-radius: 5px; border:1px solid #5BB85D;}
+	.register-create {clear:both; text-align: left;}
+	.register-name{clear: both; text-align: left;padding-left: 10px;}
+	.register-address{clear: both; text-align: left;padding-left: 10px;}
+	.register-password{clear: both; text-align: left;padding-left: 10px;}
+	.register-remember{clear: both; text-align: left;padding-left: 10px;}
+
+	.dashboard-titles{width:100%; height:80px; background-color:#5BB85D; line-height: 60px;}
+	.dashboard-titles h1{padding-left: 140px;}
+	.dashboard-content{height:480px; margin-top: 10px; padding: 15px;}
+	.dashboard-left{float: left; text-align: center;border:solid 2px #dedede;border-radius: 5px; width:15%; height: 400px;margin-left: 5%;}	
+	.dashboard-left ul{ text-align: center; list-style-type: none; padding-left: 8%;}
+	.dashboard-left ul li { direction:none;line-height: 45px;width:100%;border-radius: 5px;text-align: left;padding-left: 40px; color:#5BB85D;}
+	.dashboard-left ul .dashed { direction:none;line-height: 45px;background-color: #5BB85D;width: 210px;border-radius: 5px;color: #fff;}
+	.dashboard-right{float: left; width:70%; padding-left: 10px;}
+	.dashboard-right table{width:100%; } 
+	.dashboard-right table tr{ height: 25px;} 
+	.dashboard-title{ font-size: 30px;padding: 20px 20px 20px 0;border-bottom: solid 2px #dedede;margin-bottom: 2%;}
+	.dashboard-list{ border-right:1px solid #dedede;border-bottom:1px solid #dedede;text-align:center;}
+	.dashboard-list td{border-left:1px solid #dedede;border-top:1px solid #dedede; text-align:center;}
+	.dashboard-list .rowtitle{ font-weight:bold;}
+	.dashboard-list tr .operations{color:#5BB85D;}
+	.dashboard-page span {width:10%; float: left; padding-top: 20px;color:#5BB85D;}
+	.dashboard-page span {width:10%; float: left; padding-top: 20px;color:#5BB85D;}
+	.dashboard-pages{padding-left: 18%;}

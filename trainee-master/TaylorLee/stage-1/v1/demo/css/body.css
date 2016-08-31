@@ -1,0 +1,59 @@
+.content {
+	float: left;
+	min-height: 600px;
+    margin-left: 20px;
+}
+
+
+.container {
+	width:43%;
+	margin-right: auto;
+	margin-left: auto;
+}	
+
+.menulist {
+
+	margin-right: auto;
+}	
+
+.menulist li{
+	margin: 4px;
+	padding: 14px;
+	color:#04C150;
+	border-radius:8px;
+}	
+
+.menulist li:active, .menulist li:hover{
+	background-color:#17B066;
+    color:#fff;
+}	
+
+.active {
+    background-color:#17B066;
+    color:#fff !important;
+}
+
+.wapper {
+	margin-top:10px;
+	background-color: #fff;
+	padding:20px 30px;
+	border-radius:5px;
+	border: 2px solid #e8e8e8;
+}
+
+.wapper.menu {
+	float:left;
+	margin-left: 70px;
+}
+
+.wapper.minheight {
+	min-height: 600px;
+}
+
+.form input[type="text"], .form input[type="password"], .form input[type="email"] {
+    width: 100%;
+}
+
+.form-control {
+	margin-bottom: 20px;
+}

@@ -1,0 +1,59 @@
+﻿<div class="container" ng-controller="profileController">
+    <div class="plan-poker-box col-md-6">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>My Profile</h2>
+            </div>
+        </div>
+        <form id="updateForm" name="updateForm">
+            <div class="form-group">
+                <label>User name</label>
+                <input type="text" class="form-control" id="username" name="username" ng-model="user.username" placeholder="User name" readonly>
+            </div>
+            <div class="form-group">
+                <label>Old Password</label>
+                <input type="password" class="form-control" id="oldpassword" name="oldpassword" ng-model="oldpassword" placeholder="Old Password">
+
+            </div>
+            <div class="form-group">
+                <label>Password</label><label id="passstrength" class="pull-right"></label>
+                <input type="password" class="form-control" id="password" name="password" ng-model="newpassword" placeholder="Password" ng-minlength="6" ng-maxlength="8" required>
+                <span class="tips" ng-show="updateForm.password.$dirty && updateForm.password.$invalid">
+                    <span ng-show="updateForm.password.$error.required">Password is required.</span>
+                    <span ng-show="updateForm.password.$error.minlength">Password must more than 6 characters.</span>
+                    <span ng-show="updateForm.password.$error.maxlength">Password must less than 8 characters.</span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label>Confirm password</label>
+                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" ng-model="confirmPassword" password-check="password" placeholder="Confirm password" ng-minlength="6" ng-maxlength="8" required>
+                <span class="tips" ng-show="updateForm.confirmPassword.$dirty && updateForm.confirmPassword.$invalid">
+                    <span ng-show="updateForm.confirmPassword.$error.required">Password is required.</span>
+                    <span ng-show="updateForm.confirmPassword.$error.minlength">Password must more than 6 characters.</span>
+                    <span ng-show="updateForm.confirmPassword.$error.maxlength">Password must less than 8 characters.</span>
+                    <span ng-show="updateForm.confirmPassword.$error.passwordmatch">Passwords are not equal.</span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-control" id="email" name="email" ng-model="user.email" placeholder="Email" ng-pattern="/^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/" required>
+                <span class="tips" ng-show="updateForm.email.$dirty && updateForm.email.$invalid">
+                    <span ng-show="updateForm.email.$error.required">Email cannot be empty.</span>
+                    <span ng-show="updateForm.email.$error.pattern">Email format is wrong.</span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label>User picture</label>
+                <div>
+                    <img id="userPicture" class="img-responsive" ng-src="{{user.image}}" alt="Image" />
+                    <input type="file" id="imgUpload" name="imgUpload" ng-model="image" ng-change="changeImage()" accept="image/*" file-reader />
+                    <label id="userPictureError" class="error"></label>
+                </div>
+            </div>
+            <div class="form-group form-inline">
+                <button id="btnSubmit" type="button" class="btn btn-success" ng-click="UpdateProfile()">Save</button>
+                <label id="updateErrorTips" class="error">{{updateErrorTips}}</label>
+            </div>
+        </form>
+    </div>
+</div>

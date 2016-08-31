@@ -1,0 +1,31 @@
+﻿<div class="container" ng-controller="loginController">
+    <div class="plan-poker-box col-md-6">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="pull-left">Login</h2>
+                <a class="pull-right create-account-link" href="#/register">Creat account</a>
+            </div>
+        </div>
+        <form id="signinForm" name="signinForm">
+            <div class="form-group">
+                <label>User name</label>
+                <input type="text" class="form-control" id="username" name="username" ng-model="user.username" placeholder="User name" required>
+                <span class="tips" ng-show="signinForm.username.$dirty && signinForm.username.$invalid">
+                    <span ng-show="signinForm.username.$error.required">Username is required.</span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" id="password" name="password" ng-model="user.password" placeholder="Password" required>
+                <span class="tips" ng-show="signinForm.password.$dirty && signinForm.password.$invalid">
+                    <span ng-show="signinForm.password.$error.required">Password is required.</span>
+                </span>
+            </div>
+            <div class="form-group form-inline">
+                <button type="button" class="btn btn-success" id="signIn" ng-click="login()" ng-disabled="signinForm.username.$invalid || signinForm.password.$invalid">Sign in</button>
+                <a id="forgot" class="pull-right" href="">Forgot password</a>
+                <label id="signinErrorTips" class="error">{{signinErrorTips}}</label>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,70 @@
+﻿@model IEnumerable<BugManagement.Data.Models.User>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-3 navigator">
+    <ul class="nav nav-list">
+        <li class="">
+            <a href="Dashboard">Dashboard</a>
+        </li>
+        <li class="">
+            <a href="Bug">Bugs</a>
+        </li>
+        <li class="">
+            <a href="Project">Projects</a>
+        </li>
+        <li class="">
+            <a href="Developer">Developers</a>
+        </li>
+        <li class="">
+            <a href="#">Users</a>
+        </li>
+    </ul>
+</div>
+<div class="col-md-9">
+    <h2>
+        Users
+        <button type="button" class="btn btn-primary pull-right">Create New</button>
+    </h2>
+    <hr />
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Password</th>
+                <th>Type</th>
+                <th>RegisterTime</th>
+                <th>LastLoginTime</th>
+                <th>Status</th>
+                <th>Operations</th>
+            </tr>
+            @foreach (var user in Model)
+                {
+                    <tr>
+                        <td>@user.Id</td>
+                        <td>@user.FirstName</td>
+                        <td>@user.LastName</td>
+                        <td>@user.Email</td>
+                        <td>@user.Status</td>
+                        <td>@user.Password</td>
+                        <td>@user.Type</td>
+                        <td>@user.RegisterTime</td>
+                        <td>@user.LastLoginTime</td>
+                        <td>@user.Status</td>
+                        <td>
+                            <a href="#">Details</a>
+                            <a href="#">Edit</a>
+                            <a href="#">Delete</a>
+                        </td>
+                    </tr>
+                }
+        </table>
+    </div>
+</div>
+

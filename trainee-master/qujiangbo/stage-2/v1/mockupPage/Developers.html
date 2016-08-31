@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Developers</title>
+		<link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+		<link href="bootstrap/css/style.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="bootstrap/js/jquery.min.js"></script>
+   		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script> 		
+	</head>
+<body>
+	<header>
+		<h1 class="col-md-4 col-md-offset-1">Bugs Management</h1>
+		<a class="col-md-1 col-md-offset-5" href="Sign.html" target="_blank">Logout</a>
+	</header>
+	<div class="col-md-10 col-md-offset-1">
+		<div class="nav navbar-collapse col-md-2">
+			<ul class="nav nav-pills nav-stacked">
+			  	<li role="presentation"><a href="Dashboard-stage2.html">Dashboard</a></li>
+			  	<li role="presentation"><a href="Bugs.html">Bugs</a></li>
+			  	<li role="presentation"><a href="Projects.html">Projects</a></li>
+			  	<li role="presentation" class="active"><a href="Developers.html">Developers</a></li>
+			  	<li role="presentation"><a href="Users.html">Users</a></li>
+			</ul>
+		</div>
+		<div class="content col-md-10">
+			<div class="page-header">
+				<h1>Developers</h1>
+				<div class="input-group col-md-6 input-group-search">
+		        	<input type="text" class="form-control" placeholder="Input any text you want to search...">
+		            <span class="input-group-btn">
+		                <button type="button" class="btn btn-success" >
+		                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>	                     
+		                </button>
+		            </span>
+		        </div>
+		        <div class="input-group col-md-6 input-group-create">
+	                <button class="btn btn-success" data-toggle="modal" data-target="#newModal">Create New</button>
+	                <!-- 模态框（Modal） -->
+					<div class="modal fade model-responsive" id="newModal" tabindex="-1" role="dialog" 
+					   aria-labelledby="newModalLabel" aria-hidden="true">
+					   <div class="modal-dialog">
+					      	<div class="modal-content col-md-6 modal-content-other">
+					         	<div class="modal-header">
+					            	<button type="button" class="close" 
+					               data-dismiss="modal" aria-hidden="true">
+					                  &times;
+					            	</button>
+						            <h4 class="modal-title text-left" id="newModalLabel">
+						               New Developer
+						            </h4>
+					         	</div>
+					         	<div class="modal-body">
+					         		<div class="col-md-12 modal-body-content">
+					         			<div class="text-left">
+									    	<label>FirstName:</label>
+									    	<input type="text" class="form-control">
+									  	</div>
+									  	<div class="text-left">
+									    	<label>LastName:</label>
+									    	<input type="text" class="form-control">
+									  	</div>
+									  	<div class="text-left">
+									    	<label>Email:</label>
+									    	<input type="email" class="form-control">
+									  	</div>
+									  	<div class="text-left">
+									    	<label>Status:</label>
+									    	<select class="form-control">
+									    		<option>New</option>
+									         	<option>Checked</option>
+									         	<option>Delete</option>
+								      		</select>
+									  	</div>
+									  	<div class="text-left">
+									    	<label>UserId:</label>
+									    	<select class="form-control">
+									    		<option>Eric Wang</option>
+									         	<option>Eric Li</option>
+									         	<option>Eric Zhang</option>
+								      		</select>
+									  	</div>
+					         		</div>								  	
+						         </div>
+						         <div class="col-md-12 modal-footer">
+						            <button type="button" class="btn btn-default" 
+						               data-dismiss="modal">Close
+						            </button>
+						            <button type="button" class="btn btn-success">
+						               Save
+						            </button>
+						         </div>
+					      	</div><!-- /.modal-content -->
+						</div><!-- /.modal -->
+					</div>
+	            </div>	            
+			</div>
+		</div>
+		<div class="content col-md-10">
+			<table class="table table-responsive table-bordered table-hover">
+			   <thead>
+			      <tr>
+			         <th>ID</th>
+			         <th>FirstName</th>
+			         <th>LastName</th>
+			         <th>Email</th>
+			         <th>Status</th>
+			         <th>UserId</th>
+			         <th>Operations</th>
+			      </tr>
+			   </thead>
+			   <tbody>
+			      <tr>
+			         <td>123456</td>
+					 <td>Biil</td>
+					 <td>Gates</td>
+					 <td>BillGates@outlook.com</td>
+					 <td>New</td>
+					 <td>001</td>
+					 <td><a href="#">Edit</a>&nbsp;<a href="#" data-toggle="modal" data-target="#deleteModal">Delete</a></td>
+			      </tr>
+			      <tr>
+			         <td>123456</td>
+					 <td>Biil</td>
+					 <td>Gates</td>
+					 <td>BillGates@outlook.com</td>
+					 <td>New</td>
+					 <td>001</td>
+					 <td><a href="#">Edit</a>&nbsp;<a href="#" data-toggle="modal" data-target="#deleteModal">Delete</a></td>
+			      </tr>
+			      <tr>
+			         <td>123456</td>
+					 <td>Biil</td>
+					 <td>Gates</td>
+					 <td>BillGates@outlook.com</td>
+					 <td>New</td>
+					 <td>001</td>
+					 <td><a href="#">Edit</a>&nbsp;<a href="#" data-toggle="modal" data-target="#deleteModal">Delete</a></td>
+			      </tr>
+			      <tr>
+			         <td>123456</td>
+					 <td>Biil</td>
+					 <td>Gates</td>
+					 <td>BillGates@outlook.com</td>
+					 <td>New</td>
+					 <td>001</td>
+					 <td><a href="#">Edit</a>&nbsp;<a href="#" data-toggle="modal" data-target="#deleteModal">Delete</a></td>
+			      </tr>
+			      <tr>
+			         <td>123456</td>
+					 <td>Biil</td>
+					 <td>Gates</td>
+					 <td>BillGates@outlook.com</td>
+					 <td>New</td>
+					 <td>001</td>
+					 <td><a href="#">Edit</a>&nbsp;<a href="#" data-toggle="modal" data-target="#deleteModal">Delete</a></td>
+			      </tr>
+			   </tbody>
+			</table>			
+			<div class="page">
+				<ul class="pagination">
+				  <li><a href="#">Previous</a></li>
+				  <li><a href="#">2</a></li>
+				  <li><a href="#">3</a></li>
+				  <li class="active"><a href="#">4</a></li>
+				  <li><a href="#">5</a></li>
+				  <li><a href="#">6</a></li>
+				  <li><a href="#">Next</a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- 模态框（Modal） -->
+		<div class="modal fade model-responsive" id="deleteModal" tabindex="-1" role="dialog" 
+		   aria-labelledby="deleteModalLabel" aria-hidden="true">
+		   <div class="modal-dialog">
+		      	<div class="modal-content col-md-6 modal-content-other">
+		         	<div class="modal-header">
+		            	<button type="button" class="close" 
+		               data-dismiss="modal" aria-hidden="true">
+		                  &times;
+		            	</button>
+			            <h4 class="modal-title text-left" id="deleteModalLabel">
+			               Delete Developer
+			            </h4>
+		         	</div>
+		         	<div class="modal-body modal-body-delete">
+		         		<p>
+		         			Are you sure to delete this developer?					         			
+		         		</p>							  	
+			         </div>
+			         <div class="col-md-12 modal-footer">
+			            <button type="button" class="btn btn-default" 
+			               data-dismiss="modal">Close
+			            </button>
+			            <button type="button" class="btn btn-success">
+			               Save
+			            </button>
+			         </div>
+		      	</div><!-- /.modal-content -->
+			</div><!-- /.modal -->
+		</div>
+	</div>
+</body>
+</html>

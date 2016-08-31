@@ -1,0 +1,177 @@
+
+/*  common  JoyZhang 20160222 */
+body{
+margin:0px;
+padding:0px;
+font-size:14px;
+}
+
+input{
+margin:5px;
+margin-left:15px;
+margin-right:15px;
+}
+
+span{
+margin:5px;
+margin-left:15px;
+margin-right:15px;
+}
+
+a{
+color:#7DA27F;
+text-decoration:none;
+}
+
+li 
+{
+list-style-type:none;
+cursor:pointer;
+margin-right:10%;
+padding:10px;
+padding-top:15px;
+padding-bottom:15px;
+color:#7DA27F;
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+table {
+border:1px solid #ccc;
+cellspacing:0px;
+border-collapse:collapse
+}
+
+td{
+padding-left:15px;
+padding-right:18px;
+font-size:16px;
+height:36px;
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+li:hover{
+background-color:#61B966;
+}
+
+ul{
+margin-left:-15px;
+}
+
+th{
+text-align:left;
+padding-left:15px;
+height:40px;
+font-size:18px;
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.headtext{
+font-size:36px; padding:20px; padding-left:10%; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.maintextstyle{
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;font-size:32px;
+}
+
+a:hover{
+background-color:#61B966;
+}
+
+.background_green
+{
+background-color:#61B966
+}
+
+.noMarginLeft{
+margin-left:0px;
+}
+
+.floatright{
+float:right;
+}
+
+.floatleft{
+float:left;
+}
+.marginTop12{
+margin-top:12px;
+}
+.marginTop20{
+margin-top:20px;
+}
+.marginTop30{
+margin-top:30px;
+}
+
+.marginTop40{
+margin-top:40px;
+}
+
+.marginLeft3{
+margin-left:3px;
+}
+.marginBottom5{
+margin-bottom:5px;
+}
+.width290{
+width:290px;
+}
+
+
+
+
+/*  Dashboard  JoyZhang 20160222 */
+.mainDivDashboard{
+margin-left:8%;margin-top:10px;
+}
+.mainDivDashboardLeft{
+border:2px solid #E6E6E6;height:500px;border-radius:5px;
+}
+.mainDivDashboardRight{
+float:left;margin-top:20px; margin-left:20px;border-radius:5px;
+}
+.liHighlight{
+background-color:#61B966; color:#fff; border-radius:5px;
+}
+.maintextstyleDashboard{
+font-size:32px;
+}
+
+
+
+
+/*  Register  JoyZhang 20160222 */
+input[type="text"]{
+width:94%;
+border-radius:5px;
+height:25px;
+color:#9A999E;
+}
+
+.registerDivBtn{
+	margin-top: 5px;
+}
+.mainDivRegister{
+margin-left:auto; margin-right:auto; width:50%; height:530px; border:2px solid #E6E6E6; margin-top:12px;border-radius:5px;
+}
+.btnSubmitRegister{
+background-color:#61B966; color: white;border-radius:5px; width:125px; height:35px;
+}
+
+
+
+
+/*  SignIn  JoyZhang 20160222 */
+.mainDivSignIn{
+margin-left:auto; margin-right:auto; width:45%; height:340px; border:2px solid #E6E6E6; margin-top:12px; border-radius:5px;
+}
+
+.btnSubmitSignIn{
+background-color:#61B966; color: white; width:70px; height:35px; border-radius:5px;
+}
+
+
+
+
+
+

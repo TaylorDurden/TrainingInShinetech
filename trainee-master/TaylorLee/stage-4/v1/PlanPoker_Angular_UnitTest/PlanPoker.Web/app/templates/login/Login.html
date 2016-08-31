@@ -1,0 +1,46 @@
+﻿
+<header>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" ui-sref="dashboard">
+                    <b>Plan Poker</b>
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="container" ng-controller="loginController">
+    <div class="row">
+        <div class="plan-poker-box col-md-6">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="pull-left">Login</h2>
+                    <a class="pull-right create-account-link" ui-sref="register">Creat account</a>
+                </div>
+            </div>
+            <form name="userForm" ng-submit="userLogin(userForm.$valid)" novalidate>
+                <div class="form-group" ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine }">
+                    <label>User name</label>
+                    <input type="text" class="form-control" autofocus="" name="username" ng-model="userLoginModel.userName" placeholder="User name" required>
+                    <p ng-show="userForm.username.$invalid && !userForm.username.$pristine" class="help-block">User name is required.</p>
+                </div>
+                <div class="form-group" ng-class="{ 'has-error' : userForm.password.$invalid && !userForm.password.$pristine }">
+                    <label>Password</label>
+                    <input type="password" class="form-control" name="password" ng-model="userLoginModel.password" required placeholder="Password">
+                    <p ng-show="userForm.password.$invalid && !userForm.password.$pristine" class="help-block">Password is required.</p>
+                </div>
+                <div ng-class="{ 'has-error' : loginFailed }">
+                    <p name="loginFail" ng-show="loginFailed" class="text-capitalize help-block">{{failedMsg}}</p>
+                </div>
+                <div class="form-group form-inline">
+                    <button type="submit" ng-disabled="userForm.$invalid" class="btn btn-success">Sign in</button>
+                    <a id="forgot" class="pull-right" href="#">Forgot password?</a>
+                </div>
+                    
+            </form>
+        </div>
+    </div>
+</div>
+
+

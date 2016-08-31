@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Bugs Management</title>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <link rel="stylesheet" href="css/site.css">
+
+    <script src="js/jquery-2.2.0.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/site.js"></script>
+</head>
+<body>
+<div class="navbar navbar-static-top bg-success">
+    <div class="container">
+        <div class="col-md-5">
+            <h1>Bugs Management</h1>
+        </div>
+    </div>
+</div>
+
+<div class="container sign-in-on-container">
+    <div class="col-md-6 col-md-offset-3 sign-in-on-border">
+        <div class="LoginRegister">
+            <h2 class="LoginRegister-h2">Create Account</h2>
+        </div>
+
+        <div class="form-group">
+            <label>First Name</label>
+            <input type="text" class="form-control" id="text_FirstName" placeholder="First Name">
+        </div>
+
+        <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" class="form-control" id="text_LastName" placeholder="Last Name">
+        </div>
+
+        <div class="form-group">
+            <label>Email address</label>
+            <input type="email" class="form-control" id="text_Email" placeholder="Email address">
+        </div>
+
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" id="text_Password" placeholder="Password">
+        </div>
+
+        <div class="form-group">
+            <label>Confirm Password</label>
+            <input type="password" class="form-control" id="text_RePassword" placeholder="Confirm Password">
+        </div>
+
+        <div class="form-inline check">
+            <div class="checkbox">
+                <input type="checkbox" id="agreement"> I have read and accept the <a href="#" data-toggle="tooltip"
+                                                                                     title="User Agreement">user
+                agreement</a>
+            </div>
+            <div class="pull-right">
+                <a href="Login.html">Login</a>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-success btn-sign-in-on" onclick="validateRegister()">Create Account</button>
+    </div>
+</div>
+
+</body>
+</html>

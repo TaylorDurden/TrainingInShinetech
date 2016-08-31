@@ -1,0 +1,69 @@
+﻿@model IEnumerable<BugManagement.Data.Models.Bug>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-3 navigator">
+    <ul class="nav nav-list">
+        <li class="">
+            <a href="Dashboard">Dashboard</a>
+        </li>
+        <li class="">
+            <a href="#">Bugs</a>
+        </li>
+        <li class="">
+            <a href="Project">Projects</a>
+        </li>
+        <li class="">
+            <a href="Developer">Developers</a>
+        </li>
+        <li class="">
+            <a href="User">Users</a>
+        </li>
+    </ul>
+</div>
+<div class="col-md-9">
+    <h2>
+        Bugs
+        <button type="button" class="btn btn-primary pull-right">Create New</button>
+    </h2>
+    <hr/>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Summary</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Project</th>
+                <th>Create Time</th>
+                <th>Creator</th>
+                <th>Status</th>
+                <th>Operations</th>
+            </tr>
+            @foreach (var bug in Model)
+                {
+                    <tr>
+                        <td>@bug.Id</td>
+                        <td>@bug.Title</td>
+                        <td>@bug.Summary</td>
+                        <td>@bug.Description</td>
+                        <td>@bug.Type</td>
+                        <td>@bug.Project</td>
+                        <td>@bug.CreateTime</td>
+                        <td>@bug.Creator</td>
+                        <td>@bug.Status</td>
+                        <td>
+                            <a href="#">Details</a>
+                            <a href="#">Edit</a>
+                            <a href="#">Delete</a>
+                        </td>
+                    </tr>
+                }
+        </table>
+    </div>
+</div>
+
+

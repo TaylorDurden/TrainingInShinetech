@@ -1,0 +1,174 @@
+﻿<div class="row" ng-controller="loginController">
+    <header class="header">
+        Bugs Mangagement <a ng-click="logout()" class="pull-right a-cursor">
+            <h4>Logout</h4>
+        </a>
+    </header>
+</div>
+<div ng-controller="projectController">
+    <div class="row col-md-10 col-md-offset-1">
+        <div class="divbolder-nav col-md-2">
+            <ul class="nav-ul">
+                <a href="#/dashboard"><li>Dashboard</li></a>
+                <a href="#/bug"><li>Bugs</li></a>
+                <a href="#/project"><li class="li-active">Projects</li></a>
+                <a href="#/developer"><li>Developers</li></a>
+                <a href="#/user"><li>Users</li></a>
+            </ul>
+        </div>
+        <form name="myListForm" id="myListForm">
+            <div class="col-md-10">
+                <div class="page-header">
+                    <h2>Projects</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <input type="text" class="form-control no-max-width" id="whereCondition" name="whereCondition" placeholder="Input any text you want to search..." ng-model="whereCondition">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-success" type="button" ng-click="serch()">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group pull-right">
+                                <button class="btn btn-success" type="button" data-toggle="modal" id="btnCreate" ng-click="createProjectModal()" data-target="#myCreateModal">Create New</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pull-left width-all">
+                    <table class="table table-responsive table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Main Contact</th>
+                                <th>Contact Email</th>
+                                <th>Start Time</th>
+                                <th>Operations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="project in list">
+                                <td><span ng-bind="project.ProjectId"></span></td>
+                                <td><span ng-bind="project.ProjectName"></span></td>
+                                <td><span ng-bind="project.Description"></span></td>
+                                <td><span ng-bind="project.MainContact"></span></td>
+                                <td><span ng-bind="project.ContactEmail"></span></td>
+                                <td><span ng-bind="project.StartTime"></span></td>
+                                <td>
+                                    <a data-toggle="modal" data-target="#myCreateModal" ng-click="editProjectModal(project)" class="text-success a-cursor">Edit </a>
+                                    <span>|</span>
+                                    <a data-toggle="modal" data-target="#myDeleteModal" ng-click="deleteProjectModal(project)" class="text-success a-cursor"> Delete</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--<div class="text-center">
+                    <nav>
+                        <ul class="pagination" page-info>
+                            <li ng-show="pagePrevious"><a ng-click="serchPrevious()" class="a-cursor">Previous</a></li>
+                            <li ng-show="!pagePrevious"><a>Previous</a></li>
+                            <li ng-show="pageNext"><a ng-click="serchNext()" class="a-cursor">Next</a></li>
+                            <li ng-show="!pageNext"><a>Next</a></li>
+                        </ul>
+                    </nav>
+                </div>-->
+                <div>
+                    <page-Info method="load"></page-Info>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal fade" id="myCreateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title">
+                        New Project
+                    </h4>
+                </div>
+                <form name="myForm" id="myForm">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" class="form-control no-max-width" id="name" name="name" ng-change="ProjectNameChange()" ng-model="project.ProjectName" placeholder="Name" required />
+                            <span class="text-danger" ng-show="myForm.name.$dirty && myForm.name.$invalid">
+                                <span ng-show="myForm.name.$error.required">name is required.</span>
+                            </span>
+                            <span class="text-danger" ng-show="isExist">This ProjectName is exist.</span>
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea rows="3" class="form-control no-max-width" id="description" name="description" ng-model="project.Description" required />
+                            <span class="text-danger" ng-show="myForm.description.$dirty && myForm.description.$invalid">
+                                <span ng-show="myForm.description.$error.required">description is required.</span>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label>Main Contact</label>
+                            <input type="text" class="form-control no-max-width" id="mainContact" name="mainContact" ng-model="project.MainContact" placeholder="Main Contact" required />
+                            <span class="text-danger" ng-show="myForm.mainContact.$dirty && myForm.mainContact.$invalid">
+                                <span ng-show="myForm.mainContact.$error.required">mainContact is required.</span>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label>Contact Email</label>
+                            <input type="email" class="form-control no-max-width" id="contactEmail" name="contactEmail" ng-model="project.ContactEmail" placeholder="Contact Email" ng-pattern="/^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/" required>
+                            <span class="text-danger" ng-show="myForm.contactEmail.$dirty && myForm.contactEmail.$invalid">
+                                <span ng-show="myForm.contactEmail.$error.required">Contact Email is required.</span>
+                                <span ng-show="myForm.contactEmail.$error.pattern">Contact Email format is wrong.</span>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label>Strat Time</label>
+                            <input type="text" class="form-control no-max-width" id="startTime" name="startTime" ng-model="project.StartTime" placeholder="年/月/日" required />
+                            <span class="text-danger" ng-show="myForm.startTime.$dirty && myForm.startTime.$invalid">
+                                <span ng-show="myForm.startTime.$error.required">startTime is required.</span>
+                            </span>
+                        </div>
+                        <input type="hidden" ng-model="project.ProjectId" id="UserId" name="UserId"/>
+                        <input type="hidden" ng-model="HdProjectName" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" id="btnSave" ng-click="saveProject()" ng-disabled="myForm.$invalid" class="btn btn-success">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myDeleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title">
+                        Delete Project
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    Are you sure to delete this project?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default"
+                            data-dismiss="modal">
+                        Close
+                    </button>
+                    <button type="button" id="btnDelete" ng-click="deleteProject()" class="btn btn-success">
+                        Yes
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,76 @@
+﻿@model BugManagement.Models.ProjectViewModel
+@{
+    Layout = null;
+}
+<div class="modal fade" id="myCreateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    New Project
+                </h4>
+            </div>
+            @using (Html.BeginForm("Create", "Project", FormMethod.Post, new { role = "form", id = "myform" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        @Html.TextBoxFor(m => m.ProjectName, new { @class= "form-control required" })                        
+                    </div>
+                    <div class="form-group">
+                        <label for="eescription">Description</label>
+                        @Html.TextAreaFor(m => m.Description, new { @class = "form-control required",row="3" })
+                    </div>
+                    <div class="form-group">
+                        <label for="mainContact">Main Contact</label>
+                        @Html.TextBoxFor(m => m.MainContact, new { @class = "form-control required" })   
+                    </div>
+                    <div class="form-group">
+                        <label for="contactEmail">Contact Email</label>
+                        @Html.TextBoxFor(m => m.ContactEmail, new { @class = "form-control required email" })
+                    </div>
+                    <div class="form-group">
+                        <label for="startTime">Strat Time</label>
+                        @Html.TextBoxFor(m => m.StartTime, new { @class = "form-control required" })
+                    </div>
+                    @Html.HiddenFor(m => m.ProjectId)
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" id="btnSave" class="btn btn-success">Save</button>
+                </div>
+                <input type="hidden" id="hdSelctedProjectId" name="SelctedProjectID" value="" />
+            }
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="myDeleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    Delete Project
+                </h4>
+            </div>
+            <div class="modal-body">
+                Are you sure to delete this project?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default"
+                        data-dismiss="modal">
+                    Close
+                </button>
+                <button type="button" id="btnDelete" class="btn btn-success">
+                    Yes
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

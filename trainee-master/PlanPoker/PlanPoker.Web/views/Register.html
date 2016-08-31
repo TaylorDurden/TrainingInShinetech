@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Register - Plan Poker</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/bootstrap.css" rel="stylesheet" />
+    <link href="../css/style.css?v=5" rel="stylesheet" />
+    <script src="../scripts/jquery-1.10.2.js?v=5"></script>
+    <script src="../scripts/jquery.validate.js?v=5"></script>
+    <script src="../scripts/bootstrap.js?v=5"></script>
+    <script src="../scripts/spin.min.js?v=5"></script>
+    <script src="../scripts/customSpin.js?v=5"></script>
+    <script src="../scripts/apiPath.js?v=5"></script>
+    <script src="../scripts/register.js?v=5"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="Dashboard.html">
+                        <b>Plan Poker</b>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="plan-poker-box col-md-6">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Create Account</h2>
+                </div>
+            </div>
+            <form id="signupForm" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>User name</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="User name">
+                </div>
+                <div class="form-group">
+                    <label>Password</label><label id="passstrength" class="pull-right"></label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                    
+                </div>
+                <div class="form-group">
+                    <label>Confirm password</label>
+                    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm password">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label>User picture</label>
+                    <div>
+                        <img id="userPicture" class="img-responsive" src="../upload/user.png" alt="User Picture"/>
+                        <input type="file" class="hide" id="imgUpload"/>
+                        <label id="userPictureError" class="error"></label>
+                    </div>
+                </div>
+                <div class="form-group form-inline">
+                    <button id="btnSubmit" type="button" class="btn btn-success">Save</button>
+                    <a id="login" class="pull-right" href="Login.html">Login</a>
+                    <label id="signupErrorTips" class="error"></label>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

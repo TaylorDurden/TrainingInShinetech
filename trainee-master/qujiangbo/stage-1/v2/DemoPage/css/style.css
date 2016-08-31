@@ -1,0 +1,145 @@
+	body,h1,h4{ 
+		margin:0; 
+		padding: 0;
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	}
+	#header{
+		width:100%;
+		background-color:#5EB85D; 
+		line-height: 80px;
+	}
+	#header h1{
+		padding-left: 10%; 
+		font-size: 35px; 
+	}	
+	#contenter{
+		text-align: center; 
+		width:40%; 
+		min-height:250px;
+		margin-top: 10px; 
+		margin-left: auto; 
+		margin-right: auto; 
+		padding: 15px;
+		border-radius: 5px;
+		border:solid 2px #dedede; 
+	}
+	#contenter div{
+		font-size: 15px;
+		text-align: left;
+		padding: 5px 0 5px 0;
+	}
+	#contenter span{
+		font-size: 30px;
+		display: inline;
+	}
+	#contenter label{
+		padding-left: 0px;
+		display: block;
+		margin-bottom: 10px;
+		font-weight: bold;
+	}
+	#contenter input{
+		width: 100%; 
+		height:25px;
+		display: block;
+		border-radius: 3px;border:solid 2px #dedede;
+	}
+	#contenter a{
+		text-decoration: none;
+		float: right;
+		color: #5EB85D;
+		font-weight: normal;
+		display: inline;
+	}
+	#contenter .remember{
+		width:18px;
+		height: 15px;
+		display: inline;
+		margin-left: 0px;
+	}
+	#contenter .btn{
+	 	width: 15%;
+		height: 30px;
+		color:#fff; 
+		display: inline;
+		background-color: #5EB85D;  
+		border-radius: 5px; border:1px solid #5EB85D;
+	}
+	#contenter .create{
+	 	width: 20%;
+	 	height: 40px;
+	}
+	#dashboard-contenter{ 
+		min-height: 480px; 
+		margin-top: 10px; 
+		padding: 15px;
+	}
+	.dashboard-nav{
+		float: left; 
+		text-align: center;
+		border:solid 2px #dedede;
+		border-radius: 5px; 
+		width:16%;
+		margin-left: 8%; 
+		min-height: 400px;
+	}
+	.pages{
+		padding-left: 15%;
+	}	
+	.dashboard-nav ul{ 
+		text-align: center; 
+		list-style-type: none; 
+		padding-left: 25px;
+	}
+	.dashboard-nav ul li {
+		width:100%;
+		line-height: 45px;
+		border-radius: 5px;
+		text-align: left; 
+		color:#5EB85D; 
+		padding-left: 5%;
+	}
+	.dashboard-nav ul .actived {
+		width: 80%;
+		color: #fff;
+		border-radius: 5px;
+		background-color: #5EB85D; 
+	}
+	.dashboard-nav-title{ 
+		font-size: 30px;
+		margin-bottom: 2%;
+		padding: 20px 20px 20px 0;
+		border-bottom: solid 1px #dedede;
+	}
+	.dashboard-table{
+		float: left; 
+		width:65%; 
+		padding-left: 10px;
+	}
+	.dashboard-table table{
+		width:100%; 
+		text-align:center;
+		border-right:1px solid #dedede;
+		border-bottom:1px solid #dedede;
+	} 
+	.dashboard-table table tr{ 
+		height: 25px;
+	} 
+	.dashboard-table table td{
+		text-align:center;
+		border-top:1px solid #dedede; 
+		border-left:1px solid #dedede;
+	}
+	.dashboard-table .rowtitle{ 
+		font-weight:bold;
+	}
+	.dashboard-table table a{
+		color:#5EB85D;
+		text-decoration: none;
+	}
+	.dashboard-table div a{ 
+		float: left; 
+		padding-top: 20px;
+		color:#5EB85D;
+		text-decoration: none;
+	}

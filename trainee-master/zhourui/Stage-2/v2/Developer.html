@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developers - Bugs Management</title>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <link rel="stylesheet" href="css/site.css">
+
+    <script src="js/jquery-2.2.0.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/site.js"></script>
+</head>
+<body>
+<div class="navbar navbar-static-top bg-success">
+    <div class="container">
+        <div class="col-md-4">
+            <h1>Bugs Management</h1>
+        </div>
+        <div class="col-md-1 col-md-offset-7 link-logout">
+            <a href="#" class="link-logout">Logout</a>
+        </div>
+    </div>
+</div>
+
+<div class="container navigator-container">
+    <div class="col-md-3">
+        <ul class="nav nav-pills nav-stacked">
+            <li class="">
+                <a href="Dashboard.html" id="Dashboard">Dashboard</a>
+            </li>
+            <li class="">
+                <a href="Bug.html" id="Bug">Bugs</a>
+            </li>
+            <li class="">
+                <a href="Project.html" id="Project">Projects</a>
+            </li>
+            <li class="active navigator-button-active">
+                <a href="#" id="Developer">Developers</a>
+            </li>
+            <li class="">
+                <a href="User.html" id="User">Users</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="col-md-9 data">
+        <h2>Developers</h2>
+        <div class="row">
+            <div class="col-md-7">
+                <div class="input-group search">
+                    <input type="text" class="form-control" placeholder="Input any text you want to search...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-success" type="button">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </button>
+                            </span>
+                </div>
+            </div>
+            <div class="col-md-2 col-md-offset-3">
+                <button class="btn btn-success pull-right" type="button" data-toggle="modal"
+                        data-target="#createDeveloper">Create New
+                </button>
+            </div>
+        </div>
+        <hr/>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                    <th>User Id</th>
+                    <th>Operations</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Zhou</td>
+                    <td>Rui</td>
+                    <td>zhourui@shinetechchina.com</td>
+                    <td>Checked</td>
+                    <td>111</td>
+                    <td>
+                        <a href="#" data-toggle="modal" data-target="#editDeveloper">Edit</a>
+                        <a href="#" data-toggle="modal" data-target="#deleteDeveloper">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Zhang</td>
+                    <td>San</td>
+                    <td>zhangsan@shinetechchina.com</td>
+                    <td>New</td>
+                    <td>222</td>
+                    <td>
+                        <a href="#" data-toggle="modal" data-target="#editDeveloper">Edit</a>
+                        <a href="#" data-toggle="modal" data-target="#deleteDeveloper">Delete</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-md-6 col-md-offset-3">
+            <div class="btn-toolbar" role="toolbar" aria-label="...">
+                <div class="btn-group" role="group" aria-label="...">
+                    <button type="button" class="btn btn-default">Previous</button>
+                    <button type="button" class="btn btn-default">2</button>
+                    <button type="button" class="btn btn-default">3</button>
+                    <button type="button" class="btn btn-success">4</button>
+                    <button type="button" class="btn btn-default">5</button>
+                    <button type="button" class="btn btn-default">6</button>
+                    <button type="button" class="btn btn-default">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="createDeveloper" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">New Developer</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" class="form-control" placeholder="">
+                </div>
+
+                <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" class="form-control" placeholder="">
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control" placeholder="">
+                </div>
+
+                <div class="form-group">
+                    <label>Status</label>
+                    <input type="text" class="form-control" placeholder="">
+                </div>
+
+                <div class="form-group">
+                    <label>User Id</label>
+                    <input type="text" class="form-control" placeholder="">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editDeveloper" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Edit Developer</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" class="form-control myparameter2" placeholder="">
+                </div>
+
+                <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" class="form-control myparameter3" placeholder="">
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control myparameter4" placeholder="">
+                </div>
+
+                <div class="form-group">
+                    <label>Status</label>
+                    <select class="form-control myparameter5">
+                        <option value="New">New</option>
+                        <option value="Checked">Checked</option>
+                        <option value="Deleted">Deleted</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>User Id</label>
+                    <input type="text" class="form-control myparameter6" placeholder="">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteDeveloper" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Delete Developer</h4>
+            </div>
+            <div class="modal-body">
+                Are you sure to delete this developer?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

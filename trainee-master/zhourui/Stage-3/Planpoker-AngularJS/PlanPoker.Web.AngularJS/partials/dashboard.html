@@ -1,0 +1,32 @@
+﻿<div class="container" ng-controller="dashboardController">
+    <input type="hidden" id="userId" />
+    <div class="row">
+        <div class="col-md-12">
+            <h2>
+                Dashboard
+            </h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="project-select">
+                <label class="text-success">Please select:&nbsp;</label>
+            </div>
+            <div class="project-select col-md-2">
+                <select id="projectName" class="form-control" ng-model="currentProject" ng-options="project for project in projects" ng-change="Change(currentProject)"></select>
+            </div>
+            <a target="_blank" href="" id="projectGuid"></a>
+        </div>
+    </div>
+    <div class="card-list">
+        <form>
+            <div class="row">
+                <div ng-repeat="poker in pokers" class="col-md-2 col-xs-3">
+                    <a href="" ng-click="clickPoker(poker.Id)" class="thumbnail img-thumbnail plan-poker-thumbnail">
+                        <img class="img-responsive" ng-src='{{poker.Src}}'/>
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

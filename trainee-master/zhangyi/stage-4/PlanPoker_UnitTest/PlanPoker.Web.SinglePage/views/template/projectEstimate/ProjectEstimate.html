@@ -1,0 +1,28 @@
+﻿<div>
+    <div class="container" ng-controller="estimateController" ng-init="onProjectEstimateInit()">
+        <div class="row">
+            <div class="col-md-6">
+                <h2 id="estimateProjectName" class="pull-left">{{projectName}}</h2>
+            </div>
+            <div id="estimateShow" ng-show="showDiv" class="col-md-6 estimate-show">
+                <button class="btn btn-success pull-right" ng-click="onShowClick()">Show</button>
+            </div>
+        </div>
+        <div class="card-list">
+            <div id="planpokerList" class="row">
+            </div>
+        </div>
+        <div id="estimateResult" ng-show="resultDiv">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>
+                        Plan average: <label id="average"></label> points
+                    </h3>
+                </div>
+                <div class="col-md-6 text-right footer-next">
+                    <button id="nextBtn" ng-show="resultNext" ng-click="onNextClick()" class="btn btn-success btn-next">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

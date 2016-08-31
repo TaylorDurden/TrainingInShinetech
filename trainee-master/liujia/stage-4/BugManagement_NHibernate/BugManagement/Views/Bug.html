@@ -1,0 +1,208 @@
+﻿<div class="row" ng-controller="loginController">
+    <header class="header">
+        Bugs Mangagement <a ng-click="logout()" class="pull-right a-cursor">
+            <h4>Logout</h4>
+        </a>
+    </header>
+</div>
+<div ng-controller="bugController">
+    <div class="row col-md-10 col-md-offset-1">
+        <div class="divbolder-nav col-md-2">
+            <ul class="nav-ul">
+                <a href="#/dashboard"><li>Dashboard</li></a>
+                <a href="#/bug"><li class="li-active">Bugs</li></a>
+                <a href="#/project"><li>Projects</li></a>
+                <a href="#/developer"><li>Developers</li></a>
+                <a href="#/user"><li>Users</li></a>
+            </ul>
+        </div>
+        <form name="myListForm" id="myListForm">
+            <div class="col-md-10">
+                <div class="page-header">
+                    <h2>Bugs</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <input type="text" class="form-control no-max-width" id="serchCondition" name="serchCondition" placeholder="Input any text you want to search..." ng-model="serchCondition">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-success" type="button" ng-click="serch()">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group pull-right">
+                                <button class="btn btn-success" type="button" id="btnCreate" data-toggle="modal" ng-click="createBugModal()" data-target="#myCreateModal">Create New</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pull-left width-all">
+                    <table class="table table-responsive table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Title</th>
+                                <th>Smmary</th>
+                                <th>Project</th>
+                                <th>Create time</th>
+                                <th>Status</th>
+                                <th>Operations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="bug in list">
+                                <td><span ng-bind="bug.BugId"></span></td>
+                                <td><span ng-bind="bug.Title"></span></td>
+                                <td><span ng-bind="bug.Smmary"></span></td>
+                                <td><span ng-bind="bug.ProjectName"></span></td>
+                                <td><span ng-bind="bug.Createtime"></span></td>
+                                <td><span ng-bind="bug.Status"></span></td>
+                                <td>
+                                    <a data-toggle="modal" data-target="#myCreateModal" ng-click="editBugModal(bug)" class="text-success a-cursor">Edit </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <page-Info method="load"></page-Info>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal fade" id="myCreateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog width-half">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title">
+                        New Bugs
+                    </h4>
+                </div>
+                <form name="myForm" id="myForm">
+                    <div class="modal-body min-height-600">
+                        <div class="row col-md-8">
+                            <div class="form-group">
+                                <label>Title:</label>
+                                <input type="text" class="form-control no-max-width" id="title" name="title" ng-model="bug.Title" placeholder="Title" required />
+                                <span class="text-danger" ng-show="myForm.title.$dirty && myForm.title.$invalid">
+                                    <span ng-show="myForm.title.$error.required">title is required.</span>
+                                </span>
+                            </div>
+                            <div>
+                                <label>Summary</label>
+                                <textarea rows="3" class="form-control no-max-width" id="smmary" name="smmary" ng-model="bug.Smmary" required></textarea>
+                                <span class="text-danger" ng-show="myForm.smmary.$dirty && myForm.smmary.$invalid">
+                                    <span ng-show="myForm.smmary.$error.required">summary is required.</span>
+                                </span>
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea rows="3" class="form-control no-max-width" id="description" name="description" ng-model="bug.Description" required></textarea>
+                                <span class="text-danger" ng-show="myForm.description.$dirty && myForm.description.$invalid">
+                                    <span ng-show="myForm.description.$error.required">description is required.</span>
+                                </span>
+                            </div>
+                            <div class="form-group">
+                                <label>Type:</label>
+                                <select class="form-control" id="type" name="type" ng-model="bug.Type" ng-options="x.BugTypeId as x.Name for x in bugTypes" required>
+                                    <option value="">select type</option>
+                                </select>
+                                <span class="text-danger" ng-show="myForm.type.$dirty && myForm.type.$invalid">
+                                    <span ng-show="myForm.type.$error.required">type is required.</span>
+                                </span>
+                            </div>
+                            <div class="form-group">
+                                <label>Project:</label>
+                                <select class="form-control" id="projectId" name="projectId" ng-model="bug.ProjectId" ng-options="x.ProjectId as x.ProjectName for x in projects" required>
+                                    <option value="">select project</option>
+                                </select>
+                                <span class="text-danger" ng-show="myForm.projectId.$dirty && myForm.projectId.$invalid">
+                                    <span ng-show="myForm.projectId.$error.required">project is required.</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row col-md-4 pull-right model-bolder">
+                            <div class="form-group div-margin-top">
+                                <label>Add:</label>
+                            </div>
+                            <div ng-show="isLoadingDevelopers">
+                                Loading developer...
+                            </div>
+                            <div class="form-group" ng-show="!isLoadingDevelopers">
+                                <div class="btn-group width-all">
+                                    <button type="button" id="selectDevelopers" class="btn btn-success dropdown-toggle width-all"
+                                            data-toggle="dropdown">
+                                        Developers<span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li ng-repeat="x in developers">
+                                            <a ng-click="selectDeveloper(this)">{{x.FristName + " " + x.LastName}}</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <label ng-repeat="x in selectedDevelopers" class="width-all">
+                                        <a ng-click="removeSelectedDeveloper(this)">
+                                            <span class="glyphicon glyphicon-remove"></span>
+                                        </a>{{x.FristName + " " + x.LastName}}
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="btn-group width-all">
+                                    <span id="uploadify"></span>
+                                </div>
+                                <div>
+                                    <span id="showSelectDocument"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Operations:</label>
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="btn btn-success width-all">Copy</button>
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="btn btn-success width-all">Delete</button><br>
+                            </div>
+                            <div class="form-group">
+                                <div class="btn-group width-all">
+                                    <button type="button" id="changeStatus" class="btn btn-success dropdown-toggle width-all"
+                                            data-toggle="dropdown">
+                                        Change status<span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li ng-repeat="x in statuss">
+                                            <a ng-click="changeStatus(x)">{{x.Text}}</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>status:</label>
+                                <label>{{bug.Status}}</label>
+                            </div>
+                            <div class="form-group">
+                                <label>Create time:</label>
+                                <label>{{bug.Createtime}}</label>
+                            </div>
+                            <div class="form-group">
+                                <label>Owner:</label>
+                                <label>{{bug.Creator}}</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" id="btnSave" ng-click="saveBug()" ng-disabled="myForm.$invalid" class="btn btn-success">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+﻿@model LoveDemo.Models.Person
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm("Send","Home"))
+{
+    <p>@Html.TextBoxFor(x => x.Name)</p>
+    <p><input type="submit" value="Tell me your lover name"/></p>
+}
+

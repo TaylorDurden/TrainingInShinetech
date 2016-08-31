@@ -1,0 +1,60 @@
+﻿<div class="container" ng-controller="profileController">
+    <div class="plan-poker-box col-md-6">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>My Profile</h2>
+            </div>
+        </div>
+        <form name="updateForm" novalidate>
+            <div class="form-group">
+                <label>User name</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="User name" ng-model="user.username" readonly>
+            </div>
+            <div class="form-group">
+                <label>Old Password</label>
+                <input type="password" class="form-control" id="oldpassword" name="oldpassword" placeholder="Old Password" ng-model="user.oldpassword" required>
+                <span class="text-danger" ng-show="updateForm.oldpassword.$dirty && updateForm.oldpassword.$invalid">
+                    <span ng-show="updateForm.oldpassword.$error.required">This field is required.</span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label>Password</label><label id="passstrength" class="pull-right"></label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password" ng-model="user.PassWord" ng-minlength="6" ng-maxlength="16" required>
+                <span class="text-danger" ng-show="updateForm.password.$dirty && updateForm.password.$invalid">
+                    <span ng-show="updateForm.password.$error.required">This field is required.</span>
+                    <span ng-show="updateForm.password.$error.minlength">This field minlength is six.</span>
+                    <span ng-show="updateForm.password.$error.maxlength">This field maxlength is sixteen.</span>
+                </span>
+
+            </div>
+            <div class="form-group">
+                <label>Confirm password</label>
+                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm password" ng-model="user.confirmPassword" pw-check="password" required>
+                <span class="text-danger" ng-show="updateForm.confirmPassword.$dirty && updateForm.confirmPassword.$invalid">
+                    <span ng-show="updateForm.confirmPassword.$error.passwordmatch">The password and confirm password is different.</span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email" ng-model="user.email" required>
+                <span class="text-danger" ng-show="updateForm.email.$dirty && updateForm.email.$invalid">
+                    <span ng-show="updateForm.email.$error.required">This field is required.</span>
+                    <span ng-show="updateForm.email.$error.email">This email is lawless.</span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label>User picture</label>
+                <div>               
+                    <img id="userPicture" class="img-responsive" ng-src="{{user.image}}" alt="User Picture" />
+                    <input type="file" id="imgUpload" ng-change="changeImage()" ng-model="image" accept="image/*" file-reader />
+                    <label id="userPictureError" class="text-danger"></label>
+                </div>
+            </div>
+            <div class="form-group form-inline">
+                <button id="btnSubmit" type="button" class="btn btn-success" ng-disabled="updateForm.$invalid" ng-click="updateSubmit()">Save</button>
+                <label ng-show="isStatus" class="text-success" ng-bind="message"></label>
+                <label ng-show="!isStatus" class="text-danger" ng-bind="message"></label>
+            </div>
+        </form>
+    </div>
+</div>

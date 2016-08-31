@@ -1,0 +1,59 @@
+﻿<div ng-controller="registerController">
+    <div class="container">
+        <div class="plan-poker-box col-md-6">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Create Account</h2>
+                </div>
+            </div>
+            <form name="registerForm" novalidate>
+                <div class="form-group">
+                    <label>User name</label>
+                    <input type="text" class="form-control" id="username" name="username" ng-change="onUserNameChange()" ng-model="user.UserName" placeholder="User name" required />
+                    <span class="error" ng-show="registerForm.username.$dirty && registerForm.username.$invalid">
+                        <span ng-show="registerForm.username.$error.required">User name is required.</span>
+                    </span>
+                    <span class="error" ng-show="user.isExist" id="projectExist">The username is exist.</span>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" id="password" ng-model="user.Password" name="password" placeholder="Password" required />
+                    <span class="error" ng-show="registerForm.password.$dirty && registerForm.password.$invalid">
+                        <span ng-show="registerForm.password.$error.required">Password is required.</span>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label>Confirm password</label>
+                    <input type="password" pw-check="password" class="form-control" id="confirmPassword" ng-model="user.comfirmpassword" name="confirmPassword" placeholder="Confirm password" required />
+                    <span class="error" ng-show="registerForm.confirmPassword.$dirty && registerForm.confirmPassword.$invalid">
+                        <span ng-show="registerForm.confirmPassword.$error.required">Password is required.</span>
+                        <span ng-show="registerForm.confirmPassword.$error.pwmatch">Confirm is not equeal with password</span>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control" id="email" ng-model="user.Email" name="email" placeholder="Email" required />
+                    <span class="error" ng-show="registerForm.email.$dirty && registerForm.email.$invalid">
+                        <span ng-show="registerForm.email.$error.required">Email is required.</span>
+                        <span ng-show="registerForm.email.$error.email">Invalid email address.</span>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label>User picture</label>
+                    <div>
+                        <img class="img-responsive img-user" ng-src="{{user.Image}}" alt="User Picture" />
+                        <input type="file" id="imgUpload" accept="image/*" file-reader ng-model="user.Image" />
+                        <label id="userPictureError" class="error"></label>
+                    </div>
+                </div>
+                <div class="form-group form-inline">
+                    <button id="btnSubmit" class="btn btn-success" ng-disabled="registerForm.$invalid || user.isExist"
+                            ng-click="onUserCreate()" disabled="disabled">
+                        Save
+                    </button>
+                    <a id="login" class="pull-right" ui-sref="main.login">Login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

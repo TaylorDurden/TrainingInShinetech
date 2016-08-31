@@ -1,0 +1,177 @@
+﻿
+<header>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" ui-sref="dashboard">
+                    <b>Plan Poker</b>
+                </a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a ng-controller="modalProjectController" ng-click="open()">New Project</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Settings <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a ng-controller="modalProfileController" ng-click="open()">My Profile</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a ng-controller="logOutController" ng-click="logOut()">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="container" ng-controller="projectController">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>
+                Dashboard
+            </h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h3>
+                Estimate: {{ProjectName}}
+            </h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">
+            <button class="btn btn-default" ng-show="screenShow" ng-click="goPresenter()">Big Screen</button>
+        </div>
+    </div>
+
+    <div class="row margin-top-for-row">
+        <div class="col-md-12" ng-controller="accordionController">
+            <uib-accordion close-others="oneAtATime">
+                <uib-accordion-group is-open="status.open">
+                    <uib-accordion-heading class="cursor">
+                        Find your projects! <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                    </uib-accordion-heading>
+                    <p>Choose or add your project...</p>
+                    <options ng-repeat="item in items" class="hover"></options>
+                </uib-accordion-group>
+            </uib-accordion>
+        </div>
+    </div>
+
+    <div class="card-list">
+        <form>
+            <div class="row" ng-controller="pokerController">
+                <scrumpoker ng-repeat="poker in pokers"></scrumpoker>
+            </div>
+        </form>
+    </div>
+
+    <section class="row">
+        <section ng-controller="modalProjectController" class="col-md-6" style="margin: 40px auto; float: none; background: #fff; padding: 30px;">
+            <script type="text/ng-template" id="ModalContent.html">
+
+                <div class="modal-header">
+                    <h3 class="modal-title">New Project</h3>
+                </div>
+                <form name="projectForm" ng-submit="submit(projectForm.$valid)" novalidate>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="form-group" ng-class="{ 'has-error' : projectForm.projectname.$invalid && !projectForm.projectname.$pristine || projectExisted }">
+                                <label>Project name</label>
+                                <input type="text" class="form-control" name="projectname" placeholder="Project name" ng-model="project.name" ng-change="projectNameChanged()" required>
+                                <p ng-show="projectForm.projectname.$invalid && !projectForm.projectname.$pristine" class="help-block">Project name is required.</p>
+                                <p ng-show="projectExisted" class="help-block">Project name existed.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" ng-disabled="projectForm.$invalid || projectExisted">
+                            Save
+                        </button>
+                        <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+                    </div>
+                </form>
+            </script>
+        </section>
+    </section>
+
+    <section class="row">
+        <section ng-controller="modalProfileController" class="col-md-6">
+            <script type="text/ng-template" id="ModalProfile.html">
+
+                <div class="modal-header">
+                    <h3 class="modal-title">My Profile</h3>
+                </div>
+                <form name="userForm" ng-submit="submit(userForm.$valid)" novalidate>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="form-group">
+                                <label>User name</label>
+                                <input type="text" class="form-control" disabled name="username" ng-model="user.UserName" placeholder="User name" autofocus required>
+                            </div>
+                            <div class="form-group" ng-class="{ 'has-error' : userForm.password.$invalid && !userForm.password.$pristine }">
+                                <label>Password</label><label id="passstrength" class="pull-right"></label>
+                                <input type="password" class="form-control" name="password" ng-model="user.Password" placeholder="Password" required>
+                                <p ng-show="userForm.password.$invalid && !userForm.password.$pristine" class="help-block">Password is required.</p>
+                            </div>
+                            <div class="form-group" ng-class="{ 'has-error' : userForm.confirmPassword.$invalid && !userForm.confirmPassword.$pristine || confirmFailed }">
+                                <label>Confirm password</label>
+                                <input type="password" class="form-control" name="confirmPassword" ng-model="confirmPassword" placeholder="Confirm password" required>
+                                <p ng-show="userForm.confirmPassword.$invalid && !userForm.confirmPassword.$pristine" class="help-block">Confirm password is required.</p>
+                                <p ng-show="confirmFailed" class="help-block">Confirm password is not equal to password.</p>
+                            </div>
+                            <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+                                <label>Email</label>
+                                <input type="email" class="form-control" name="email" ng-model="user.Email" placeholder="Email">
+                                <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email please.</p>
+                            </div>
+                            <div class="form-group">
+                                <label>User picture</label>
+                                <div>
+                                    <img id="userPicture" class="img-responsive" ng-src="{{user.Image}}" alt="Image" />
+                                    <input type="file" id="imgUpload" name="imgUpload" ng-model="user.Image" accept="image/*" file-reader />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" ng-disabled="userForm.$invalid">
+                            Save
+                        </button>
+                        <span class="btn btn-default" ng-click="cancel()">Cancel</span>
+                    </div>
+                </form>
+            </script>
+        </section>
+    </section>
+</div>
+
+<script type="text/ng-template" id="myPopoverTemplate.html">
+    <div class="form-group" ng-class="{ 'has-error' : isNameEmpty || isNameRepeated }">
+        <label>Project name:</label>
+        <input type="text" ng-model="editProjectText" class="form-control" ng-change="nameChanged(this)" />
+        <p ng-show="isNameEmpty" class="help-block">Project name is required.</p>
+        <p ng-show="isNameRepeated" class="help-block">Project name existed.</p>
+    </div>
+    
+    <div class="form-group">
+        <input type="button" class="btn btn-success" ng-click="saveProject(this)" value="save" />
+        <input type="button" popover-placement="left" uib-popover-template="dynamicPopover.deleteUrl" class="btn btn-danger pull-right" value="delete" />
+    </div>
+</script>
+
+<script type="text/ng-template" id="deleteTemplate.html">
+    <input type="button" class="btn btn-success" ng-click="deleteProject(this)" value="Yes" />
+</script>
+
+

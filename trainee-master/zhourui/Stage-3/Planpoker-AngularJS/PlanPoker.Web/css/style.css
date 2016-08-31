@@ -1,0 +1,219 @@
+.navbar-default {
+    background-color: #5EB85D;
+    height: 80px;
+    padding: 15px;
+}
+
+.navbar-default .navbar-brand { color: #000000; }
+
+.navbar-default .navbar-nav { background-color: #5EB85D; }
+
+.navbar-default .navbar-nav > li > a { color: #000000; }
+
+.collapsed { background-color: #5EB85D; }
+
+.navbar-default .navbar-nav .open .dropdown-menu > li > a { color: #000000; }
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus { background-color: #5EB85D; }
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus { background-color: #5EB85D; }
+
+.navbar-brand { font-size: xx-large; }
+
+header {
+    background-color: #5EB85D;
+    border-radius: 0px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.header-title h1 {
+    display: inline;
+    line-height: 80px;
+    margin-top: 0px;
+}
+
+.header-title a {
+    color: #000;
+    line-height: 80px;
+    text-decoration: none;
+}
+
+.header a:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+.plan-poker-box {
+    border: solid 2px #dedede;
+    border-radius: 5px;
+    float: none;
+    margin: 0 auto;
+}
+
+.plan-poker-box h1 { display: inline; }
+
+.plan-poker-box a {
+    color: #5EB85D;
+    list-style: none;
+    text-decoration: none;
+}
+
+.create-account-link { line-height: 73px; }
+
+.content {
+    float: left;
+    padding: 0 0 0 20px;
+    width: 87%;
+}
+
+.page-header { margin: 0 0 20px; }
+
+.table a {
+    color: #5EB85D;
+    text-decoration: none;
+}
+
+.page { text-align: center; }
+
+.pagination { margin: 0; }
+
+.pagination a { color: #000 !important; }
+
+.pagination .active a {
+    background-color: #5EB85D;
+    border-color: #5EB85D;
+    color: #fff !important;
+}
+
+.pagination .active a:hover {
+    background-color: #5EB85D;
+    border-color: #5EB85D;
+    color: #fff !important;
+}
+
+.input-group { margin: 0 0 10px; }
+
+.input-group-search { float: left !important; }
+
+.page-header-minheight { min-height: 50px; }
+
+.page-header-title { float: left; }
+
+.page-header-show {
+    float: right;
+    margin: 20px 0 0 10px !important;
+    text-align: right;
+}
+
+.input-group-create {
+    float: right;
+    text-align: right;
+}
+
+.content-assigned { padding-left: 0; }
+
+.dropdown-top { margin-top: 20px; }
+
+.projectName { width: 10% !important; }
+
+.card-list { margin-top: 20px; }
+
+.card-list img { width: inherit; }
+
+.btn-next { width: 100px; }
+
+.footer-next { margin-top: 20px; }
+
+.modal-dialog-new { margin-left: 19%; }
+
+.modal-dialog .modal-content-other { width: 100%; }
+
+.plan-poker-thumbnail { margin-bottom: 8px; }
+
+.project-select label {
+    line-height: 30px;
+    width: 100%;
+}
+
+.project-select { float: left; }
+
+.modal-dialog .modal-body-delete p { margin: 20px 30px 30px 30px; }
+
+.modal-body { padding: 0px !important; }
+
+.modal-body .modal-operation {
+    border: solid 3px #dedede;
+    border-radius: 5px;
+    margin: 20px 0;
+    padding: 0px 10px;
+    width: 32%;
+}
+
+.modal-body .text-left { margin: 15px 10px; }
+
+.modal-body .text-left label { margin: 10px 0 5px 0; }
+
+.modal-body .text-left button {
+    border-color: #5EB85D;
+    border-radius: 5px;
+    margin: 5px 0;
+    text-align: center;
+    width: 100%;
+}
+
+.modal-body .btn-dropdown {
+    border-color: #5EB85D;
+    border-radius: 5px;
+    height: 34px;
+    margin: 5px 0;
+    text-align: center;
+    width: 100%;
+}
+
+.modal-body-content { margin: 0 0 20px 0; }
+
+.dropdown-selected a {
+    color: #000;
+    font-weight: bold;
+}
+
+.dropdown-selected a:hover, .dropdown-selected a:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+.dropdown-selected .glyphicon-remove { padding: 3px; }
+
+.estimate-show { margin-top: 15px; }
+
+#userPicture {
+    height: 80px;
+    width: 80px;
+}
+
+.error { color: #ff0000; }
+
+#login, #forgot { margin-top: 8px; }
+
+label { font-size: 0.8em; }
+
+.user-info { padding: 9px 0 !important; }
+
+.input-group-search {
+    float: left !important;
+    padding-left: 0px;
+}
+
+.dropdown {
+    line-height: 80px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.plan-poker-titile {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.modal-body p { margin-left: 15px; }

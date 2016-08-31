@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="PlanPoker.Data" namespace="PlanPoker.Data.Domain">
+  <class name="Project" table="Projects" lazy="true" >
+    <id name="Id" column="Id" type="int" >
+      <generator class="assigned" />
+    </id>
+
+    <property name="Name" type="string">
+      <column name="Name" length="50"/>
+    </property>
+
+    <property name="Name" type="string">
+      <column name="Name" length="50"/>
+    </property>
+
+    <property name="ProjectGuid" type="Guid">
+      <column name="ProjectGuid" length="50"/>
+    </property>
+  </class>
+</hibernate-mapping>

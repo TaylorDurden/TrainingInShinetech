@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Roles>
+  <Controller name="User">
+    <Action name="Index">Admin</Action>
+    <Action name="Login"></Action>
+    <Action name="Register"></Action>
+  </Controller>
+  <Controller name="Dashboard">
+    <Action name="Index">Admin,QA,Developer</Action>
+    <Action name="Create">Admin</Action>
+    <Action name="Delete">Admin</Action>
+    <Action name="Update">Admin</Action>
+  </Controller>
+  <Controller name="Bug">
+    <Action name="Index">Admin,QA,Developer</Action>
+    <Action name="Create">Admin,QA</Action>
+    <Action name="Delete">Admin,QA</Action>
+    <Action name="Update">Admin,QA,Developer</Action>
+  </Controller>
+  <Controller name="Project">
+    <Action name="Index">Admin</Action>
+    <Action name="Create">Admin</Action>
+    <Action name="Delete">Admin</Action>
+    <Action name="Update">Admin</Action>
+  </Controller>
+  <Controller name="Developer">
+    <Action name="Index">Admin</Action>
+    <Action name="Create">Admin</Action>
+    <Action name="Delete">Admin</Action>
+    <Action name="Update">Admin</Action>
+  </Controller>
+</Roles>

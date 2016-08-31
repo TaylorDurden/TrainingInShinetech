@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>angularJs</title>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <script src="js/angular.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/signin.js"></script>
+    <style type="text/css">
+        .tx{
+            width: 30px;
+            height: 40px;
+            margin:10px;
+        }
+    </style>
+</head>
+<body>
+<div style="padding: 10px;">
+    <div ng-controller="MyCtrl">
+        <input type="text" ng-model="msg"/>
+        <h1>{{msg}}</h1>
+        <h1 ng-clock class="ng-clock">{{msg}}</h1>
+    </div>
+
+    <div>
+        <input type="text" ng-model="uname"/>
+        <h1>{{uname}}</h1>
+        <div class="{{uname}}" ng-bind="'用户名：'+uname"></div>
+    </div>
+
+    <div ng-controller="ThirdCtrl">
+        <input type="text" ng-model="user.uname"/><br/>
+        <input type="text" ng-model="user.pwd"/>
+        <div style="width:30px;height: 30px; background-color: #00c8ef; text-align: center;" ng-click="login()">登陆</div>
+        <div ng-show="errormsg.length>0" ng-bind="errormsg" style="width:100px;height: 30px; background-color: #00c8ef; text-align: center;"></div>
+    </div>
+
+    <div ng-controller="AddressCtrl">
+        <div>地址管理</div>
+        <ul>
+            <li ng-repeat=" item in list" ng-if="!$last">
+                {{$index+1+'.'+item.address+' '+$first+' '+$last}}
+            </li>
+        </ul>
+    </div>
+
+    <div ng-controller="NormalCtrl">
+        <input type="text" placeholder="用户名" ng-bind="user.uname"/>
+        <input type="password" placeholder="密码"/><br/>
+        <img ng-src="{{user.icon}}" ng-class="{'tx':user.showicon}"
+             ng-if="user.isshow" alt=""/><br/>
+        职位：
+        <select>
+            <option value="">--请选择--</option>
+            <option value="1" ng-selected="user.zw=='1'">Java工程师</option>
+            <option value="2" ng-selected="user.zw=='2'">.NET工程师</option>
+        </select><br/>
+        性别：
+        <input type="radio" name="sex" ng-disabled="user.sex=='1'"
+                ng-checked="user.sex=='1'"/>&nbsp;男&nbsp;
+        <input type="radio" name="sex" ng-disabled="user.sex=='0'"
+               ng-checked="user.sex=='0'"/>&nbsp;女 <br/>
+        爱好:
+        <input type="checkbox" ng-checked="isChecked(1)"/>&nbsp;篮球&nbsp;
+        <input type="checkbox" ng-checked="isChecked(2)"/>&nbsp;足球&nbsp;
+        <input type="checkbox" ng-checked="isChecked(3)"/>&nbsp;排球
+    </div>
+
+    <div ng-controller="selectController">
+        <select ng-model="mycity" ng-options="city.name as city.name group by city.group for city in Cities"></select>         
+    </div>  
+    <form name="test_form" ng-controller="TestCtrl">
+      <input type="text" name="name" required ng-model="name"  />
+      <span ng-click="see()">{{ test_form.$valid }}</span>
+    </form>
+
+    <form ng-controller="validationController" name="mainForm" novalidate>
+         <p>Email:
+             <input type="email" name="email" ng-model="email" required>
+             <span style="color:red" ng-show="mainForm.email.$dirty && mainForm.email.$invalid">
+                 <span ng-show="mainForm.email.$error.required">Email is required.</span>
+                 <span ng-show="mainForm.email.$error.email">Invalid email address.</span>
+             </span>
+         </p>
+         <p>
+             <input type="submit" ng-disabled="mainForm.$invalid">
+         </p>
+     </form>
+     <div ng-controller="ExampleController">
+        
+         <form name="myForm">
+            <div class="form-group">
+                <label for="">User name:</label>
+                <input type="text" class="form-control" name="userName" ensure-unique="username" ng-model="user.name" required>
+                <span class="error" ng-show="myForm.userName.$error.unique">Required!</span>
+            </div>
+            <div class="form-group">
+                <label for="">Last name:</label>
+                <input type="text" class="form-control" name="lastName" ng-model="user.last" ng-minlength="3" ng-maxlength="10">
+                <span class="error" ng-show="myForm.lastName.$error.minlength">Too short!</span>
+                <span class="error" ng-show="myForm.lastName.$error.maxlength">Too long!</span>
+            </div>
+            <div class="form-group">
+                <label for="">User age:</label>
+                <input type="text" class="form-control" name="userAge" ng-model="user.age" even required>
+                <span class="error" ng-show="myForm.userAge.$error.even">数字必须是偶数</span>
+            </div>
+        </form>
+     </div>
+
+     <div ng-controller="TestCtrl" ng-init="a=[1,2,3,4];">
+      <ul ng-repeat="member in a">
+        <li>{{ member }}</li>
+      </ul>
+    </div>
+    <!--<input type="text" id ="username" onblur="return ckname();"/>
+
+    <div class="form-group">
+        <label for="userPassword">密码</label>
+        <input type="password" class="form-control" id="userPassword" name="userPassword"
+              placeholder="请输入密码" ng-model="selectedUser.userPassword">
+    </div>
+    <div class="form-group has-feedback" ng-controller="pwCheck"
+        ng-class="{'has-success' : !usrMgrForm.confirmPassword.$pristine && usrMgrForm.confirmPassword.$valid,
+                    'has-error' : !usrMgrForm.confirmPassword.$pristine && usrMgrForm.confirmPassword.$invalid }">
+        <label for="confirmPassword">确认密码</label>
+        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
+              placeholder="请再次输入密码" ng-model="selectedUser.confirmPassword" pw-check="userPassword">
+        <div ng-show="!usrMgrForm.confirmPassword.$pristine && tagName.confirmPassword.$valid">
+            <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+        </div>
+        <div ng-show="!usrMgrForm.confirmPassword.$pristine && usrMgrForm.confirmPassword.$invalid">
+            <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+        </div>
+    </div>-->
+
+    <!--<div ng-controller="myController">
+        <ul>
+            <li ng-repeat="p in Data1.Data.List">
+                编号：{{p.Id}}
+                名称：{{p.Title}}
+            </li>
+        </ul>
+    </div>-->
+
+    <div ng-controller="pageController">
+        <table width="100%">
+            <tr>
+                <th>title1</th>
+                <th>title2</th>
+            </tr>
+            <tr ng-repeat=" rdata in list | pageStartForm: curPage * pageSize | limiTo : pageSize">
+                <td ng-bind="rdata.Id"></td>
+                <td ng-bind="rdata.Name"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                  <button ng-click="curPage = 0" ng-disabled="curPage == 0">首页</button>
+                  <button ng-click="curPage = curPage - 1" ng-disabled="curPage <= 0">上一页</button>
+                  当前第{{curPage + 1}}页
+                  <button ng-click="curPage = curPage + 1" ng-disabled="curPage >= pageCount">下一页</button>
+                  <button ng-click="curPage = pageCount" ng-disabled="curPage == pageCount">尾页</button>
+                </td>
+              </tr>
+        </table>
+    </div>
+
+</div>
+<script>
+
+function ckname(){
+var user = document.getElementById('username').value;
+var patten = /^[a-zA-Z]\w{3,15}$/ig;
+if(!patten.test(user))
+{
+alert('输入不合法！');
+return false;
+}
+return true;
+}
+
+</script>
+</body>
+</html>

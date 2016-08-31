@@ -1,0 +1,45 @@
+body {
+   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;    
+   margin:0 auto;
+}
+
+div {
+   display: block;
+}
+
+a {
+   color:green;
+   text-decoration: none;
+}
+
+a.right{    
+    float:right;
+}
+
+a.left{
+    margin-left:50px;	
+}
+
+a.top{
+	margin-top:6px;	
+}
+
+ul li {
+    margin: 5px 0px;
+    padding: 15px;
+    border-radius:8px;
+    list-style:none;
+    color:#04C150;
+}
+
+ul li:active, ul li:hover{
+    background-color:#79d858;
+    color:#fff;
+}
+
+h1{
+   margin-top: 30px;
+   border-bottom:1px solid #ddd;
+   padding-bottom:2%;
+}
+

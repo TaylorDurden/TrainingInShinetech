@@ -1,0 +1,38 @@
+﻿
+<header>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" ui-sref="dashboard">
+                    <b>Plan Poker</b>
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="container" ng-controller="estimateController">
+    <div class="row">
+        <div class="col-md-6">
+            <h2 id="estimateProjectName" class="pull-left">Project name:{{ProjectName}}</h2>
+        </div>
+        <div id="estimateShow" class="col-md-6 estimate-show" ng-class="{ hide : !estimateShow }">
+            <button class="btn btn-success pull-right" ng-click="showPokerResult()">Show</button>
+        </div>
+    </div>
+    <div class="card-list">
+        <div id="planpokerList" class="row">
+            
+            <estimatepoker ng-repeat="estimate in estimates.EstimateViewModel"></estimatepoker>
+        </div>
+    </div>
+    <div class="hide" ng-class="{ hide : !estimateResultShow }">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Plan average: <label>{{average}}</label> points</h3>
+            </div>
+            <div class="col-md-6 text-right footer-next">
+                <button class="btn btn-success btn-next" ng-class="" ng-click="clearAndRedirect()">Next</button>
+            </div>
+        </div>
+    </div>
+</div>

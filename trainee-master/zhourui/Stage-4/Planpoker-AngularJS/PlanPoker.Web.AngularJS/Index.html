@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <!--<base href="/">-->
+    <meta charset="utf-8"/>
+
+    <link rel="stylesheet" href="styles/bootstrap.css"/>
+    <link rel="stylesheet" href="styles/site.css"/>
+</head>
+<body ng-app="PlanPokerApp">
+<div ng-controller="indexController">
+
+    <ng-view></ng-view>
+
+    <div class="modal fade model-responsive" id="modalCreateProject" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+        <form name="createProjectForm">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close"
+                                data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title text-left" id="newModalLabel">New Project</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="form-group">
+                                <label>Project name</label>
+                                <input type="text" class="form-control" id="ProjectName" name="ProjectName" ng-model="project.Name" placeholder="Project name" ng-minlength="4" required>
+                                <span class="tips" ng-show="createProjectForm.ProjectName.$dirty && createProjectForm.ProjectName.$invalid">
+                                    <span ng-show="createProjectForm.ProjectName.$error.required">Project name is required.</span>
+                                    <span ng-show="createProjectForm.ProjectName.$error.minlength">Project name must more than 4 characters.</span>
+                                </span>
+                                <label class="tips">{{createProjectErrorTips}}</label>
+                            </div>
+                            <div class="col-md-12 modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-success" id="saveProject" ng-click="createProject()">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="scripts/jquery-1.12.1.js"></script>
+<script src="scripts/bootstrap.js"></script>
+<script src="scripts/angular.js"></script>
+<script src="scripts/angular-cookies.js"></script>
+<script src="scripts/angular-route.js"></script>
+
+<script src="scripts/planpokerApp.js"></script>
+<script src="scripts/services.js"></script>
+<script src="scripts/directives.js"></script>
+<script src="scripts/indexController.js"></script>
+<script src="partials/login/loginController.js"></script>
+<script src="partials/register/registerController.js"></script>
+<script src="partials/profile/profileController.js"></script>
+<script src="partials/project/projectController.js"></script>
+<script src="partials/dashboard/dashboardController.js"></script>
+<script src="partials/estimate/estimateController.js"></script>
+</body>
+</html>

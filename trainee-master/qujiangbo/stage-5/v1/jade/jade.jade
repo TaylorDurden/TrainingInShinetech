@@ -1,0 +1,68 @@
+doctype html
+html
+	head
+		title Hello jade by jibo1111
+		script.
+			console.log("Welcome to join wandoujia-fe")
+			console.log("We want you1111")
+	body
+	h2 learn about the jade template engine················
+	div hehe
+	span hello world,jimbo11111111323
+	p Welcome to wandoujia-fe
+	p Welcome to wandojia-fe, we want <b>you</b>
+
+	//chang by yo-team 单行注释
+
+	//
+		p test node by Jimbo 多行注释
+
+	//-this code cann't output
+	p text test by Jimbo
+
+	#content
+	p#info
+	a.btn
+	a#download-btn.btn.blue-btn
+
+	//- for(var i=0;i<3;i++)
+	//li wandoujia-fe1
+	
+
+	//被缓冲代码
+	p='Welcome to join wandoujia-fe,we want you'
+	//转义代码
+	p='Welcome to join wandoujia-fe,<b>we want you</b>'
+	//不被转义
+	p!='Welcome to join wandoujia-fe,<b>we want you</b>'
+	//使用变量
+	- var name ='Jimbo'
+	p My name is #{name}
+	//变量转义
+	p My name is \#{name}
+	//变量中特殊字符会被转义
+	- var str='<script></script>'
+	| #{str}
+
+	| !{str}
+
+	//array demo
+	- var jobs=["fe1", "wandoujia11", "beijing", "We want you"]
+	each job in jobs
+		li= job
+
+	//object demo
+	- var jobsObject={"category":"fe","company":"wandoujia","local":"China"}
+	each key,val in jobsObject
+		li.job-demo #{key}:#{val}
+
+
+	//the mixin without params
+	mixin join(company)
+		ul
+			li 我们 #{company} 需要一帮人
+			li 喜欢前端
+			li 愿意在前端不断学习奋斗的
+			li 你是吗？
+			li 快来加入我们 #{company} 吧 
+	+join("wandoujia")

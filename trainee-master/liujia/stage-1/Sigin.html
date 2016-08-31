@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" href="css/layout.css">
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/control.css">
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/jquery.validate.js"></script>
+		<script type="text/javascript">
+			$().ready(function(){
+				$("#myform").validate();
+			});
+		</script>
+	</head>
+	<body>
+		<header class="header">Bugs Mangagement</header>			
+		<div class="container">	
+			<div class="main">
+				<span class="span">
+					Sign in
+				</span>		
+				<a href="#" class="right top" >Create account</a>
+				<form id="myform" method="post" action="">
+					<div class="div-control">
+						<label class="lable">Email address</label>
+						<input type="text" id="emailAddress" name ="emailAddress" class="input required email" placeholder="Email address">
+					</div>
+					<div class="div-control">
+						<label class="lable">Password</label>
+						<input type="text" id="password" name ="password" class="input required"  placeholder="Password">
+					</div>
+					<div class="div-control">
+						<input type="checkbox" />Remember me
+					</div>
+					<div class="div-control">
+						<button class="button" type="submit" >Sign in</button>				
+						<a href="#" class="right top" >Forgot your password?</a>				
+					</div>	
+				</form>				
+			</div>			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,154 @@
+﻿<div class="container" ng-controller="dashboardController">
+    <input type="hidden" id="userId" />
+    <div class="row">
+        <div class="col-md-12">
+            <h2>
+                Dashboard
+            </h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="project-select">
+                <label class="text-success">Please select:&nbsp;</label>
+            </div>
+            <div class="project-select col-md-2">
+                <select class="form-control" id="projectName" ng-model="seletedId" ng-change="selectChange()">
+                    <option selected='selected' value=''>Select Project</option>
+                    <option ng-selected="projectId==project.Id" ng-repeat="project in projects" value='{{project.Id}}' data-guid="{{project.ProjectGuid}}">{{project.Name}}</option>
+                </select>
+            </div>
+            <a target="_blank" id="projectGuid" ng-bind="projectsName.name" href="{{projectsName.href}}"></a>
+        </div>
+    </div>
+    <div class="card-list">
+        <div class="row">
+            <div class="col-md-2 col-xs-3">
+                <a class="thumbnail img-thumbnail plan-poker-thumbnail" ng-click="selectClick('1')">
+                    <img class="img-responsive" src="../image/1.jpg?v=1" />
+                </a>
+            </div>
+            <div class="col-md-2 col-xs-3">
+                <a class="thumbnail img-thumbnail plan-poker-thumbnail" ng-click="selectClick('2')">
+                    <img class="img-responsive" src="../image/2.jpg?v=1" />
+                </a>
+            </div>
+            <div class="col-md-2 col-xs-3">
+                <a class="thumbnail img-thumbnail plan-poker-thumbnail" ng-click="selectClick('3')">
+                    <img class="img-responsive" src="../image/3.jpg?v=1" />
+                </a>
+            </div>
+            <div class="col-md-2 col-xs-3">
+                <a class="thumbnail img-thumbnail plan-poker-thumbnail" ng-click="selectClick('5')">
+                    <img class="img-responsive" src="../image/5.jpg?v=1" />
+                </a>
+            </div>
+            <div class="col-md-2 col-xs-3">
+                <a class="thumbnail img-thumbnail plan-poker-thumbnail" ng-click="selectClick('8')">
+                    <img class="img-responsive" src="../image/8.jpg?v=1" />
+                </a>
+            </div>
+            <div class="col-md-2 col-xs-3">
+                <a class="thumbnail img-thumbnail plan-poker-thumbnail" ng-click="selectClick('13')">
+                    <img class="img-responsive" src="../image/13.jpg?v=5" />
+                </a>
+            </div>
+            <div class="col-md-2 col-xs-3">
+                <a class="thumbnail img-thumbnail plan-poker-thumbnail" ng-click="selectClick('20')">
+                    <img class="img-responsive" src="../image/20.jpg?v=1" />
+                </a>
+            </div>
+            <div class="col-md-2 col-xs-3">
+                <a class="thumbnail img-thumbnail plan-poker-thumbnail" ng-click="selectClick('40')">
+                    <img class="img-responsive" src="../image/40.jpg?v=1" />
+                </a>
+            </div>
+            <div class="col-md-2 col-xs-3">
+                <a class="thumbnail img-thumbnail plan-poker-thumbnail" ng-click="selectClick('100')">
+                    <img class="img-responsive" src="../image/100.jpg?v=1" />
+                </a>
+            </div>
+            <div class="col-md-2 col-xs-3">
+                <a class="thumbnail img-thumbnail plan-poker-thumbnail" ng-click="selectClick('s')">
+                    <img class="img-responsive" src="../image/s.jpg?v=1" />
+                </a>
+            </div>
+            <div class="col-md-2 col-xs-3">
+                <a class="thumbnail img-thumbnail plan-poker-thumbnail" ng-click="selectClick('m')">
+                    <img class="img-responsive" src="../image/m.jpg?v=1" />
+                </a>
+            </div>
+            <div class="col-md-2 col-xs-3">
+                <a class="thumbnail img-thumbnail plan-poker-thumbnail" ng-click="selectClick('l')">
+                    <img class="img-responsive" src="../image/l.jpg?v=1" />
+                </a>
+            </div>
+            <div class="col-md-2 col-xs-3">
+                <a class="thumbnail img-thumbnail plan-poker-thumbnail" ng-click="selectClick('xs')">
+                    <img class="img-responsive" src="../image/xs.jpg?v=1" />
+                </a>
+            </div>
+            <div class="col-md-2 col-xs-3">
+                <a class="thumbnail img-thumbnail plan-poker-thumbnail" ng-click="selectClick('yes')">
+                    <img class="img-responsive" src="../image/yes.jpg?v=1" />
+                </a>
+            </div>
+            <div class="col-md-2 col-xs-3">
+                <a class="thumbnail img-thumbnail plan-poker-thumbnail" ng-click="selectClick('no')">
+                    <img class="img-responsive" src="../image/no.jpg?v=1" />
+                </a>
+            </div>
+            <div class="col-md-2 col-xs-3">
+                <a class="thumbnail img-thumbnail plan-poker-thumbnail" ng-click="selectClick('unknown')">
+                    <img class="img-responsive" src="../image/unknown.jpg?v=1" />
+                </a>
+            </div>
+            <div class="col-md-2 col-xs-3">
+                <a class="thumbnail img-thumbnail plan-poker-thumbnail" ng-click="selectClick('java')">
+                    <img class="img-responsive" src="../image/java.jpg?v=1" />
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade model-responsive" id="myModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+        <form name="projectnameForm" novalidate>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close"
+                                data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title text-left" id="newModalLabel">
+                            New Project
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="form-group">
+                                <label>Project name</label>
+                                <input type="text" class="form-control" id="projectName" name="projectName" placeholder="Project name" ng-model="project.Name" ng-change="textChange()" ng-minlength="4" repeat-validation="projectName" required>
+                                <span class="text-danger" ng-show="projectnameForm.projectName.$dirty && projectnameForm.projectName.$invalid">
+                                    <span ng-show="projectnameForm.projectName.$error.required">This field is required.</span>
+                                    <span ng-show="projectnameForm.projectName.$error.minlength">This field minlength is four.</span>
+                                </span>
+                                <span class="text-danger" ng-show="isStatus">This projectname is exist.</span>
+                            </div>
+                            <div class="col-md-12 modal-footer">
+                                <button type="button" class="btn btn-default"
+                                        data-dismiss="modal">
+                                    Close
+                                </button>
+                                <button type="button" class="btn btn-success" id="saveProject" ng-disabled="projectnameForm.$invalid" ng-click="saveSubmit()">
+                                    Save
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

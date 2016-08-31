@@ -1,0 +1,14 @@
+﻿<div class="text-center">
+    <nav>
+        <ul class="pagination" ng-show="totalPage>1">
+            <li ng-class="{true:'disabled'}[currentPage==1]"><a href="javascript:void(0);" ng-click="prev()">Previous</a></li>
+            <li ng-repeat="page in pages" ng-class="{true:'active',false:''}[currentPage==page]">
+                <a href="javascript:void(0);" ng-click="getData(page)">{{page}}</a>
+            </li>
+            <li ng-class="{true:'disabled'}[currentPage==totalPage]">
+                <a href="javascript:void(0);" ng-click="next()">Next</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+

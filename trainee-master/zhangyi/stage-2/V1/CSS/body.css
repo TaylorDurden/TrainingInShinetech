@@ -1,0 +1,185 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+header {
+    height: 80px;
+    border-radius: 0px;
+    margin-bottom: 10px;
+    background-color: #5EB85D;
+}
+
+
+.maintext {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.header {
+    background-color: #61B966;
+    height: 80px;
+}
+
+    .header a {
+        font-size: 14px;
+        padding-top: 30px;
+        padding-left: 0px;
+        color: #000;
+    }
+
+.btn-create {
+    margin-top: -35px;
+}
+
+.page-header {
+    margin: 0 0 0 0;
+    padding-bottom: 20px;
+}
+
+.paging {
+    margin-top: 20px;
+}
+
+.navigation {
+    border: 2px solid #E6E6E6;
+    height: 530px;
+    border-radius: 5px;
+    width: 195px;
+}
+
+.li-hight-light {
+    background-color: #61B966;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.div-register {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.div-sign-in {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.content-Register {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border: 2px solid #E6E6E6;
+    margin-top: 12px;
+    border-radius: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.content-sign-in {
+    margin-left: auto;
+    margin-right: auto;
+    width: 45%;
+    border: 2px solid #E6E6E6;
+    margin-top: 12px;
+    border-radius: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.content {
+    margin-bottom: 20px;
+}
+
+.panel {
+    padding: 0;
+    margin: 10px 0 10px;
+    border-radius: 5px;
+    border: solid 3px #61B966;
+    background-color: #E3E4E6;
+    width: 24%;
+    margin-left: 12px;
+}
+
+.panel-most-left {
+    margin-left: 0px;
+}
+
+.panel-heading {
+    padding: 5px 5px;
+    color: #fff !important;
+    background-color: #61B966 !important;
+}
+
+.panel-title {
+    font-size: 14px;
+}
+
+.panel-body {
+    background-color: #fff;
+    margin: 8px;
+    padding: 10px 10px 5px 5px;
+    line-height: 2em;
+}
+
+.modal-content {
+    width: 800px;
+    padding: 0;
+}
+
+    .modal-content label {
+        margin-left: 0px;
+        font-weight: bold;
+    }
+
+.modal-add-user {
+    width: 120%;
+}
+
+.modal-body-content {
+    margin-bottom: 20px;
+}
+
+.content-header {
+    margin-top: 40px;
+}
+
+.a-sign-in {
+    padding-top: 10px;
+}
+
+.error{
+    color:red;
+}
+
+.modal-body-right{
+    width: 33%;
+    margin: 20px 0;
+    border-radius: 5px;
+    border: solid 3px #dedede;
+}
+
+.btn-dropdown{
+    width:100%;
+    height:35px;
+    border-radius: 4px;
+    margin-top:4px;
+    margin-bottom:4px;
+}
+
+.modal-btn-right{
+    width:100%;
+    height:35px;
+    margin-top:4px;
+    margin-bottom:4px;
+}
+
+.text-left-operation{
+    margin-top:24px;
+}
+
+.dropdown-selected a{
+    font-weight: bold;
+    color: #000;
+    margin-bottom:16px;
+}

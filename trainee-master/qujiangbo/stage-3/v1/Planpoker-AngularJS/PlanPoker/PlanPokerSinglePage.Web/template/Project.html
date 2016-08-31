@@ -1,0 +1,110 @@
+﻿<div class="container" ng-controller="projectController">
+    <input type="hidden" id="userId" />
+    <div class="row">
+        <div class="page-header page-header-minheight">
+            <div class="input-group col-md-6 input-group-search">
+                <input type="text" class="form-control" id="projectSearch" ng-model="Name" placeholder="Input any text you want to search...">                
+            </div>
+        </div>
+        <table class="table table-responsive table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>ProjectName</th>
+                    <th>Operations</th>
+                </tr>
+            </thead>
+            <tbody id="projectList">
+                <tr ng-repeat="project in projects  | pageStartFrom: curPage * pageSize | limitTo: pageSize | filter:Name">
+                    <td><span ng-bind="project.Id"></span></td>
+                    <td><span ng-bind="project.Name"></span></td>
+                    <td>
+                        <a href="" data-toggle="modal" data-target="#editModal" class="projectEdit" ng-click="editProject(project)">Edit </a>
+                        <a href="" data-toggle="modal" data-target="#deleteModal" class="projectDelete" ng-click="deleteProject(project)">Delete</a>
+                    </td>
+                </tr>
+                <tr class="text-center">
+                    <td colspan="3">
+                        <button ng-click="curPage = 0" ng-disabled="curPage == 0">Home</button>
+                        <button ng-click="curPage = curPage - 1" ng-disabled="curPage <= 0">Previous</button>
+                        Current <span ng-bind="curPage + 1"></span> pages
+                        <button ng-click="curPage = curPage + 1" ng-disabled="curPage >= pageCount">Next</button>
+                        <button ng-click="curPage = pageCount" ng-disabled="curPage == pageCount">End</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="modal fade model-responsive" id="editModal" tabindex="-1" role="dialog"
+         aria-labelledby="editModalLabel" aria-hidden="true">
+        <form name="projectnameForm">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close"
+                                data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title text-left" id="editModalLabel">
+                            Edit Project
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="form-group">
+                                <label>Project name</label>
+                                <input type="text" class="form-control" id="ProName" name="ProName" placeholder="Project name" ng-model="project.Name" ng-change="textChange()" ng-minlength="4" repeat-validation="projectName" required>
+                                <span class="text-danger" ng-show="projectnameForm.ProName.$dirty && projectnameForm.ProName.$invalid">
+                                    <span ng-show="projectnameForm.ProName.$error.required">This field is required.</span>
+                                    <span ng-show="projectnameForm.ProName.$error.minlength">This field minlength is four.</span>
+                                </span>
+                                <span class="text-danger" ng-show="isStatus">This projectname is exist.</span>
+
+                            </div>
+                            <div class="col-md-12 modal-footer">
+                                <button type="button" class="btn btn-default"
+                                        data-dismiss="modal">
+                                    Close
+                                </button>
+                                <button type="button" class="btn btn-success" id="saveProject" ng-disabled="projectnameForm.$invalid" ng-click="editProjects()">
+                                    Save
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal fade model-responsive" id="deleteModal" tabindex="-1" role="dialog"
+         aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content col-md-6 modal-content-other">
+                <div class="modal-header">
+                    <button type="button" class="close"
+                            data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title text-left" id="deleteModalLabel">
+                        Delete project
+                    </h4>
+                </div>
+                <div class="modal-body modal-body-delete">
+                    <p>
+                        Are you sure to delete this project name?
+                    </p>
+                    <input type="hidden" id="deleteprojectId" />
+                </div>
+                <div class="col-md-12 modal-footer">
+                    <button type="button" class="btn btn-default"
+                            data-dismiss="modal">
+                        No
+                    </button>
+                    <button type="button" data-dismiss="modal" class="btn btn-success" id="deleteProject" ng-click="deleteProjects()">
+                        Yes
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

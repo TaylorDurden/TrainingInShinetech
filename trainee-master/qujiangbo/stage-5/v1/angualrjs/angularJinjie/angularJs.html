@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>angularJs进阶</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <script src="../angular-1.4.0/angular.min.js"></script>
+    <script src="angualrJs.js"></script>
+    <style type="text/css">
+        .tx{
+            width: 30px;
+            height: 40px;
+            margin:10px;
+        }
+    </style>
+</head>
+<body>
+<div style="padding: 10px;">
+    <div style=" font-size: 24px;color: #3e8f3e">------------------------------------------angularjs基本绑定----------</div>
+    <div ng-controller="MyCtrl">
+        <input type="text" ng-model="msg"/>
+        <h1>{{msg}}</h1>
+        <h1 ng-clock class="ng-clock">{{msg}}</h1>
+    </div>
+    <!--ng-bind 和{{}}的使用-->
+    <div style=" font-size: 24px;color: #3e8f3e">------------------------------------------ng-bind 和{{}}的使用----------</div>
+    <div>
+        <input type="text" ng-model="uname"/>
+        <h1>{{uname}}</h1>
+        <!--<div>用户名：{{uname}}</div>-->
+        <div class="{{uname}}" ng-bind="'用户名：'+uname"></div>
+    </div>
+    <!--ng-bind 和{{}}的使用-->
+    <!--Controllers的使用 作用域-->
+    <div style=" font-size: 24px; color: #3e8f3e">------------------------------------------Controllers的使用 作用域----------</div>
+    <div ng-controller="FirstCtrl">
+        <input type="text" ng-model="msg"/>
+        <!--<h1>{{msg}}</h1>-->
+        <h1 ng-bind="msg"></h1>
+        <div ng-controller="SecondCtrl">
+            <input type="text" ng-model="msg"/>
+            <h1 ng-bind="msg"></h1>
+        </div>
+    </div>
+    <!--Controllers的使用-->
+
+    <!--$scope中变量和方法的使用-->
+    <div style=" font-size: 24px; color: #3e8f3e">------------------------------------------$scope中变量和方法的使用----------</div>
+    <div ng-controller="ThirdCtrl">
+        <div style=" font-size: 24px; color: #3e8f3e">-----------简单的字符串反转----------</div>
+        <input type="text" ng-model="msg"/>
+        <h1 ng-bind="reverse()"></h1>
+        <div style=" font-size: 24px; color: #3e8f3e">-----------复杂的登陆----------</div>
+        <input type="text" ng-model="user.uname"/><br/>
+        <input type="text" ng-model="user.pwd"/>
+        <div style="width:30px;height: 30px; background-color: #00c8ef; text-align: center;" ng-click="login()">登陆</div>
+        <div ng-show="errormsg.length>0" ng-bind="errormsg" style="width:100px;height: 30px; background-color: #00c8ef; text-align: center;"></div>
+    </div>
+    <!--AngularJS 进阶- Services 与指令的使用-->
+    <div style=" font-size: 24px; color: #3e8f3e">------------------------------------------AngularJS 进阶- Services
+        四中创建模式 与指令的使用----------</div>
+    <div ng-controller="ServicesCtrl">
+        <div style=" font-size: 24px; color: #3e8f3e">----------------------value 方法</div>
+        <h1>{{realname}}</h1>
+        <div style=" font-size: 24px; color: #3e8f3e">----------------------constant 方法</div>
+        <h1 ng-bind="http"></h1>
+        <div style=" font-size: 24px; color: #3e8f3e">----------------------factory 方法</div>
+        <h1 ng-bind="model.msg"></h1>
+        <!--<h1 ng-bind="model.setMsg()"></h1>-->
+        <div style=" font-size: 24px; color: #3e8f3e">----------------------service 方法</div>
+        <h1 ng-bind="user"></h1>
+    </div>
+    <!--AngularJS 进阶- ng-repeat 指令的使用-->
+    <div style=" font-size: 24px; color: #3e8f3e">------------------------------------------AngularJS 进阶- ng-repeat 指令的使用----------</div>
+    <div ng-controller="AddressCtrl">
+        <div>地址管理</div>
+        <ul>
+            <li ng-repeat=" item in list" ng-if="!$last">
+                {{$index+1+'.'+item.address+' '+$first+' '+$last}}
+            </li>
+        </ul>
+    </div>
+    <!--AngularJS 进阶- 常用指令的使用-->
+    <div style=" font-size: 24px; color: #3e8f3e">------------------------------------------AngularJS 进阶-常用指令的使用----------</div>
+    <div ng-controller="NormalCtrl">
+        <input type="text" placeholder="用户名" ng-bind="user.uname"/>
+        <input type="password" placeholder="密码"/><br/>
+        <img ng-src="{{user.icon}}" ng-class="{'tx':user.showicon}"
+             ng-if="user.isshow" alt=""/><br/>
+        职位：
+        <select>
+            <option value="">--请选择--</option>
+            <option value="1" ng-selected="user.zw=='1'">Java工程师</option>
+            <option value="2" ng-selected="user.zw=='2'">.NET工程师</option>
+        </select><br/>
+        性别：
+        <input type="radio" name="sex" ng-disabled="user.sex=='1'"
+                ng-checked="user.sex=='1'"/>&nbsp;男&nbsp;
+        <input type="radio" name="sex" ng-disabled="user.sex=='0'"
+               ng-checked="user.sex=='0'"/>&nbsp;女 <br/>
+        爱好:
+        <input type="checkbox" ng-checked="isChecked(1)"/>&nbsp;篮球&nbsp;
+        <input type="checkbox" ng-checked="isChecked(2)"/>&nbsp;足球&nbsp;
+        <input type="checkbox" ng-checked="isChecked(3)"/>&nbsp;排球
+    </div>
+	<form ng-controller="validationController" name="mainForm" novalidate>
+	     <p>Email:
+	         <input type="email" name="email" ng-model="email" required>
+	         <span style="color:red" ng-show="mainForm.email.$dirty && mainForm.email.$invalid">
+	             <span ng-show="mainForm.email.$error.required">Email is required.</span>
+	             <span ng-show="mainForm.email.$error.email">Invalid email address.</span>
+	         </span>
+	     </p>
+	     <p>
+	         <input type="submit" ng-disabled="mainForm.$invalid">
+	     </p>
+	 </form>
+	 <div ng-controller="ExampleController">
+	 	
+		 <form name="myForm">
+		    <div class="form-group">
+		        <label for="">User name:</label>
+		        <input type="text" class="form-control" name="userName" ensure-unique="username" ng-model="user.name" required>
+		        <span class="error" ng-show="myForm.userName.$error.unique">Required!</span>
+		    </div>
+		    <div class="form-group">
+		        <label for="">Last name:</label>
+		        <input type="text" class="form-control" name="lastName" ng-model="user.last" ng-minlength="3" ng-maxlength="10">
+		        <span class="error" ng-show="myForm.lastName.$error.minlength">Too short!</span>
+		        <span class="error" ng-show="myForm.lastName.$error.maxlength">Too long!</span>
+		    </div>
+		    <div class="form-group">
+		        <label for="">User age:</label>
+		        <input type="text" class="form-control" name="userAge" ng-model="user.age" even required>
+		        <span class="error" ng-show="myForm.userAge.$error.even">数字必须是偶数</span>
+		    </div>
+		</form>
+	 </div>
+     <div ng-controller="bindValCtrl">
+         <a target="_blank" ng-bind="students.name" href="{{students.link}}"></a>
+     </div>
+     <div ng-controller="factorialResult">
+         <form>
+             <!--<input type="text" ng-model="factorial.number" ng-change="compute()"/>-->
+             <input type="text" ng-model="factorial.number" />
+             <span>{{factorial.result}}</span>
+
+             <button ng-click="reset()"></button>
+         </form>
+     </div>
+     <div ng-controller="NavController">
+         <span ng-click="dosomething()">A</span>
+     </div>
+     <div ng-controller="ContentController">
+         <span ng-click="dosomething()">B</span>
+     </div>
+     <div ng-controller="StudentController">
+        <style type="text/css">
+            li.cur {
+              background:#C0DCC0
+            }
+          </style>
+         <ul>   
+         <li ng-repeat="student in students" ng-class="{cur:$index==selRow}" ng-click="choose($index)">
+             <span >{{$index+1}}</span>
+             <span >{{student.id}}</span>
+             <span >{{student.name}}</span>
+             <span >{{student.score}}</span>
+         </li>
+         </ul>
+         <button ng-click="insertDog()">add</button>
+         <button ng-click="del()">delete</button>
+     </div>
+     <div ng-controller="focusController">
+         <br/>
+         <button ng-click="nofocus()">have no focus</button>
+         <br/>
+         <br/>
+         <button myautofocus ng-click="hasfocus()">have foucs</button>
+         <br/>
+         <br/>
+         <span>{{text}}</span>
+     </div>
+</div>
+</body>
+</html>

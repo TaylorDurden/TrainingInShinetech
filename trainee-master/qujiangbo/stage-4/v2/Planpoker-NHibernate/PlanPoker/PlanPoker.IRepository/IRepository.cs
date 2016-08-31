@@ -1,0 +1,28 @@
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace PlanPoker.IRepository
+{
+    public interface IRepository<T> where T : class
+    {
+        void Create(T model);
+        void Delete(object id);
+        void Edit(T model);
+        IList<T> Query();
+        T Get(object id);
+
+        //void Create(T model);
+        //void Delete(int id);
+        //void Edit(T model);
+        //IQueryable<T> Query();
+        //T Get(int id);
+
+        //void Create(T entity);
+        //void Delete(T entity);
+        //void Edit(T entity);
+        //void SaveOrUpdate(T entity);
+        //IQueryable<T> Query();
+        //T Get(object id);
+
+    }
+}

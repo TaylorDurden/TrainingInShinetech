@@ -1,0 +1,58 @@
+﻿<header>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#/login">
+                    <b>Plan Poker</b>
+                </a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#/estimate/true/" target="_blank">Estimate</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="container" ng-controller="loginController">
+    <div class="plan-poker-box col-md-6">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="pull-left">Login</h2>
+                <a class="pull-right create-account-link" href="#/register">Creat account</a>
+            </div>
+        </div>
+        <form id="signinForm" name="signinForm">
+            <div class="form-group">
+                <label>User name</label>
+                <input type="text" class="form-control" id="username" name="username" ng-model="user.username" placeholder="User name" required>
+                <span class="tips" ng-show="signinForm.username.$dirty && signinForm.username.$invalid">
+                    <span ng-show="signinForm.username.$error.required">Username is required.</span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" id="password" name="password" ng-model="user.password" placeholder="Password" required>
+                <span class="tips" ng-show="signinForm.password.$dirty && signinForm.password.$invalid">
+                    <span ng-show="signinForm.password.$error.required">Password is required.</span>
+                </span>
+            </div>
+            <div class="form-group form-inline">
+                <button type="button" class="btn btn-success" id="signIn" ng-click="login()" ng-disabled="signinForm.username.$invalid || signinForm.password.$invalid">Sign in</button>
+                <a id="forgot" class="pull-right" href="">Forgot password</a>
+                <label id="signinErrorTips" class="error">{{signinErrorTips}}</label>
+            </div>
+        </form>
+    </div>
+</div>

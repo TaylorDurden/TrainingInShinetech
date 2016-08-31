@@ -1,0 +1,183 @@
+﻿<header>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- ReSharper disable once Html.IdNotResolved -->
+                <a class="navbar-brand" href="#dashboard">
+                    <b>Plan Poker</b>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li ng-show="isProjectShow"><a href="" data-toggle="modal" data-target="#createModal">New Project</a></li>
+                    <li ng-show="isSettingsShow" class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Settings <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <!-- ReSharper disable once Html.IdNotResolved -->
+                            <li><a href="#profile">My Profile</a></li>
+                            <!-- ReSharper disable once Html.IdNotResolved -->
+                            <li><a href="#project">My Project</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a ng-click="removeCookie()">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="container" ng-controller="projectController" ng-init="getAllProjects()">
+    <input type="hidden" id="userId" />
+    <div class="row">
+        <div class="page-header page-header-minheight">
+            <div class="input-group col-md-6 input-group-search">
+                <input type="text" class="form-control" id="projectSearch" ng-model="Name" placeholder="Input any text you want to search...">
+            </div>
+        </div>
+        <table class="table table-responsive table-bordered">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>ProjectName</th>
+                <th>Operations</th>
+            </tr>
+            </thead>
+            <tbody id="projectList">
+            <tr ng-repeat="project in projects | pageStartFrom: curPage * pageSize | limitTo: pageSize | filter:Name">
+                <td><span ng-bind="project.Id"></span></td>
+                <td><span ng-bind="project.Name"></span></td>
+                <td>
+                    <a href="" data-toggle="modal" data-target="#editModal" class="projectEdit" ng-click="editProject(project)">Edit </a>
+                    <a href="" data-toggle="modal" data-target="#deleteModal" class="projectDelete" ng-click="deleteProject(project)">Delete</a>
+                </td>
+            </tr>
+            <tr class="text-center">
+                <td colspan="3">
+                    <button ng-click="curPage = 0" ng-disabled="curPage == 0">Home</button>
+                    <button ng-click="curPage = curPage - 1" ng-disabled="curPage <= 0">Previous</button>
+                    Current <span ng-bind="curPage + 1"></span> pages
+                    <button ng-click="curPage = curPage + 1" ng-disabled="curPage >= pageCount">Next</button>
+                    <button ng-click="curPage = pageCount" ng-disabled="curPage == pageCount">End</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="modal fade model-responsive" id="createModal" tabindex="-1" role="dialog"
+         aria-labelledby="createModalLabel" aria-hidden="true">
+        <form name="projectNameCreateForm" novalidate>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close createClose"
+                                data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title text-left" id="createModalLabel">
+                            New Project
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="form-group">
+                                <label>Project name</label>
+                                <input type="text" class="form-control" name="projectName" placeholder="Project name" ng-model="project.Name" ng-change="changeCreateProjectName()" ng-minlength="4" repeat-validation="projectName" required>
+                                <span class="text-danger" ng-show="projectNameCreateForm.projectName.$dirty && projectNameCreateForm.projectName.$invalid">
+                                    <span ng-show="projectNameCreateForm.projectName.$error.required">This field is required.</span>
+                                    <span ng-show="projectNameCreateForm.projectName.$error.minlength">This field minlength is four.</span>
+                                </span>
+                                <span class="text-danger" ng-show="isStatus">This projectname is exist.</span>
+                            </div>
+                            <div class="col-md-12 modal-footer">
+                                <button type="button" class="btn btn-default"
+                                        data-dismiss="modal">
+                                    Close
+                                </button>
+                                <button type="button" class="btn btn-success" id="createProject" ng-disabled="projectNameCreateForm.$invalid" ng-click="createProject()">
+                                    Save
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal fade model-responsive" id="editModal" tabindex="-1" role="dialog"
+         aria-labelledby="editModalLabel" aria-hidden="true">
+        <form name="projectNameEditForm">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close editClose"
+                                data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title text-left" id="editModalLabel">
+                            Edit Project
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="form-group">
+                                <label>Project name</label>
+                                <input type="text" class="form-control" id="ProName" name="ProName" placeholder="Project name" ng-model="project.Name" ng-change="changeEditProjectName()" ng-minlength="4" repeat-validation="projectName" required>
+                                <span class="text-danger" ng-show="projectNameEditForm.ProName.$dirty && projectNameEditForm.ProName.$invalid">
+                                    <span ng-show="projectNameEditForm.ProName.$error.required">This field is required.</span>
+                                    <span ng-show="projectNameEditForm.ProName.$error.minlength">This field minlength is four.</span>
+                                </span>
+                                <span class="text-danger" ng-show="isStatus">This projectname is exist.</span>
+                            </div>
+                            <div class="col-md-12 modal-footer">
+                                <button type="button" class="btn btn-default"
+                                        data-dismiss="modal">
+                                    Close
+                                </button>
+                                <button type="button" class="btn btn-success" id="editProject" ng-disabled="projectNameEditForm.$invalid" ng-click="editProjects()">
+                                    Save
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal fade model-responsive" id="deleteModal" tabindex="-1" role="dialog"
+         aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content col-md-6 modal-content-other">
+                <div class="modal-header">
+                    <button type="button" class="close"
+                            data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title text-left" id="deleteModalLabel">
+                        Delete project
+                    </h4>
+                </div>
+                <div class="modal-body modal-body-delete">
+                    <p>
+                        Are you sure to delete this project name?
+                    </p>
+                    <input type="hidden" id="deleteprojectId" />
+                </div>
+                <div class="col-md-12 modal-footer">
+                    <button type="button" class="btn btn-default"
+                            data-dismiss="modal">
+                        No
+                    </button>
+                    <button type="button" data-dismiss="modal" class="btn btn-success" id="deleteProject" ng-click="deleteProjects()">
+                        Yes
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

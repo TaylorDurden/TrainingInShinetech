@@ -1,0 +1,83 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body a {
+    color: #5bb85d;
+    font-size: 0.5em;
+}
+body .btn-primary {
+    background-color: #5bb85d;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    /*max-width: 280px;*/
+}
+
+#title-bar {
+    background-color: #5bb85d;
+    border-color: #5bb85d;
+}
+
+#title-bar h1 {
+    margin-left: 21%;
+    color: #253b24;
+    padding-bottom: 10px;
+}
+
+#login-register {
+    margin: 40px 0 25px 0;
+}
+#login-register h2 {
+    margin: 20px 0 15px 0;
+}
+#login-register .form-control {
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+.check {
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.form-inline a {
+    margin-top: 2%;
+}
+
+.body-content {
+    margin-top: 45px;
+    border: solid;
+    border-color: #e5e5e5;
+    width: 30%;
+    margin-left: 35%;
+    border-radius: 5px;
+}
+
+.navigator {
+    border: solid;
+    border-color: #e7e7e7;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.panel {
+    margin: 5px;
+}

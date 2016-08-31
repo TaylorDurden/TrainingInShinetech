@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Register - Plan Poker</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/bootstrap.css" rel="stylesheet"/>
+    <link href="../css/style.css" rel="stylesheet"/>
+
+    <script src="../scripts/angular.js"></script>
+
+    <!--<script src="../scripts/spin.min.js?v=1"></script>
+    <script src="../scripts/customSpin.js?v=1"></script>-->
+    <script src="../scripts/apiPath.js?v=1"></script>
+    <script src="../scripts/ng_module.js?v=1"></script>
+    <script src="../scripts/user/userController.js?v=1"></script>
+    <script src="../scripts/user/userService.js?v=1"></script>
+    <script src="../scripts/user/userValidating.js?v=1"></script>
+</head>
+<body ng-app="myApp">
+<header>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="Dashboard.html">
+                    <b>Plan Poker</b>
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="container" ng-controller="userController">
+    <div class="plan-poker-box col-md-6">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Create Account</h2>
+            </div>
+        </div>
+        <form id="signupForm" name="signupForm" enctype="multipart/form-data">
+            <div class="form-group">
+                <label>User name</label>
+                <input type="text" class="form-control" id="username" name="username" ng-model="username" placeholder="User name" ng-minlength="4" ng-maxlength="10" required/>
+                <span style="color: red" ng-show="signupForm.username.$dirty && signupForm.username.$invalid">
+                        <span ng-show="signupForm.username.$error.required">Username is required.</span>
+                        <span ng-show="signupForm.username.$error.minlength">Username must more than 4 characters.</span>
+                        <span ng-show="signupForm.username.$error.maxlength">Username must less than 10 characters.</span>
+                    </span>
+            </div>
+            <div class="form-group">
+                <label>Password</label><label id="passstrength" class="pull-right"></label>
+                <input type="password" class="form-control" id="password" name="password" ng-model="password" placeholder="Password" ng-minlength="6" ng-maxlength="8" required>
+                <span style="color: red" ng-show="signupForm.password.$dirty && signupForm.password.$invalid">
+                        <span ng-show="signupForm.password.$error.required">Password is required.</span>
+                        <span ng-show="signupForm.password.$error.minlength">Password must more than 6 characters.</span>
+                        <span ng-show="signupForm.password.$error.maxlength">Password must less than 8 characters.</span>
+                    </span>
+            </div>
+            <div class="form-group">
+                <label>Confirm password</label>
+                <input type="password" class="form-control" id="1confirmPassword" name="confirmPassword" pw-Check="password" ng-model="confirmPassword" placeholder="Confirm password" ng-minlength="6" ng-maxlength="8" required>
+                <span style="color: red" ng-show="signupForm.confirmPassword.$dirty && signupForm.confirmPassword.$invalid">
+                        <span ng-show="signupForm.confirmPassword.$error.required">Password is required.</span>
+                        <span ng-show="signupForm.confirmPassword.$error.minlength">Password must more than 6 characters.</span>
+                        <span ng-show="signupForm.confirmPassword.$error.maxlength">Password must less than 8 characters.</span>
+                    </span>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-control" id="email" name="email" ng-model="email" placeholder="Email" ng-pattern="/^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/">
+            </div>
+            <div class="form-group">
+                <label>User picture</label>
+                <div>
+                    <!--<img id="userPicture" class="img-responsive" src="../upload/user.png" ng-click="" ng-model="image" ng-src="{{image}}" alt="User Picture"/>-->
+                    <img id="userPicture" class="img-responsive" src="../upload/user.png" ng-click="triggerInput()" ng-src="image" ng-model="image" alt="Image"/>
+                    <input type="file" id="imgUpload" ng-model="input" name="imgUpload"/>
+                    <label id="userPictureError" class="error"></label>
+                </div>
+            </div>
+            <div class="form-group form-inline">
+                <button id="btnSubmit" type="button" class="btn btn-success" ng-click="create()" ng-disabled="signupForm.username.$invalid || signupForm.password.$invalid || signupForm.confirmPassword.$invalid || signupForm.email.$invalid">Save</button>
+                <a id="login" class="pull-right" href="Login.html">Login</a>
+                <label id="signupErrorTips" class="error"></label>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+
+</html>

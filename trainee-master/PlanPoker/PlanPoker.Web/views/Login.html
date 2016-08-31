@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - Plan Poker</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/bootstrap.css" rel="stylesheet" />
+    <link href="../css/style.css?v=5" rel="stylesheet"/>
+    <script src="../scripts/js.cookie.js?v=5"></script>
+    <script src="../scripts/jquery-1.10.2.js?v=5"></script>
+    <script src="../scripts/jquery.validate.js?v=5"></script>
+    <script src="../scripts/common.js?v=5"></script>
+    <script src="../scripts/bootstrap.js?v=5"></script>
+    <script src="../scripts/spin.min.js?v=5"></script>
+    <script src="../scripts/customSpin.js?v=5"></script>
+    <script src="../scripts/apiPath.js?v=5"></script>
+    <script src="../scripts/login.js?v=5"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="Dashboard.html">
+                        <b>Plan Poker</b>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="plan-poker-box col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="pull-left">Login</h2>
+                        <a class="pull-right create-account-link" href="Register.html">Creat account</a>
+                    </div>
+                </div>
+                <form id="signinForm">
+                    <div class="form-group">
+                        <label>User name</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="User name">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                    </div>
+                    <div class="form-group form-inline">
+                        <button type="button" class="btn btn-success" id="signIn">Sign in</button>
+                        <a id="forgot" class="pull-right" href="#">Forgot password</a>
+                        <label id="signinErrorTips" class="error"></label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

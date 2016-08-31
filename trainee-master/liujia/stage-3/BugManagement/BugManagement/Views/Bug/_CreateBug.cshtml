@@ -1,0 +1,139 @@
+﻿@model BugManagement.Models.BugViewModel
+@{
+    Layout = null;
+}
+
+<div class="modal fade" id="myCreateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog width-half">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    New Bugs
+                </h4>
+            </div>
+            @using (Html.BeginForm("Create", "Bug", FormMethod.Post, new { role = "form", id = "myform", enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="modal-body" style="min-height:600px;">
+                    <div class="row col-md-8">
+                        <div class="form-group">
+                            <label for="title">Title:</label>
+                            @Html.TextBoxFor(m => m.Title, new { @class = "form-control required" })
+                        </div>
+                        <div class="form-group">
+                            <label for="summary">Summary</label>
+                            @Html.TextAreaFor(m => m.Smmary, new { @class = "form-control required", row = "3" })
+                        </div>
+                        <div class="form-group">
+                            <label for="Description">Description</label>
+                            @Html.TextAreaFor(m => m.Description, new { @class = "form-control required", row = "3" })
+                        </div>
+                        <div class="form-group">
+                            <label for="Type">Type:</label>
+                            @Html.DropDownListFor(m => m.Type, ViewBag.TypeList as IEnumerable<SelectListItem>, new { @class = "form-control required" })
+                        </div>
+                        <div class="form-group">
+                            <label for="Project">Project:</label>
+                            @Html.DropDownListFor(m => m.ProjectId, ViewBag.ProjectList as IEnumerable<SelectListItem>, new { @class = "form-control required" })
+                        </div>
+                    </div>
+                    <div class="row col-md-4 pull-right model-bolder">
+                        <div class="form-group div-margin-top">
+                            <label for="add">Add:</label>
+                        </div>
+                        <div class="form-group">
+                            <div class="btn-group width-all">
+                                <button type="button" id="selectDevelopers" class="btn btn-success dropdown-toggle width-all"
+                                        data-toggle="dropdown">
+                                    Developers<span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu SelectDeveloper">                                    
+                                </ul>
+                                <ul class="hide SelectDeveloperhide">
+                                    @{
+                                        var developerList = ViewBag.DeveloperList as IEnumerable<SelectListItem>;
+                                        foreach (var developer in developerList)
+                                        {
+                                            <li><a href="#" data-id="@developer.Value" onclick="developerSelect(this,'@developer.Value')">@developer.Text</a></li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                            <div>
+                                <span id="showSelectDeveloper"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @*<div class="btn-group width-all">
+                                <button type="button" id="attachment" class="btn btn-success dropdown-toggle width-all"
+                                        data-toggle="dropdown">
+                                    
+                                </button>
+                                <input type="file" class="hide" id="attachmentUpload" />
+                                    <label id="attachmentError" class="text-danger"></label>
+                                    <span id="showAttachment"></span>
+                            </div>*@
+                            <div class="btn-group width-all">
+                                <span id="uploadify"></span>
+                            </div>
+                            <div>
+                                <span id="showSelectDocument"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Project">Operations:</label>
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-success width-all">Copy</button>
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-success width-all">Delete</button><br>
+                        </div>
+                        <div class="form-group">
+                            <div class="btn-group width-all">
+                                <button type="button" id="changeStatus" class="btn btn-success dropdown-toggle width-all"
+                                        data-toggle="dropdown">
+                                    Change status<span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    @{
+                                        var statusList = ViewBag.StatusList as IEnumerable<SelectListItem>;
+                                        foreach (var status in statusList)
+                                        {
+                                            <li><a href="#" onclick="statusOnchange('@status.Value')">@status.Text</a></li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="status">status:</label>
+                            <label id="showStatus"></label>
+                        </div>
+                        <div class="form-group">
+                            <label for="CreateTime">Create time:</label>
+                            <label id="showCreateTime"></label>
+                        </div>
+                        <div class="form-group">
+                            <label for="Project">Owner:</label>
+                            <label id="showCreator"></label>
+                        </div>
+                    </div>
+                    @Html.HiddenFor(m => m.Status)
+                    @Html.HiddenFor(m => m.Createtime)
+                    @Html.HiddenFor(m => m.BugId)
+                    @Html.HiddenFor(m => m.Creator)
+                    @Html.HiddenFor(m => m.strDevelopers)
+                    @Html.HiddenFor(m => m.strDocuments)
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" id="btnSave" class="btn btn-success">Save</button>
+                </div>
+                                        }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,70 @@
+﻿<div ng-controller="profileController" ng-init="onProfileInit()">
+    <div class="container">
+        <div class="plan-poker-box col-md-6">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>My Profile</h2>
+                </div>
+            </div>
+            <form name="profileForm" novalidate>
+                <div class="form-group">
+                    <label>User name</label>
+                    <input type="text" class="form-control" id="username" name="username" ng-model="user.UserName" placeholder="User name" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" id="password" ng-model="user.Password" name="password" placeholder="Password" required />
+                    <span class="error" ng-show="profileForm.password.$dirty && profileForm.password.$invalid">
+                        <span ng-show="profileForm.password.$error.required">Password is required.</span>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label>Confirm password</label>
+                    <input type="password" pw-check="password" class="form-control" id="confirmPassword" ng-model="user.comfirmpassword" name="confirmPassword" placeholder="Confirm password" required />
+                    <span class="error" ng-show="profileForm.confirmPassword.$dirty && profileForm.confirmPassword.$invalid">
+                        <span ng-show="profileForm.confirmPassword.$error.required">Password is required.</span>
+                        <span ng-show="profileForm.confirmPassword.$error.pwmatch">Confirm is not equeal with password</span>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control" id="email" ng-model="user.Email" name="email" placeholder="Email" required />
+                    <span class="error" ng-show="profileForm.email.$dirty && profileForm.email.$invalid">
+                        <span ng-show="profileForm.email.$error.required">Email is required.</span>
+                        <span ng-show="profileForm.email.$error.email">Invalid email address.</span>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label>User picture</label>
+                    <div>
+                        <img class="img-responsive img-user" ng-src="{{user.Image}}" alt="User Picture" />
+                        <input type="file" id="imgUpload" accept="image/*" file-reader ng-model="user.Image" />
+                        <label id="userPictureError" class="error"></label>
+                    </div>
+                </div>
+                <div class="form-group form-inline">
+                    <button id="btnSubmit" class="btn btn-success" ng-disabled="profileForm.$invalid"
+                            ng-click="onModify()" disabled="disabled">
+                        Save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div ng- class="modal fade model-responsive bs-example-modal-sm" id="updateProfileModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Update Success</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Your profile has been updated!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" ng-click="redirectToDashboard()" class="btn btn-success" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

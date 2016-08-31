@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Project</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/bootstrap.css" rel="stylesheet" />
+    <link href="../css/style.css?v=5" rel="stylesheet" />
+    <script src="../scripts/jquery-1.10.2.js?v=5"></script>
+    <script src="../scripts/bootstrap.js?v=5"></script>
+    <script src="../scripts/js.cookie.js?v=5"></script>
+    <script src="../scripts/common.js?v=5"></script>
+    <script src="../scripts/project.js?v=5"></script>
+    <script src="../scripts/apiPath.js?v=5"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="Dashboard.html">
+                        <b>Plan Poker</b>
+                    </a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Settings <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="Profile.html">My Profile</a></li>
+                                <li><a href="Project.html">My Project</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a id="logout" href="Login.html">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <input type="hidden" id="userId" />
+        <div class="row">
+            <div class="page-header page-header-minheight">
+                <div class="input-group col-md-6 input-group-search">
+                    <input type="text" class="form-control" id="projectSearch" placeholder="Input any text you want to search...">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-success btn-search">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </button>
+                    </span>
+                </div>
+            </div>
+            <table class="table table-responsive table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>ProjectName</th>
+                        <th>Operations</th>
+                    </tr>
+                </thead>
+                <tbody id="projectList">                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal fade model-responsive" id="editModal" tabindex="-1" role="dialog"
+         aria-labelledby="editModalLabel" aria-hidden="true">
+        <form action="/" method="post">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close"
+                                data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title text-left" id="editModalLabel">
+                            Edit Project
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="form-group">
+                                <label>Project name</label>
+                                <input type="text" class="form-control" id="ProName" name="ProName" placeholder="Project name">
+                                <input type="hidden" class="form-control" id="oldProName" name="oldProName" placeholder="Project name">
+                                <input type="hidden" id="projectId" />
+                                <label id="projecthint" class="text-danger"></label>
+                            </div>
+                            <div class="col-md-12 modal-footer">
+                                <button type="button" class="btn btn-default"
+                                        data-dismiss="modal">
+                                    Close
+                                </button>
+                                <button type="button" class="btn btn-success" id="saveProject">
+                                    Save
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal fade model-responsive" id="deleteModal" tabindex="-1" role="dialog"
+         aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content col-md-6 modal-content-other">
+                <div class="modal-header">
+                    <button type="button" class="close"
+                            data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title text-left" id="deleteModalLabel">
+                        Delete project
+                    </h4>
+                </div>
+                <div class="modal-body modal-body-delete">
+                    <p>
+                        Are you sure to delete this projectname?
+                    </p>
+                    <input type="hidden" id="deleteprojectId" />
+                </div>
+                <div class="col-md-12 modal-footer">
+                    <button type="button" class="btn btn-default"
+                            data-dismiss="modal">
+                        No
+                    </button>
+                    <button type="button" data-dismiss="modal" class="btn btn-success" id="deleteProject">
+                        Yes
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

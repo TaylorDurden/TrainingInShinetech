@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>SignIn</title>
+    <script src="JS/jquery.js"></script>
+    <script src="JS/SignIn.js"></script>
+    <script src="JS/jquery.validate.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+    <style type="text/css">
+        <!--
+        @import url("bootstrap/css/bootstrap.css");
+        @import url("CSS/body.css");
+        @import url("CSS/footer.css");
+        @import url("CSS/header.css");
+        @import url("CSS/table.css");
+        @import url("CSS/common.css");
+        -->
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <h1 class="col-md-4 col-md-offset-1">
+            Bugs Management
+        </h1>
+    </header>
+    <div class="container content-sign-in">
+        <div class="form-group content-header">
+            <a class="pull-right a-sign-in" href="Register.html">Create account</a>
+            <h1>Sign in</h1>
+        </div>
+        <form id="myForm">
+            <div class="form-group">
+                <label for="email"><strong>Email address</strong></label>
+                <input type="email" class="form-control " name="email" placeholder="Email address" required>
+            </div>
+            <div class="form-group">
+                <label><strong>Password</strong></label>
+                <input type="password" class="form-control " name="password" placeholder="Password" required>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> Remember me
+                    </label>
+                </div>
+            </div>
+            <div class="div-sign-in">
+                <button type="submit" class="btn btn-success">Sign in</button>
+                <label class="pull-right"><a href="javascript:void(0);">Forgot your password?</a></label>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

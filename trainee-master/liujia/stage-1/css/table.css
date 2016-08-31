@@ -1,0 +1,16 @@
+.table {
+    border-spacing: 0px;
+    border-collapse: collapse;
+    margin-bottom:20px;
+	width:100%;
+}
+
+.table thead {
+    font-weight: bold;
+}	
+
+.table td{
+    border: 1px solid #ddd;
+    padding:8px 30px 8px 8px;
+    height: 20px;
+}

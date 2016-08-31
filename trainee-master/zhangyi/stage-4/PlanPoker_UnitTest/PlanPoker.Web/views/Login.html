@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - Plan Poker</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/bootstrap.css" rel="stylesheet" />
+    <link href="../css/style.css?v=1" rel="stylesheet" />
+    <script src="../scripts/angular.js"></script>
+    <script src="../scripts/jquery-1.10.2.js?v=1"></script>
+    <script src="../scripts/js.cookie.js?v=1"></script>
+    <script src="../scripts/common.js?v=1"></script>
+    <script src="../scripts/appStart.js"></script>
+    <script src="../scripts/userSrv.js"></script>
+    <script src="../scripts/login.js?v=1"></script>
+    <script src="../scripts/bootstrap.js?v=1"></script>
+    <script src="../scripts/spin.min.js?v=1"></script>
+    <script src="../scripts/customSpin.js?v=1"></script>
+    <script src="../scripts/apiPath.js?v=1"></script>
+
+</head>
+<body ng-app="mainApp">
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="Dashboard.html">
+                        <b>Plan Poker</b>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div ng-controller="loginController" class="plan-poker-box col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="pull-left">Login</h2>
+                        <a class="pull-right create-account-link" href="Register.html">Creat account</a>
+                    </div>
+                </div>
+                <form name="signinForm" >
+                    <div class="form-group">
+                        <label>User name</label>
+                        <input type="text" class="form-control" id="username" ng-model="user.username" name="username" placeholder="User name" required/>
+                        <span class="error" ng-show="signinForm.username.$dirty && signinForm.username.$invalid">
+                            <span ng-show="signinForm.username.$error.required">User name is required.</span>
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" id="password" ng-model="user.password"  name="password" placeholder="Password" required />
+                        <span class="error" ng-show="signinForm.password.$dirty && signinForm.password.$invalid">
+                            <span ng-show="signinForm.password.$error.required">Password is required.</span>
+                        </span>
+                    </div>
+                    <div class="form-group form-inline">
+                        <button id="signIn" class="btn btn-success" ng-disabled="signinForm.$invalid"
+                                ng-click="onlogin()" disabled="disabled">
+                            Sign in
+                        </button>
+                        <a id="forgot" class="pull-right" href="#">Forgot password</a>
+                        <label ng-show="user.iserror" class="error">{{user.message}}</label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

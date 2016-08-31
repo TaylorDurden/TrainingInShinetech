@@ -1,0 +1,76 @@
+﻿@model BugManagement.Models.DeveloperViewModel
+@{
+    Layout = null;
+}
+<div class="modal fade" id="myCreateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    New Developer
+                </h4>
+            </div>
+            @using (Html.BeginForm("Create", "Developer", FormMethod.Post, new { role = "form", id = "myform" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="fristName">FristName</label>
+                        @Html.TextBoxFor(m => m.FristName, new { @class = "form-control required" })                        
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">LastName</label>                        
+                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control required" })                        
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control required email" })
+                    </div>
+                    <div class="form-group">                        
+                        <label for="status">Status:</label>
+                        @Html.DropDownListFor(m => m.Status, ViewBag.StatusList as IEnumerable<SelectListItem>, new { @class = "form-control required" })
+                    </div>
+                    <div class="form-group">
+                        <label for="UserId">UserId:</label>
+                        @Html.DropDownListFor(m => m.UserId, ViewBag.UserList as IEnumerable<SelectListItem>, new { @class = "form-control required" })
+                    </div>
+                    @Html.HiddenFor(m => m.DeveloperId)
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button"  id="btnSave" class="btn btn-success">Save</button>
+                </div>
+                <input type="hidden" id="hdSelctedDeveloperId" name="SelctedDeveloperID" value="" />
+            }
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="myDeleleModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    Delete Developer
+                </h4>
+            </div>
+            <div class="modal-body">
+                Are you sure to delete this developer?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default"
+                        data-dismiss="modal">
+                    Close
+                </button>
+                <button type="button" id="btnDelete" class="btn btn-success">
+                    Yes
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

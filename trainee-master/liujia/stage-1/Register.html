@@ -1,0 +1,63 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" href="css/layout.css">
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/control.css">
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/jquery.validate.js"></script>
+		<script type="text/javascript">
+			$().ready(function(){
+				//$("#myform").validate();
+				$("#myform").validate({
+					rules: {   
+						repartPassword: {
+							required: true,
+							equalTo: "#password"
+						}
+					}					
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<header class="header">Bugs Mangagement</header>
+		<div class="container">	
+			<div class="main">
+				<span class="main-span" >
+					Create Account
+				</span>
+				<form id="myform" action="" method="post">
+					<div class="div-control">
+						<label class="lable">Frist Name</label>
+						<input type="text" id="fristName" name="fristName" class="input required" placeholder="Frist Name">
+					</div>
+					<div class="div-control">
+						<label class="lable">Last Name</label>
+						<input type="text" id="lastName" name="lastName" class="input required" placeholder="Last Name">
+					</div>
+					<div class="div-control">
+						<label class="lable">Email address</label>
+						<input type="text" id="emailAddress" name="emailAddress" class="input required email" placeholder="Email address">
+					</div>
+					<div class="div-control">
+						<label class="lable">Password</label>
+						<input type="text" id="password" name="password" class="input required" placeholder="Password">
+					</div>
+					<div class="div-control">
+						<label class="lable">Repart Password</label>
+						<input type="text" id="repartPassword" name="repartPassword" class="input" placeholder="Repart Password">
+					</div>
+					<div class="div-control">
+						<input type="checkbox" />I have read and accept the 
+						<a href="#">user agreement</a>
+						<a class="right" href="#">Login</a>	
+					</div>
+					<div class="div-control">
+						<button class="button" type="submit" >Create Account</button>
+					</div>
+				</form>
+			</div>			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>React Demos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="/css/bootstrap.css" rel="stylesheet" type="text/css">
+		<link href="/css/style.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="/scripts/jquery/jquery.min.js"></script>
+   	<script type="text/javascript" src="/scripts/bootstrap/bootstrap.js"></script>
+    <!-- Not present in the tutorial. Just for basic styling. -->
+    <!-- <link rel="stylesheet" href="css/base.css" />
+    <script src="https://npmcdn.com/react@15.3.0/dist/react.js"></script>
+    <script src="https://npmcdn.com/react-dom@15.3.0/dist/react-dom.js"></script>
+    <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+    <script src="https://npmcdn.com/jquery@3.1.0/dist/jquery.min.js"></script>
+    <script src="https://npmcdn.com/remarkable@1.6.2/dist/remarkable.min.js"></script> -->
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+
+  </head>
+  <body>
+    <!-- <div id="content"></div>
+    <script type="text/babel" src="scripts/example.js"></script>
+    <script type="text/babel">
+      // To get started with this tutorial running your own code, simply remove
+      // the script tag loading scripts/example.js and start writing code here.
+    </script> -->
+
+    <!--todoList demo-->
+    <!-- <div id="container"></div>
+    <script type="text/babel" src="scripts/todoList.js"></script> -->
+    <!--todoList demo-->
+
+    <!--HelloWorld demo-->
+    <div id="containerHello"></div>
+    <script type="text/jsx" src="scripts/helloWorld.js"></script>
+    <!--HelloWorld demo-->
+
+    <!--Comment demo-->
+    <h1>Text demo</h1>
+    <div id="containerComment"></div>
+    <script type="text/jsx" src="scripts/comment.js"></script>
+    <!--Comment demo-->
+
+    <div class="container">
+		<div class="row">
+			<div class="col-md-12">
+					<div class="page-header">
+						<h1>Projects</h1>
+						<div class="input-group col-md-6 input-group-search">
+				        	<input type="text" class="form-control" placeholder="Input any text you want to search...">
+				            <span class="input-group-btn">
+				                <button type="button" class="btn btn-success" >
+				                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>	                     
+				                </button>
+				            </span>
+				        </div>
+				        <div class="input-group col-md-6 input-group-create">
+			                <button class="btn btn-success" data-toggle="modal" data-target="#newModal">Create New</button>					
+			            </div>	            
+					</div>
+					<table class="table table-responsive table-bordered table-hover">
+					   <thead>
+					      <tr>
+					         <th>ID</th>
+					         <th>Name</th>
+					         <th>Description</th>
+					         <th>Main Contact</th>
+					         <th>Contact Email</th>
+					         <th>Start Time</th>
+					         <th>Operations</th>
+					      </tr>
+					   </thead>
+					   <tbody>
+					      <tr>
+					         <td>123456</td>
+							 <td>Project1</td>
+							 <td>Some Description</td>
+							 <td>Erci Zhang</td>
+							 <td>BillGates@outlook.com</td>
+							 <td>2016-02-20 20:00:00</td>
+							 <td><a href="#" data-toggle="modal" data-target="#editModal">Edit </a><a href="#" data-toggle="modal" data-target="#deleteModal">Delete</a></td>
+					      </tr>
+					      <tr>
+					         <td>123456</td>
+							 <td>Project1</td>
+							 <td>Some Description</td>
+							 <td>Erci Zhang</td>
+							 <td>BillGates@outlook.com</td>
+							 <td>2016-02-20 20:00:00</td>
+							 <td><a href="#" data-toggle="modal" data-target="#editModal">Edit </a><a href="#" data-toggle="modal" data-target="#deleteModal">Delete</a></td>
+					      </tr>
+					      <tr>
+					         <td>123456</td>
+							 <td>Project1</td>
+							 <td>Some Description</td>
+							 <td>Erci Zhang</td>
+							 <td>BillGates@outlook.com</td>
+							 <td>2016-02-20 20:00:00</td>
+							 <td><a href="#" data-toggle="modal" data-target="#editModal">Edit </a><a href="#" data-toggle="modal" data-target="#deleteModal">Delete</a></td>
+					      </tr>
+					      <tr>
+					         <td>123456</td>
+							 <td>Project1</td>
+							 <td>Some Description</td>
+							 <td>Erci Zhang</td>
+							 <td>BillGates@outlook.com</td>
+							 <td>2016-02-20 20:00:00</td>
+							 <td><a href="#" data-toggle="modal" data-target="#editModal">Edit </a><a href="#" data-toggle="modal" data-target="#deleteModal">Delete</a></td>
+					      </tr>
+					      <tr>
+					         <td>123456</td>
+							 <td>Project1</td>
+							 <td>Some Description</td>
+							 <td>Erci Zhang</td>
+							 <td>BillGates@outlook.com</td>
+							 <td>2016-02-20 20:00:00</td>
+							 <td><a href="#" data-toggle="modal" data-target="#editModal">Edit </a><a href="#" data-toggle="modal" data-target="#deleteModal">Delete</a></td>
+					      </tr>
+					   </tbody>
+					</table>			
+					<div class="page">
+						<ul class="pagination">
+						  <li><a href="#">Previous</a></li>
+						  <li><a href="#">2</a></li>
+						  <li><a href="#">3</a></li>
+						  <li class="active"><a href="#">4</a></li>
+						  <li><a href="#">5</a></li>
+						  <li><a href="#">6</a></li>
+						  <li><a href="#">Next</a></li>
+						</ul>
+					</div>					
+				</div>
+		</div>
+	</div>
+  </body>
+</html>

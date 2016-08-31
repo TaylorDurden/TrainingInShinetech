@@ -1,0 +1,202 @@
+﻿<div class="row" ng-controller="loginController">
+    <header class="header">
+        Bugs Mangagement <a ng-click="logout()" class="pull-right a-cursor">
+            <h4>Logout</h4>
+        </a>
+    </header>
+</div>
+<div ng-controller="userController">
+    <div class="row col-md-10 col-md-offset-1">
+        <div class="divbolder-nav col-md-2">
+            <ul class="nav-ul">
+                <a href="#/dashboard"><li>Dashboard</li></a>
+                <a href="#/bug"><li>Bugs</li></a>
+                <a href="#/project"><li>Projects</li></a>
+                <a href="#/developer"><li>Developers</li></a>
+                <a href="#/user"><li class="li-active">Users</li></a>
+            </ul>
+        </div>
+        <form name="myListForm" id="myListForm">
+            <div class="col-md-10">
+                <div class="page-header">
+                    <h2>User</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <input type="text" class="form-control no-max-width" id="whereCondition" name="whereCondition" placeholder="Input any text you want to search..." ng-model="whereCondition">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-success" type="button" ng-click="serch()">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group pull-right">
+                                <button class="btn btn-success" type="button" id="btnCreate" data-toggle="modal" ng-click="createUserModal()" data-target="#myCreateModal">Create New</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pull-left width-all">
+                    <table class="table table-responsive table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>FristName</th>
+                                <th>LastName</th>
+                                <th>Email</th>
+                                <th>Password</th>
+                                <th>Type</th>
+                                <th>RegisterTime</th>
+                                <th>LastLoginTime</th>
+                                <th>Status</th>
+                                <th>Operations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="user in list">
+                                <td><span ng-bind="user.UserId"></span></td>
+                                <td><span ng-bind="user.FristName"></span></td>
+                                <td><span ng-bind="user.LastName"></span></td>
+                                <td><span ng-bind="user.Email"></span></td>
+                                <td><span ng-bind="user.Password"></span></td>
+                                <td><span ng-bind="user.Type"></span></td>
+                                <td><span ng-bind="user.RegisterTime"></span></td>
+                                <td><span ng-bind="user.LastLoginTime"></span></td>
+                                <td><span ng-bind="user.Status"></span></td>
+                                <td>
+                                    <a data-toggle="modal" data-target="#myCreateModal" ng-click="editUserModal(user.UserId)" class="text-success a-cursor">Edit </a>
+                                    <span>|</span>
+                                    <a data-toggle="modal" data-target="#myDeleteModal" ng-click="deleteUserModal(user.UserId)" class="text-success a-cursor"> Delete</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--<div class="text-center">
+                    <nav>
+                        <ul class="pagination" page-info>
+                            <li ng-show="pagePrevious"><a ng-click="serchPrevious()" class="a-cursor">Previous</a></li>
+                            <li ng-show="!pagePrevious"><a>Previous</a></li>
+                            <li ng-show="pageNext"><a ng-click="serchNext()" class="a-cursor">Next</a></li>
+                            <li ng-show="!pageNext"><a>Next</a></li>
+                        </ul>
+                    </nav>
+                </div>-->
+                <div>
+                    <page-Info method="load"></page-Info>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal fade" id="myCreateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title">
+                        New User
+                    </h4>
+                </div>
+                <form name="myForm" id="myForm">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>FristName:</label>
+                            <input type="text" class="form-control no-max-width" id="fristName" name="fristName" ng-model="user.FristName" placeholder="Frist Name" required />
+                            <span class="text-danger" ng-show="myForm.fristName.$dirty && myForm.fristName.$invalid">
+                                <span ng-show="myForm.fristName.$error.required">fristName is required.</span>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label>LastName:</label>
+                            <input type="text" class="form-control no-max-width" id="lastName" name="lastName" ng-model="user.LastName" placeholder="Last Name" required />
+                            <span class="text-danger" ng-show="myForm.lastName.$dirty && myForm.lastName.$invalid">
+                                <span ng-show="myForm.lastName.$error.required">lastName is required.</span>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label>Email:</label>
+                            <input type="email" class="form-control no-max-width" id="email" name="email" ng-model="user.Email" ng-change="EmailChange()" placeholder="Email" ng-pattern="/^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/" required>
+                            <span class="text-danger" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+                                <span ng-show="myForm.email.$error.required">Email is required.</span>
+                                <span ng-show="myForm.email.$error.pattern">Email format is wrong.</span>
+                            </span>
+                            <span class="text-danger" ng-show="isExist">This Email is exist.</span>
+                        </div>
+                        <div class="form-group">
+                            <label>Password:</label>
+                            <input type="password" class="form-control no-max-width" id="password" name="password" ng-model="user.Password" placeholder="Password" required>
+                            <span class="text-danger" ng-show="myForm.password.$dirty && myForm.password.$invalid">
+                                <span ng-show="myForm.password.$error.required">Password is required.</span>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label>Type:</label>
+                            <select class="form-control" ng-model="user.Type" ng-options="x.value as x.text for x in types" required>
+                                <option value="">select type</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>RegisterTime:</label>
+                            <input type="text" class="form-control no-max-width" id="registerTime" name="registerTime" ng-model="user.RegisterTime" placeholder="年/月/日" required />
+                            <span class="text-danger" ng-show="myForm.registerTime.$dirty && myForm.registerTime.$invalid">
+                                <span ng-show="myForm.registerTime.$error.required">registerTime is required.</span>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label>LastLoginTime:</label>
+                            <input type="text" class="form-control no-max-width" id="lastLoginTime" name="lastLoginTime" ng-model="user.LastLoginTime" placeholder="年/月/日" required />
+                            <span class="text-danger" ng-show="myForm.lastLoginTime.$dirty && myForm.lastLoginTime.$invalid">
+                                <span ng-show="myForm.lastLoginTime.$error.required">lastLoginTime is required.</span>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label>Status:</label>
+                            <select class="form-control" name="status" ng-model="user.Status" ng-options="x.value as x.text for x in statuss" required>
+                                <option value="">select status</option>
+                            </select>
+                            <span class="text-danger" ng-show="myForm.status.$dirty && myForm.status.$invalid">
+                                <span ng-show="myForm.status.$error.required">Status is required.</span>
+                            </span>
+                        </div>
+                        <input type="hidden" ng-model="user.UserId" id="UserId" name="UserId"/>
+                        <input type="hidden" ng-model="HdEmail"/>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" id="btnSave" ng-disabled="myForm.$invalid" ng-click="saveUser()" class="btn btn-success">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myDeleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title">
+                        Delete User
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    Are you sure to delete this user?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default"  data-dismiss="modal">
+                        Close
+                    </button>
+                    <button id="btndelete" type="button" ng-click="deleteUser()" class="btn btn-success">
+                        Yes
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

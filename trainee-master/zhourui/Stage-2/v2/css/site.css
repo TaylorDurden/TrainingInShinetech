@@ -1,0 +1,125 @@
+body a {
+    color: #5cb85c;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    background-color: #5bb85d;
+}
+
+.panel-heading{
+    background-color: #5bb85d;
+linear-gradient(to bottom, #5bb85d 0%, #5bb85d 100%);
+}
+
+/*linear-gradient(to bottom, #dff0d8 0%, #d0e9c6 100%)*/
+
+.navbar-static-top {
+    background-color: #5bb85d;
+    border-color: #5bb85d;
+    height: 80px;
+}
+
+.link-logout {
+    margin-top: 30px;
+    /*margin-right:5%;*/
+    color: black;
+}
+
+.link-logout:hover {
+    color: white;
+}
+
+.btn-sign-in-on {
+    margin-top: 5px;
+}
+
+.sign-in-on-border, #bugModal {
+    border: solid;
+    border-color: #e7e7e7;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.label-block {
+    display: block;
+}
+
+.label-inline {
+    display: inline;
+}
+
+#bugModal label {
+    margin-top: 5px;
+}
+
+#bugModal button {
+    margin: 10px 0 10px 0;
+}
+
+#bugModal .changeBugStatus {
+    margin-top: -10px;
+}
+
+.LoginRegister {
+    margin: 20px 0 15px 0;
+}
+
+.LoginRegister-h2 {
+    display: inline;
+}
+
+.nav-pills {
+    border: solid;
+    border-color: #e5e5e5;
+    height: 600px;
+    padding: 25px;
+    border-radius: 5px;
+}
+
+li:active {
+    background-color: #5bb85d;
+}
+
+.data {
+    height: 600px;
+}
+
+.container-fluid {
+    margin: 0 -15px 0 -15px;
+}
+
+.panel-heading {
+    background-color: #5cb85c;
+}
+
+.panel-body {
+    background-color: #e5e5e5;
+}
+
+.panel-body {
+    font-size: 9pt;
+}
+
+.bug-info {
+    margin: -10px -10px -10px -10px;
+    background-color: #fff;
+    border: solid;
+    border-color: #e5e5e5;
+    border-radius: 5px;
+}
+
+.bug-description {
+    padding: 5px 1px 5px 1px;
+}
+
+.text-right{
+    margin-right:5px;
+}
+
+.separator {
+    margin: 5px 2px 5px 2px;
+}
+
+.modal-createBug {
+    width: 60%;
+}

@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Register</title>
+    <script src="JS/jquery.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+    <script src="JS/jquery.validate.js"></script>
+    <script src="JS/Register.js"></script>
+
+    <style type="text/css">
+        <!--
+        @import url("bootstrap/css/bootstrap.css");
+        @import url("CSS/body.css");
+        @import url("CSS/footer.css");
+        @import url("CSS/header.css");
+        @import url("CSS/table.css");
+        @import url("CSS/common.css");
+        -->
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <h1 class="col-md-4 col-md-offset-1">
+            Bugs Management
+        </h1>
+    </header>
+    <div class="container content-Register">
+        <div class="form-group content-header">
+            <h1>Create account</h1>
+        </div>
+        <form id="myForm">
+            <div class="form-group">
+                <label><b>First name</b></label>
+                <input type="text" class="form-control" name="firstName" placeholder="First name">
+            </div>
+            <div class="form-group">
+                <label><b>Last name</b></label>
+                <input type="text" class="form-control" name="lastName" placeholder="Last name">
+            </div>
+            <div class="form-group">
+                <label><b>Email address</b></label>
+                <input type="text" class="form-control" name="email" placeholder="Email address">
+            </div>
+            <div class="form-group">
+                <label><b>Password</b></label>
+                <input type="text" class="form-control" id="password" name="password" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <label><b>Repart password</b></label>
+                <input type="text" class="form-control" name="repartPassword" placeholder="Repart password">
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> I have read and accept the <a href="javascript:void(0);">user agreement</a>
+                    </label>
+
+                    <label class="pull-right"><a href="SignIn.html">Login</a></label>
+                </div>
+            </div>
+            <div class="div-register">
+                <input type="submit" class="btn btn-success" value="Create Account" />
+            </div>
+        </form>
+    </div>
+</body>
+</html>

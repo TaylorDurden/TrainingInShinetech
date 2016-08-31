@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bugs - Bugs Management</title>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <link rel="stylesheet" href="css/site.css">
+
+    <script src="js/jquery-2.2.0.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/site.js"></script>
+</head>
+<body>
+<div class="navbar navbar-static-top bg-success">
+    <div class="container">
+        <div class="col-md-4">
+            <h1>Bugs Management</h1>
+        </div>
+        <div class="col-md-1 col-md-offset-7 link-logout">
+            <a href="#" class="link-logout">Logout</a>
+        </div>
+    </div>
+</div>
+
+<div class="container navigator-container">
+    <div class="col-md-3">
+        <ul class="nav nav-pills nav-stacked">
+            <li class="">
+                <a href="Dashboard.html" id="Dashboard">Dashboard</a>
+            </li>
+            <li class="active">
+                <a href="#" id="Bug">Bugs</a>
+            </li>
+            <li class="">
+                <a href="Project.html" id="Project">Projects</a>
+            </li>
+            <li class="">
+                <a href="Developer.html" id="Developer">Developers</a>
+            </li>
+            <li class="">
+                <a href="User.html" id="User">Users</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="col-md-9 data">
+        <h2>Bugs</h2>
+        <div class="row">
+            <div class="col-md-7">
+                <div class="input-group search">
+                    <input type="text" class="form-control" placeholder="Input any text you want to search...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-success" type="button">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </button>
+                            </span>
+                </div>
+            </div>
+            <div class="col-md-2 col-md-offset-3">
+                <button class="btn btn-success pull-right" type="button" data-toggle="modal" data-target="#createBug">
+                    Create New
+                </button>
+            </div>
+        </div>
+        <hr/>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Summary</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Project</th>
+                    <th>Create Time</th>
+                    <th>Creator</th>
+                    <th>Status</th>
+                    <th>Operations</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Bug1</td>
+                    <td>Bug1's Summary</td>
+                    <td>Bug1's Description</td>
+                    <td>New</td>
+                    <td>Project1</td>
+                    <td>2016-02-20 20:00:00</td>
+                    <td>zhourui</td>
+                    <td>New</td>
+                    <td>
+                        <a href="#" data-toggle="modal" data-target="#editBug">Edit</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Bug2</td>
+                    <td>Bug2's Summary</td>
+                    <td>Bug2's Description</td>
+                    <td>Checked</td>
+                    <td>Project1</td>
+                    <td>2016-02-20 20:00:00</td>
+                    <td>zhourui</td>
+                    <td>Assigned</td>
+                    <td>
+                        <a href="#" data-toggle="modal" data-target="#editBug">Edit</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Bug3</td>
+                    <td>Bug3's Summary</td>
+                    <td>Bug3's Description</td>
+                    <td>Checked</td>
+                    <td>Project2</td>
+                    <td>2016-02-20 20:00:00</td>
+                    <td>zhourui</td>
+                    <td>In Progress</td>
+                    <td>
+                        <a href="#" data-toggle="modal" data-target="#editBug">Edit</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Bug4</td>
+                    <td>Bug4's Summary</td>
+                    <td>Bug4's Description</td>
+                    <td>Checked</td>
+                    <td>Project2</td>
+                    <td>2016-02-20 20:00:00</td>
+                    <td>zhourui</td>
+                    <td>In Test</td>
+                    <td>
+                        <a href="#" data-toggle="modal" data-target="#editBug">Edit</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Bug5</td>
+                    <td>Bug5's Summary</td>
+                    <td>Bug5's Description</td>
+                    <td>Deleted</td>
+                    <td>Project3</td>
+                    <td>2016-02-20 20:00:00</td>
+                    <td>zhourui</td>
+                    <td>Done</td>
+                    <td>
+                        <a href="#" data-toggle="modal" data-target="#editBug">Edit</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-md-6 col-md-offset-3">
+            <div class="btn-toolbar" role="toolbar" aria-label="...">
+                <div class="btn-group" role="group" aria-label="...">
+                    <button type="button" class="btn btn-default">Previous</button>
+                    <button type="button" class="btn btn-default">2</button>
+                    <button type="button" class="btn btn-default">3</button>
+                    <button type="button" class="btn btn-success">4</button>
+                    <button type="button" class="btn btn-default">5</button>
+                    <button type="button" class="btn btn-default">6</button>
+                    <button type="button" class="btn btn-default">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="createBug" tabindex="-1">
+    <div class="modal-dialog modal-createBug">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">New Bug</h4>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" class="form-control" placeholder="">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Summary</label>
+                        <textarea class="form-control" placeholder=""></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea class="form-control" placeholder=""></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Type</label>
+                        <select class="form-control myparameter5">
+                            <option value="New">New</option>
+                            <option value="Checked">Checked</option>
+                            <option value="Deleted">Deleted</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Project</label>
+                        <select class="form-control myparameter6">
+                            <option value="Project1">Project1</option>
+                            <option value="Project2">Project2</option>
+                            <option value="Project3">Project3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4" id="bugModal">
+
+                    <div class="form-group">
+                        <label class="label-block">Add:</label>
+                        <div class="btn-group btn-block">
+                            <button type="button" class="btn btn-success btn-block dropdown-toggle"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Developers<span
+                                    class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Developer1</a></li>
+                                <li><a href="#">Developer2</a></li>
+                            </ul>
+                        </div>
+                        <div id="developers">
+                            <a href="#"><span class="glyphicon glyphicon-remove"></span></a>Eric Wang
+                            <br/>
+                            <a href="#"><span class="glyphicon glyphicon-remove"></span></a>Eric Li
+                            <br/>
+                        </div>
+                        <button type="button" class="btn btn-success btn-block">Attachments</button>
+                    </div>
+                    <div class="form-group">
+                        <label class="label-block">Operations:</label>
+                        <button type="button" class="btn btn-success btn-block">Copy</button>
+                        <button type="button" class="btn btn-success btn-block">Delete</button>
+                        <div class="btn-group btn-block changeBugStatus">
+                            <button type="button" class="btn btn-success btn-block dropdown-toggle"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Change status<span
+                                    class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">New</a></li>
+                                <li><a href="#">Assigned</a></li>
+                                <li><a href="#">In Progress</a></li>
+                                <li><a href="#">In Test</a></li>
+                                <li><a href="#">Done</a></li>
+                            </ul>
+                        </div>
+                        <br/>
+                        <label>Status:</label> <label id="bugStatus">New</label>
+                        <br/>
+                        <label>Create time:</label> <label id="bugCreateTime">2016-02-22 16:07:10</label>
+                        <br/>
+                        <label>Owner:</label> <label id="bugOwner">Eric Wang</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editBug" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Edit Bug</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" class="form-control myparameter2" placeholder="">
+                </div>
+
+                <div class="form-group">
+                    <label>Summary</label>
+                    <input type="text" class="form-control myparameter3" placeholder="">
+                </div>
+
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea class="form-control myparameter4" placeholder=""></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Type</label>
+                    <select class="form-control myparameter5">
+                        <option value="New">New</option>
+                        <option value="Checked">Checked</option>
+                        <option value="Deleted">Deleted</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Project</label>
+                    <select class="form-control myparameter6">
+                        <option value="Project1">Project1</option>
+                        <option value="Project2">Project2</option>
+                        <option value="Project3">Project3</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Status</label>
+                    <select class="form-control myparameter9">
+                        <option value="New">New</option>
+                        <option value="Assigned">Assigned</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="In Test">In Test</option>
+                        <option value="Done">Done</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/bug.js"></script>
+
+</body>
+</html>

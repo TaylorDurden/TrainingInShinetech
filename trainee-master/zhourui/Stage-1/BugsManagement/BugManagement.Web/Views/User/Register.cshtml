@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="login-register">
+    <h2>
+        Create Account
+    </h2>
+
+    <label>First Name</label>
+    <input type="text" class="form-control" id="text_FirstName" placeholder="First Name">
+
+    <label>Last Name</label>
+    <input type="text" class="form-control" id="text_LastName" placeholder="Last Name">
+
+    <label>Email address</label>
+    <input type="email" class="form-control" id="text_Email" placeholder="Email address">
+
+    <label>Password</label>
+    <input type="password" class="form-control" id="text_Password" placeholder="Password">
+
+    <label>Confirm Password</label>
+    <input type="password" class="form-control" id="exampleInputEmail1" placeholder="Confirm Password">
+
+    <div class="form-inline check">
+        <div class="checkbox">
+            <input type="checkbox"> I have read and accept the <a href="#" data-toggle="tooltip" title="User Agreement">user agreement</a>
+        </div>
+        <div class="pull-right">
+            <a href="Login">Login</a>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create Account</button>
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+
+<script>
+    $("[data-toggle='tooltip']").tooltip();
+</script>

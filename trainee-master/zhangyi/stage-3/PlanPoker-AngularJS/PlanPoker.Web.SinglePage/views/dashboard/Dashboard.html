@@ -1,0 +1,189 @@
+﻿<div ng-app="mainApp" ng-controller="dashboardController">
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" ui-sref="main.dashboard">
+                        <b>Plan Poker</b>
+                    </a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="" data-toggle="modal" data-target="#myModal">New Project</a></li>
+                        <li class="dropdown">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Settings <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a ui-sref="main.profile">My profile</a></li>
+                                <li><a ui-sref="main.project">My Project</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a id="logout">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <input type="hidden" id="userId" />
+        <div class="row">
+            <div class="col-md-12">
+                <h2>
+                    Dashboard
+                </h2>
+            </div>
+        </div>
+        <div class="row" ng-init="initProjects()">
+            <div class="col-md-12">
+                <div class="project-select">
+                    <label class="text-success">Please select:&nbsp;</label>
+                </div>
+                <div class="project-select col-md-2">
+                    <select class="form-control" ng-model="selectOption" ng-change="onProjectSelectChange()">
+                        <option ng-selected="option.Id==selectedId" ng-repeat="option in projects.options" value="{{option.Id}}">
+                            {{option.Name}}
+                        </option>
+                    </select>
+                </div>
+                <a target="_blank" ng-href={{href}}>View Result</a>
+            </div>
+        </div>
+        <div class="card-list">
+            <form>
+                <div class="row">
+                    <div class="col-md-2 col-xs-3">
+                        <a href="javascript:void(0)" class="thumbnail img-thumbnail plan-poker-thumbnail" ng-click="onEstimateCardclick('1')">
+                            <img class="img-responsive" src="image/1.jpg?v=1" />
+                        </a>
+                    </div>
+                    <div class="col-md-2 col-xs-3">
+                        <a href="javascript:void(0)" class="thumbnail img-thumbnail plan-poker-thumbnail" ng-click="onEstimateCardclick('2')">
+                            <img class="img-responsive" src="image/2.jpg?v=1" />
+                        </a>
+                    </div>
+                    <div class="col-md-2 col-xs-3">
+                        <a href="javascript:void(0)" class="thumbnail img-thumbnail plan-poker-thumbnail" ng-click="onEstimateCardclick('3')">
+                            <img class="img-responsive" src="image/3.jpg?v=1" />
+                        </a>
+                    </div>
+                    <div class="col-md-2 col-xs-3">
+                        <a href="javascript:void(0)" class="thumbnail img-thumbnail plan-poker-thumbnail" ng-click="onEstimateCardclick('5')">
+                            <img class="img-responsive" src="image/5.jpg?v=1" />
+                        </a>
+                    </div>
+                    <div class="col-md-2 col-xs-3">
+                        <a href="javascript:void(0)" class="thumbnail img-thumbnail plan-poker-thumbnail" ng-click="onEstimateCardclick('8')">
+                            <img class="img-responsive" src="image/8.jpg?v=1" />
+                        </a>
+                    </div>
+                    <div class="col-md-2 col-xs-3">
+                        <a href="javascript:void(0)" class="thumbnail img-thumbnail plan-poker-thumbnail" ng-click="onEstimateCardclick('13')">
+                            <img class="img-responsive" src="image/13.jpg?v=1" />
+                        </a>
+                    </div>
+                    <div class="col-md-2 col-xs-3">
+                        <a href="javascript:void(0)" class="thumbnail img-thumbnail plan-poker-thumbnail" ng-click="onEstimateCardclick('20')">
+                            <img class="img-responsive" src="image/20.jpg?v=1" />
+                        </a>
+                    </div>
+                    <div class="col-md-2 col-xs-3">
+                        <a href="javascript:void(0)" class="thumbnail img-thumbnail plan-poker-thumbnail" ng-click="onEstimateCardclick('40')">
+                            <img class="img-responsive" src="image/40.jpg?v=1" />
+                        </a>
+                    </div>
+                    <div class="col-md-2 col-xs-3">
+                        <a href="javascript:void(0)" class="thumbnail img-thumbnail plan-poker-thumbnail" ng-click="onEstimateCardclick('100')">
+                            <img class="img-responsive" src="image/100.jpg?v=1" />
+                        </a>
+                    </div>
+                    <div class="col-md-2 col-xs-3">
+                        <a href="javascript:void(0)" class="thumbnail img-thumbnail plan-poker-thumbnail" ng-click="onEstimateCardclick('s')">
+                            <img class="img-responsive" src="image/s.jpg?v=1" />
+                        </a>
+                    </div>
+                    <div class="col-md-2 col-xs-3">
+                        <a href="javascript:void(0)" class="thumbnail img-thumbnail plan-poker-thumbnail" ng-click="onEstimateCardclick('m')">
+                            <img class="img-responsive" src="image/m.jpg?v=1" />
+                        </a>
+                    </div>
+                    <div class="col-md-2 col-xs-3">
+                        <a href="javascript:void(0)" class="thumbnail img-thumbnail plan-poker-thumbnail" ng-click="onEstimateCardclick('l')">
+                            <img class="img-responsive" src="image/l.jpg?v=1" />
+                        </a>
+                    </div>
+                    <div class="col-md-2 col-xs-3">
+                        <a href="javascript:void(0)" class="thumbnail img-thumbnail plan-poker-thumbnail" ng-click="onEstimateCardclick('xs')">
+                            <img class="img-responsive" src="image/xs.jpg?v=1" />
+                        </a>
+                    </div>
+                    <div class="col-md-2 col-xs-3">
+                        <a href="javascript:void(0)" class="thumbnail img-thumbnail plan-poker-thumbnail" ng-click="onEstimateCardclick('yes')">
+                            <img class="img-responsive" src="image/yes.jpg?v=1" />
+                        </a>
+                    </div>
+                    <div class="col-md-2 col-xs-3">
+                        <a href="javascript:void(0)" class="thumbnail img-thumbnail plan-poker-thumbnail" ng-click="onEstimateCardclick('no')">
+                            <img class="img-responsive" src="image/no.jpg?v=1" />
+                        </a>
+                    </div>
+                    <div class="col-md-2 col-xs-3">
+                        <a href="javascript:void(0)" class="thumbnail img-thumbnail plan-poker-thumbnail" ng-click="onEstimateCardclick('unknown')">
+                            <img class="img-responsive" src="image/unknown.jpg?v=1" />
+                        </a>
+                    </div>
+                    <div class="col-md-2 col-xs-3">
+                        <a href="javascript:void(0)" class="thumbnail img-thumbnail plan-poker-thumbnail" ng-click="onEstimateCardclick('java')">
+                            <img class="img-responsive" src="image/java.jpg?v=1" />
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal fade model-responsive" id="myModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+        <form name="addProjectForm" novalidate>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close"
+                                data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title text-left" id="newModalLabel">
+                            New Project
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="form-group">
+                                <label>Project name</label>
+                                <input id="projectNameInput" type="text" class="form-control" ng-model="project.Name" ng-change="onProjectNameChange()" name="projectName" placeholder="User name" required />
+                                <span class="error" ng-show="addProjectForm.projectName.$dirty && addProjectForm.projectName.$invalid">
+                                    <span ng-show="addProjectForm.projectName.$error.required">Project name is required.</span>
+                                </span>
+                                <span class="error" ng-show="project.isExist" id="projectExist">Project name is exist.</span>
+                            </div>
+                            <div class="col-md-12 modal-footer">
+                                <button type="button" class="btn btn-default"
+                                        data-dismiss="modal">
+                                    Close
+                                </button>
+                                <button type="button" ng-click="onCreateProject()" class="btn btn-success" ng-disabled="addProjectForm.$invalid || project.isExist">
+                                    Save
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

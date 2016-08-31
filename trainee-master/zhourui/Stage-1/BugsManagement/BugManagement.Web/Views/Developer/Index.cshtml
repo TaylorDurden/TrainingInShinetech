@@ -1,0 +1,62 @@
+﻿@model IEnumerable<BugManagement.Data.Models.Developer>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-3 navigator">
+    <ul class="nav nav-list">
+        <li class="">
+            <a href="Dashboard">Dashboard</a>
+        </li>
+        <li class="">
+            <a href="Bug">Bugs</a>
+        </li>
+        <li class="">
+            <a href="Project">Projects</a>
+        </li>
+        <li class="">
+            <a href="#">Developers</a>
+        </li>
+        <li class="">
+            <a href="User">Users</a>
+        </li>
+    </ul>
+</div>
+<div class="col-md-9">
+    <h2>
+        Developers
+        <button type="button" class="btn btn-primary pull-right">Create New</button>
+    </h2>
+    <hr />
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>User Id</th>
+                <th>Operations</th>
+            </tr>
+            @foreach (var developer in Model)
+                {
+                    <tr>
+                        <td>@developer.Id</td>
+                        <td>@developer.FirstName</td>
+                        <td>@developer.LastName</td>
+                        <td>@developer.Email</td>
+                        <td>@developer.Status</td>
+                        <td>@developer.UserId</td>
+                        <td>
+                            <a href="#">Details</a>
+                            <a href="#">Edit</a>
+                            <a href="#">Delete</a>
+                        </td>
+                    </tr>
+                }
+        </table>
+    </div>
+</div>
+

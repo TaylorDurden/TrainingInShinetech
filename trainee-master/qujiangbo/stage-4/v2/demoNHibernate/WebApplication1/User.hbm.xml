@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="WebApplication1"  namespace="WebApplication1">
+  <class name="WebApplication1.User" table="User" lazy="false">
+    <id name="UserId">
+      <generator class="native" />
+    </id>
+    <property name="UserName" />
+    <property name="Password" />
+    <property name="Email" />
+    <property name="Image" />
+  </class>
+</hibernate-mapping>

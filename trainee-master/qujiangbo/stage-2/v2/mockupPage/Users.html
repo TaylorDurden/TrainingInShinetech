@@ -1,0 +1,302 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Users</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+		<link href="bootstrap/css/style.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="bootstrap/js/jquery.min.js"></script>
+   		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+   		<script type="text/javascript" src="bootstrap/js/users.js"></script>	  		
+	</head>
+<body>
+	<header>
+		<div class="container">
+			<div class="row header-row">
+				<div class="col-md-12">
+					<div class="col-md-8">
+						<h1 class="pull-left">Bugs Management</h1>
+					</div>
+					<div class="col-md-4" >
+						<a class="pull-right" href="Sign.html" target="_blank">Logout</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="nav navbar-collapse col-md-2">
+					<ul class="nav nav-pills nav-stacked">
+					  	<li role="presentation"><a href="Dashboard-stage2.html">Dashboard</a></li>
+					  	<li role="presentation"><a href="Bugs.html">Bugs</a></li>
+					  	<li role="presentation"><a href="Projects.html">Projects</a></li>
+					  	<li role="presentation"><a href="Developers.html">Developers</a></li>
+					  	<li role="presentation" class="active"><a href="Users.html">Users</a></li>
+					</ul>
+				</div>
+				<div class="col-md-10">
+					<div class="page-header">
+						<h1>Users</h1>
+						<div class="input-group col-md-6 input-group-search">
+				        	<input type="text" class="form-control" placeholder="Input any text you want to search...">
+				            <span class="input-group-btn">
+				                <button type="button" class="btn btn-success" >
+				                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>	                     
+				                </button>
+				            </span>
+				        </div>
+				        <div class="input-group col-md-6 input-group-create">
+			                <button class="btn btn-success" data-toggle="modal" data-target="#newModal">Create New</button>	                
+			            </div>	            
+					</div>
+					<table class="table table-responsive table-bordered">
+			   <thead>
+			      <tr>
+			         <th>ID</th>
+			         <th>FirstName</th>
+			         <th>LastName</th>
+			         <th>Email</th>
+			         <th>Status</th>
+			         <th>Type</th>
+			         <th>Operations</th>
+			      </tr>
+			   </thead>
+			   <tbody>
+			      <tr>
+			         <td>123456</td>
+					 <td>Biil</td>
+					 <td>Gates</td>
+					 <td>BillGates@outlook.com</td>
+					 <td>New</td>
+					 <td>Developer</td>
+					 <td><a href="#" data-toggle="modal" data-target="#editModal">Edit </a><a href="#" data-toggle="modal" data-target="#deleteModal">Delete</a></td>
+			      </tr>
+			      <tr>
+			         <td>123456</td>
+					 <td>Biil</td>
+					 <td>Gates</td>
+					 <td>BillGates@outlook.com</td>
+					 <td>New</td>
+					 <td>Developer</td>
+					 <td><a href="#" data-toggle="modal" data-target="#editModal">Edit </a><a href="#" data-toggle="modal" data-target="#deleteModal">Delete</a></td>
+			      </tr>
+			      <tr>
+			         <td>123456</td>
+					 <td>Biil</td>
+					 <td>Gates</td>
+					 <td>BillGates@outlook.com</td>
+					 <td>New</td>
+					 <td>Developer</td>
+					 <td><a href="#" data-toggle="modal" data-target="#editModal">Edit </a><a href="#" data-toggle="modal" data-target="#deleteModal">Delete</a></td>
+			      </tr>
+			      <tr>
+			         <td>123456</td>
+					 <td>Biil</td>
+					 <td>Gates</td>
+					 <td>BillGates@outlook.com</td>
+					 <td>New</td>
+					 <td>Developer</td>
+					 <td><a href="#" data-toggle="modal" data-target="#editModal">Edit </a><a href="#" data-toggle="modal" data-target="#deleteModal">Delete</a></td>
+			      </tr>
+			      <tr>
+			         <td>123456</td>
+					 <td>Biil</td>
+					 <td>Gates</td>
+					 <td>BillGates@outlook.com</td>
+					 <td>New</td>
+					 <td>Developer</td>
+					 <td><a href="#" data-toggle="modal" data-target="#editModal">Edit </a><a href="#" data-toggle="modal" data-target="#deleteModal">Delete</a></td>
+			      </tr>
+			   </tbody>
+			</table>			
+			<div class="page">
+				<ul class="pagination">
+				  <li><a href="#">Previous</a></li>
+				  <li><a href="#">2</a></li>
+				  <li><a href="#">3</a></li>
+				  <li class="active"><a href="#">4</a></li>
+				  <li><a href="#">5</a></li>
+				  <li><a href="#">6</a></li>
+				  <li><a href="#">Next</a></li>
+				</ul>
+			</div>					
+				</div>
+			</div>
+		</div>		
+	</div>
+	<!-- 模态框（Modal）New -->
+	<div class="modal fade model-responsive" id="newModal" tabindex="-1" role="dialog" 
+	   aria-labelledby="newModalLabel" aria-hidden="true">
+	   <form method="post">
+		   <div class="modal-dialog">
+		      	<div class="modal-content col-md-6 modal-content-other">
+		         	<div class="modal-header">
+		            	<button type="button" class="close" 
+		               data-dismiss="modal" aria-hidden="true">
+		                  &times;
+		            	</button>
+			            <h4 class="modal-title text-left" id="newModalLabel">
+			               New User
+			            </h4>
+		         	</div>
+		         	<div class="modal-body">
+		         		<div class="col-md-12 modal-body-content">
+		         			<div class="text-left">
+						    	<label>FirstName:</label>
+						    	<input type="text" class="form-control" id="firstname">
+						  	</div>
+						  	<div class="text-left">
+						    	<label>LastName:</label>
+						    	<input type="text" class="form-control" id="lastname">
+						  	</div>
+						  	<div class="text-left">
+						    	<label>Email:</label>
+						    	<input type="text" class="form-control" id="email">
+						  	</div>
+						  	<div class="text-left">
+						    	<label>Password:</label>
+						    	<input type="password" class="form-control" id="password">
+						  	</div>
+						  	<div class="text-left">
+						    	<label>Type:</label>
+						    	<select class="form-control">
+						    		<option>Admin</option>
+						         	<option>Developer</option>
+						         	<option>OA</option>
+					      		</select>
+						  	</div>
+						  	<div class="text-left">
+						    	<label>RegisterTime:</label>
+						    	<input type="date" class="form-control" id="registertime">
+						  	</div>									  	
+						  	<div class="text-left">
+						    	<label>LastLoginTime:</label>
+						    	<input type="date" class="form-control" id="lastlogintime">
+						  	</div>
+						  	<div class="text-left">
+						    	<label>Status:</label>
+						    	<select class="form-control">
+						    		<option>New</option>
+						         	<option>Checked</option>
+						         	<option>Delete</option>
+					      		</select>
+						    	<label id="signinhint" class="text-danger"></label>
+						  	</div>
+		         		</div>								  	
+			         </div>
+			         <div class="col-md-12 modal-footer">
+			            <button type="button" class="btn btn-default" 
+			               data-dismiss="modal">Close
+			            </button>
+			            <button type="button" class="btn btn-success" onclick="usersCheck();">
+			               Save
+			            </button>
+			         </div>
+		      	</div><!-- /.modal-content -->
+			</div><!-- /.modal -->
+		</form>
+	</div>
+	<!-- 模态框（Modal）Edit -->
+	<div class="modal fade model-responsive" id="editModal" tabindex="-1" role="dialog" 
+	   aria-labelledby="editModalLabel" aria-hidden="true">
+	   <div class="modal-dialog">
+	      	<div class="modal-content col-md-6 modal-content-other">
+	         	<div class="modal-header">
+	            	<button type="button" class="close" 
+	               data-dismiss="modal" aria-hidden="true">
+	                  &times;
+	            	</button>
+		            <h4 class="modal-title text-left" id="editModalLabel">
+		               New User
+		            </h4>
+	         	</div>
+	         	<div class="modal-body">
+	         		<div class="col-md-12 modal-body-content">
+	         			<div class="text-left">
+					    	<label>FirstName:</label>
+					    	<input type="text" class="form-control" value="Biil">
+					  	</div>
+					  	<div class="text-left">
+					    	<label>LastName:</label>
+					    	<input type="text" class="form-control" value="Gates">
+					  	</div>
+					  	<div class="text-left">
+					    	<label>Email:</label>
+					    	<input type="email" class="form-control" value="BillGates@outlook.com">
+					  	</div>
+					  	<div class="text-left">
+					    	<label>Password:</label>
+					    	<input type="password" class="form-control" value="********">
+					  	</div>
+					  	<div class="text-left">
+					    	<label>Type:</label>
+					    	<select class="form-control">
+					    		<option>Admin</option>
+					         	<option>Developer</option>
+					         	<option>OA</option>
+				      		</select>
+					  	</div>
+					  	<div class="text-left">
+					    	<label>RegisterTime:</label>
+					    	<input type="date" class="form-control" value="2015-02-25">
+					  	</div>									  	
+					  	<div class="text-left">
+					    	<label>LastLoginTime:</label>
+					    	<input type="date" class="form-control" value="2016-02-28">
+					  	</div>
+					  	<div class="text-left">
+					    	<label>Status:</label>
+					    	<select class="form-control">
+					    		<option>New</option>
+					         	<option>Checked</option>
+					         	<option>Delete</option>
+				      		</select>
+					  	</div>
+	         		</div>								  	
+		         </div>
+		         <div class="col-md-12 modal-footer">
+		            <button type="button" class="btn btn-default" 
+		               data-dismiss="modal">Close
+		            </button>
+		            <button type="button" class="btn btn-success">
+		               Save
+		            </button>
+		         </div>
+	      	</div><!-- /.modal-content -->
+		</div><!-- /.modal -->
+	</div>
+	<!-- 模态框（Modal）Delete -->
+	<div class="modal fade model-responsive" id="deleteModal" tabindex="-1" role="dialog" 
+	   aria-labelledby="deleteModalLabel" aria-hidden="true">
+	   <div class="modal-dialog">
+	      	<div class="modal-content col-md-6 modal-content-other">
+	         	<div class="modal-header">
+	            	<button type="button" class="close" 
+	               data-dismiss="modal" aria-hidden="true">
+	                  &times;
+	            	</button>
+		            <h4 class="modal-title text-left" id="deleteModalLabel">
+		               Delete User
+		            </h4>
+	         	</div>
+	         	<div class="modal-body modal-body-delete">
+	         		<p>
+	         			Are you sure to delete this user?					         			
+	         		</p>							  	
+		         </div>
+		         <div class="col-md-12 modal-footer">
+		            <button type="button" class="btn btn-default" 
+		               data-dismiss="modal">Close
+		            </button>
+		            <button type="button" class="btn btn-success">
+		               Save
+		            </button>
+		         </div>
+	      	</div><!-- /.modal-content -->
+		</div><!-- /.modal -->
+	</div>
+</body>
+</html>
